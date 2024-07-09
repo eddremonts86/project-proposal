@@ -1,5 +1,3 @@
-import TablePagination from "@mui/material/TablePagination";
-
 interface TablePaginationProps {
   rowsLength: number;
   rowsPerPage: number;
@@ -13,7 +11,7 @@ export default function Pagination({
   rowsPerPageOptions = [5, 10, 25, 50, 100], // Declare and assign a default value to rowsPerPageOptions
   ...props
 }: Readonly<TablePaginationProps>) {
-  const {
+  /* const {
     rowsLength,
     rowsPerPage,
     page,
@@ -35,5 +33,5 @@ export default function Pagination({
         handleChangePage(value as unknown as number);
       }}
     />
-  );
+  );*/
 }

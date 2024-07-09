@@ -1,9 +1,8 @@
-import TableContainer from "@mui/material/TableContainer";
 import useTable from "../hooks/useTable";
+import TableContextProvider from "../providers/TableProvider";
 import TableContent from "./TableContent";
 import TableFooter from "./TableFooter";
 import TableHeaders from "./TableHeaders";
-import TableContextProvider from "../providers/TableProvider";
 interface TableProps {
   data: unknown[];
   config: unknown;
@@ -27,26 +26,24 @@ export default function Table({
 
   return (
     <TableContextProvider>
-      <TableContainer className={className}>
-        <table className="w-full">
-          <TableHeaders
-            headers={tableHeaders}
-            className="bg-gray-100 rounded-l rounded-r"
+      <table className={className}>
+        <TableHeaders
+          headers={tableHeaders}
+          className="bg-gray-100 rounded-l rounded-r"
+        />
+        <TableContent
+          table={table}
+          loading={loading}
+          headersLength={columns}
+          className="p-2 text-center border border-slate-300 hover:bg-gray-500"
+        />
+        {footer && (
+          <TableFooter
+            colSpan={columns}
+            config={config}
           />
-          <TableContent
-            table={table}
-            loading={loading}
-            headersLength={columns}
-            className="p-2 text-center border border-slate-300 hover:bg-gray-500"
-          />
-          {footer && (
-            <TableFooter
-              colSpan={columns}
-              config={config}
-            />
-          )}
-        </table>
-      </TableContainer>
+        )}
+      </table>
     </TableContextProvider>
   );
 }

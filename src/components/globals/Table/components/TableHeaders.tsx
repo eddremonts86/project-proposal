@@ -14,26 +14,26 @@ export default function TableHeaders({
   className,
 }: Readonly<TableHeadersProps>) {
   return (
-    <TableHead className={className}>
+    <thead className={className}>
       {headers.map((header) => (
-        <TableRow
+        <tr
           key={`table_header_tr_${header.id}`}
           className="border-gray-300"
         >
           {header.headers.map((subHeader) => {
             return (
-              <TableCell
+              <th
                 className="py-3 border"
                 key={`header_th_${subHeader.id}`}
                 colSpan={subHeader.colSpan || 1}
                 rowSpan={subHeader.rowSpan || 1}
               >
                 <span>{getHeaderContent(subHeader)}</span>
-              </TableCell>
+              </th>
             );
           })}
-        </TableRow>
+        </tr>
       ))}
-    </TableHead>
+    </thead>
   );
 }
