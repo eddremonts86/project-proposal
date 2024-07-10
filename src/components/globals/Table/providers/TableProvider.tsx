@@ -7,6 +7,7 @@ interface TableContextProps {
   setData: (value: unknown[] | null) => void;
   handleChangePage: (value: number | null) => void;
   handleChangeRowsPerPage: (value: number | null) => void;
+  footer: boolean;
 }
 
 export const TableContext = createContext<TableContextProps | null>(null);

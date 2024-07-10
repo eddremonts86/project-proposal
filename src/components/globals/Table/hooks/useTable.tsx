@@ -1,27 +1,38 @@
 import {
   getCoreRowModel,
+  getPaginationRowModel,
   HeaderGroup,
   useReactTable,
 } from "@tanstack/react-table";
+import { TConfig, TData, THeaders } from "../types";
 import { generateHeaderColumns } from "../utils/table";
 
-export default function useTable(
-  headers: { id: string; name?: string }[],
-  data: unknown[],
-  config: { footer?: boolean }
-) {
+interface TableHooksProps {
+  headers: THeaders[];
+  config: TConfig;
+  data: TData[];
+}
+
+export default function useTable({ headers, config, data }: TableHooksProps) {
   const columnsHeaders = generateHeaderColumns(headers);
   const table = useReactTable({
     data,
     columns: columnsHeaders,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
   });
-  const tableHeaders: HeaderGroup<unknown>[] = table.getHeaderGroups();
-  const columns = headers.length;
+  const tHeaders: HeaderGroup<unknown>[] = table.getHeaderGroups();
+  const tColumns = headers.length;
+
+  const showFooter = () => {
+    if (config.footer) return true;
+    return config.pageSize ?? 0 < data.length;
+  };
+
   return {
     table,
-    tableHeaders,
-    columns,
-    footer: true || config.footer || false,
+    tHeaders,
+    tColumns,
+    showFooter,
   };
 }

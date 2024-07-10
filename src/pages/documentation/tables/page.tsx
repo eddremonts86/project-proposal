@@ -5,8 +5,8 @@ export default function TablePage() {
     <Table
       className="w-full"
       data={tableExampleData.data}
-      config={tableExampleData.config}
       headers={tableExampleData.headers}
+      config={tableExampleData.config}
     />
   );
 }

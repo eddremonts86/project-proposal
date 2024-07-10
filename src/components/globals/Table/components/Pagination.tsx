@@ -1,3 +1,13 @@
+import {
+  Pagination as ChPagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
 interface TablePaginationProps {
   rowsLength: number;
   rowsPerPage: number;
@@ -11,7 +21,7 @@ export default function Pagination({
   rowsPerPageOptions = [5, 10, 25, 50, 100], // Declare and assign a default value to rowsPerPageOptions
   ...props
 }: Readonly<TablePaginationProps>) {
-  /* const {
+  const {
     rowsLength,
     rowsPerPage,
     page,
@@ -20,7 +30,7 @@ export default function Pagination({
   } = props;
 
   return (
-    <TablePagination
+    /*<Pagination
       className="w-full border-0"
       rowsPerPageOptions={rowsPerPageOptions}
       count={rowsLength}
@@ -32,6 +42,23 @@ export default function Pagination({
       onPageChange={(_, value) => {
         handleChangePage(value as unknown as number);
       }}
-    />
-  );*/
+    />*/
+
+    <ChPagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </ChPagination>
+  );
 }

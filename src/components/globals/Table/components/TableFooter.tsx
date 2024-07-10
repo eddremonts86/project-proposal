@@ -12,29 +12,27 @@ interface TableFooterProps {
 
 export default function TableFooter({
   colSpan,
-  className,
   config,
 }: Readonly<TableFooterProps>) {
-  const { setRowsPerPage, rowsPerPage, page, setPage } = useContext(TableContext);
+  const { setRowsPerPage, rowsPerPage, page, setPage } =
+    useContext(TableContext);
 
   return (
-    <tfoot className={className}>
-      <tr className="border">
-        <td
-          colSpan={colSpan}
-          className="border-0"
-        >
-          <div className="flex items-center justify-center md:justify-end">
-            <Pagination
-              rowsLength={config?.rowsLength ?? 100}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              handleChangeRowsPerPage={(value) => setRowsPerPage(value)}
-              handleChangePage={(value) => setPage(value)}
-            />
-          </div>
-        </td>
-      </tr>
-    </tfoot>
+    <tr className="border">
+      <td
+        colSpan={colSpan}
+        className="border-0"
+      >
+        <div className="flex items-center justify-center md:justify-end">
+          <Pagination
+            rowsLength={config?.rowsLength ?? 5}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            handleChangeRowsPerPage={(value) => setRowsPerPage(value)}
+            handleChangePage={(value) => setPage(value)}
+          />
+        </div>
+      </td>
+    </tr>
   );
 }

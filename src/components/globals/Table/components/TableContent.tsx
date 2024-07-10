@@ -14,7 +14,7 @@ export default function TableContent({
   className = "p-2 text-center border border-slate-300",
 }: Readonly<TableContentProps>) {
   return (
-    <tbody>
+    <>
       {loading ? (
         <TableLoading
           colspan={headersLength}
@@ -42,6 +42,6 @@ export default function TableContent({
           </tr>
         ))
       )}
-    </tbody>
+    </>
   );
 }
