@@ -1,6 +1,17 @@
-import { createFileRoute, RouteOptions } from "@tanstack/react-router";
-import IndexHome from "@/pages/home/page";
+// src\routes\__root.tsx
+import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
-export const Route = createFileRoute<RouteOptions>("/_root")({
-  component: () => <IndexHome />,
+import DefaultLayout from "@/layouts/default";
+export const Route = createRootRoute({
+  component: LayoutComponent,
 });
+
+function LayoutComponent() {
+  return (
+    <DefaultLayout>
+      <Outlet />
+      <TanStackRouterDevtools />
+    </DefaultLayout>
+  );
+}

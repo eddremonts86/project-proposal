@@ -12,8 +12,8 @@ interface TableProps {
 }
 
 export default function Table({
-  data,
-  headers,
+  data = [],
+  headers = [],
   config,
   loading,
   className,

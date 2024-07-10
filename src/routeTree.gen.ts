@@ -11,12 +11,24 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as DocumentationTablesImport } from './routes/documentation/tables'
+import { Route as IndexImport } from './routes/index'
+import { Route as DocumentationIndexImport } from './routes/documentation/index'
+import { Route as DocumentationTablesIndexImport } from './routes/documentation/tables/index'
 
 // Create/Update Routes
 
-const DocumentationTablesRoute = DocumentationTablesImport.update({
-  path: '/documentation/tables',
+const IndexRoute = IndexImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DocumentationIndexRoute = DocumentationIndexImport.update({
+  path: '/documentation/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DocumentationTablesIndexRoute = DocumentationTablesIndexImport.update({
+  path: '/documentation/tables/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -24,11 +36,25 @@ const DocumentationTablesRoute = DocumentationTablesImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/documentation/tables': {
-      id: '/documentation/tables'
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/documentation/': {
+      id: '/documentation/'
+      path: '/documentation'
+      fullPath: '/documentation'
+      preLoaderRoute: typeof DocumentationIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/documentation/tables/': {
+      id: '/documentation/tables/'
       path: '/documentation/tables'
       fullPath: '/documentation/tables'
-      preLoaderRoute: typeof DocumentationTablesImport
+      preLoaderRoute: typeof DocumentationTablesIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -36,7 +62,11 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ DocumentationTablesRoute })
+export const routeTree = rootRoute.addChildren({
+  IndexRoute,
+  DocumentationIndexRoute,
+  DocumentationTablesIndexRoute,
+})
 
 /* prettier-ignore-end */
 
@@ -46,11 +76,19 @@ export const routeTree = rootRoute.addChildren({ DocumentationTablesRoute })
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/documentation/tables"
+        "/",
+        "/documentation/",
+        "/documentation/tables/"
       ]
     },
-    "/documentation/tables": {
-      "filePath": "documentation/tables.tsx"
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/documentation/": {
+      "filePath": "documentation/index.tsx"
+    },
+    "/documentation/tables/": {
+      "filePath": "documentation/tables/index.tsx"
     }
   }
 }

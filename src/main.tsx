@@ -1,16 +1,16 @@
-import { RouterProvider, createRouter, Router } from "@tanstack/react-router";
+import { createRouter, Router, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { routeTree } from "./routeTree.gen";
 import "./index.css";
+import { routeTree } from "./routeTree.gen";
 
-const router: Router = createRouter({ routeTree });
-
+const router: Router = createRouter({ routeTree }); //TODO: Fix type error for ROUTERS
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
 }
+console.log(router);
 
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {

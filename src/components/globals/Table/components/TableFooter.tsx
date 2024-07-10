@@ -15,8 +15,7 @@ export default function TableFooter({
   className,
   config,
 }: Readonly<TableFooterProps>) {
-  const provider = useContext(TableContext);
-  const { setRowsPerPage, rowsPerPage, page, setPage } = provider();
+  const { setRowsPerPage, rowsPerPage, page, setPage } = useContext(TableContext);
 
   return (
     <tfoot className={className}>
