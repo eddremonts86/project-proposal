@@ -6,11 +6,15 @@ import {
   DropdownMenuTrigger,
 } from '@radix-ui/react-dropdown-menu'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
+import { Table } from '@tanstack/react-table'
+
 interface TableColumnsFilterProps {
-  table: unknown
+  table: Table<unknown>
 }
 
-export default function TableColumnsFilter({ table }: Readonly<TableColumnsFilterProps>) {
+export default function TableColumnsFilter({
+  table,
+}: Readonly<TableColumnsFilterProps>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
