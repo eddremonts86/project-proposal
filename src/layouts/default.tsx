@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 interface DefaultLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export default function DefaultLayout({
@@ -12,5 +12,5 @@ export default function DefaultLayout({
       <header> Aquio,m dfkfn</header>
       <section className="container">{children}</section>
     </>
-  );
+  )
 }

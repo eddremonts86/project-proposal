@@ -1,7 +1,7 @@
 {
   "name": "schilling-new",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,6 +28,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.2.2",
     "@tanstack/eslint-plugin-query": "^5.50.1",
     "@tanstack/router-devtools": "^1.43.15",
     "@tanstack/router-plugin": "^1.43.13",
