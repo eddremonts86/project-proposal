@@ -20,17 +20,17 @@ const documentationLinks = (features || []).map((feature) => (
 
 export default function IndexHome() {
   return (
-    <div className="flex h-dvh w-full flex-col p-12">
-      <h1 className="text-3xl font-bold">Documentation</h1>
-      <h2 className="text-3xl font-bold">
+    <>
+      <h1 className="text-6xl font-bold">Documentation</h1>
+      <h2 className="py-3 text-3xl font-bold">
         You can see here all the custom components and how it works.{' '}
       </h2>
-      <div className="mt-8">
+      <div className="pt-3">
         <ul>
           <p className="text-2xl font-bold">Features: </p>
           {documentationLinks}
         </ul>
       </div>
-    </div>
+    </>
   )
 }
