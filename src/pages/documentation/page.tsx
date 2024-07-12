@@ -5,6 +5,10 @@ const features = [
     name: "Tables",
     to: "/documentation/tables",
   },
+  {
+    name: "Forms",
+    to: "/documentation/forms",
+  },
 ];
 
 const documentationLinks = (features || []).map((feature) => (
