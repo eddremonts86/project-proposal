@@ -2,9 +2,8 @@ import { useForm } from "react-hook-form";
 import {
   Form,
 } from "../../../ui/form";
-import TextInput from "./TextInput";
+import TextInput from "./base/TextInput";
 // import { z } from "zod";
-import { type } from './../../../ui/calendar';
 
 export interface IData {
   name: string;

@@ -4,20 +4,15 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from "../../../ui/form";
-import { Input } from "../../../ui/input";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 interface Props {
   name: string;
   label: string;
-  description: string;
-  value: string | number;
-  multiline?: boolean;
-  rows?: number;
-  type?: string;
-  disablevalue?: boolean;
-  isfocus?: string;
-  control: Control<FieldValues> | undefined;
+   value: string | number;
+   type?: string;
+   control: Control<FieldValues> | undefined;
 }
 
 const TextInput = ({value, label, control, name, type}: Props) => {

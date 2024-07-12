@@ -1,11 +1,8 @@
-import { Container } from "../../../components/globals/form";
-import { DateInput } from "../../../components/globals/form/components/DateInput";
-import SelectBtn from "./../../../components/globals/form/components/SelectBtn";
+import { Container } from "@/components/globals/form";
+import { DateInput } from "@/components/globals/form/components/DateInput";
+import SelectBtn from "@/components/globals/form/components/SelectBtn";
+import { IOptions } from "@/pages/documentation/forms/types";
 
-export interface IOptions {
-  value: string;
-  label: string;
-}
 
 const selectOptions: IOptions[] = [
   { value: "AAAA", label: "aaaaa" },
@@ -15,15 +12,12 @@ const selectOptions: IOptions[] = [
 
 export default function FormsPage() {
   return (
-    <div className="grid grid-cols-5 gap-3 border p-6 justify-center">
-      <div className="grid border p-2 justify-around"  >
+    <div className="grid justify-center grid-cols-5 gap-3 p-6 border">
+      <div className="grid justify-around p-2 border"  >
         <SelectBtn selectOptions={selectOptions} selectLabel="Example" />
         <DateInput />
-        <DateInput />
-        <DateInput />
-        <DateInput />
       </div>
-      <div className= "grid justify-around bg-red-100 col-span-4">
+      <div className= "grid justify-around col-span-4 bg-red-100">
         <Container />
       </div>
     </div>
