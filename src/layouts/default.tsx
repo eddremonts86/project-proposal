@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
-
+import { TopBar } from '@/features/TopBar'
+import { ReactNode } from 'react'
 interface DefaultLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export default function DefaultLayout({
@@ -9,8 +9,8 @@ export default function DefaultLayout({
 }: Readonly<DefaultLayoutProps>) {
   return (
     <>
-      <header> Aquio,m dfkfn</header>
-      <section className="container">{children}</section>
+      <TopBar />
+      <section className="container py-7">{children}</section>
     </>
-  );
+  )
 }

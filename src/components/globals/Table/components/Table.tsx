@@ -1,34 +1,29 @@
-import useTable from "../hooks/useTable";
 import TableContextProvider from "../providers/TableProvider";
 import Content from "./TableContent";
 import Footer from "./TableFooter";
 import Headers from "./TableHeaders";
+import { Table as TableType, HeaderGroup } from '@tanstack/react-table'
+
 import {
   Table as CnTable,
   TableBody,
   TableHeader,
 } from "@/components/ui/table";
-import { TConfig, THeaders, TData } from "../types";
 
 interface TableProps {
-  data: TData[];
-  config: TConfig;
-  headers: THeaders[];
+  tHeaders: HeaderGroup<unknown>[],
+  tColumns: number,
+  footer: boolean;
   loading: boolean;
   className?: string;
+  table: TableType<unknown>
 }
 export default function Table({
-  data,
-  headers,
-  config,
+ table, tHeaders, tColumns, footer,
   loading,
   className,
 }: Readonly<TableProps>) {
-  const { table, tHeaders, tColumns, showFooter } = useTable({
-    config,
-    headers,
-    data,
-  });
+
 
   return (
     <TableContextProvider>
@@ -42,7 +37,7 @@ export default function Table({
             loading={loading}
             headersLength={tColumns}
           />
-          {showFooter() && <Footer colSpan={tColumns} />}
+          {footer && <Footer colSpan={tColumns} table={table} />}
         </TableBody>
       </CnTable>
     </TableContextProvider>
