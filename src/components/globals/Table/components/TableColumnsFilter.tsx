@@ -29,9 +29,6 @@ export default function TableColumnsFilter({
             .filter((column) => column.getCanHide())
             .sort((a, b) => a.id.localeCompare(b.id))
 
-
-
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -44,7 +41,7 @@ export default function TableColumnsFilter({
             return (
               <DropdownMenuCheckboxItem
               key={column.id}
-              className="px-3 py-1 capitalize border-0 cursor-pointer hover:bg-gray-100 hover:text-gray-900 hover:font-semibold"
+              className="px-3 py-1 capitalize border-0 cursor-pointer hover:bg-gray-100 hover:text-gray-900"
               checked={column.getIsVisible()}
               onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
