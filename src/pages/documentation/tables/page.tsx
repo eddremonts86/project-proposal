@@ -10,7 +10,7 @@ export default function TablePage() {
   });
   return (<div className="p-6 mt-6 border shadow-md bg-gray-50 rounded-xl">
     <div className="flex items-center justify-between py-5">
-    <TableFilters  table={table}/>
+    <TableFilters  table={table} filterKey={'WidgetId'}/>
     <TableColumnsFilter  table={table}/>
     </div>
     <Table

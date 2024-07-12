@@ -20,9 +20,11 @@ type SubHeader = { id: string; name?: string }
 
 export const generateHeaderColumns = (header: SubHeader[]) => {
   return header.map((subHeader: SubHeader) => {
-    return columnHelper.accessor(subHeader.id, {
+    const response = columnHelper.accessor(subHeader.id, {
       header: (subHeader.name ?? subHeader.id) || 'No Header Name Provided',
       cell: (info) => info.getValue(),
     })
+
+    return response
   }) as ColumnDef<unknown>[]
 }
