@@ -1,6 +1,5 @@
 import { Container } from "@/components/globals/form";
-import { DateInput } from "@/components/globals/form/components/base/DateInput";
-import SelectBtn from "@/components/globals/form/components/base/SelectBtn";
+import { DateInput, SelectBtn } from "@/components/globals/form/components/base"
 import { IOptions } from "@/pages/documentation/forms/types";
 
 
