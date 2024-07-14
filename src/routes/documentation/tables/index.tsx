@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router'
 
-import TablePage from "@/pages/documentation/tables/page"; //TODO: Fix type alias errors
+import TablePage from '@/pages/documentation/tables/page' //TODO: Fix type alias errors
 
-export const Route = createFileRoute("/documentation/tables/")({
+export const Route = createFileRoute('/documentation/tables/')({
   component: () => <TablePage />,
-});
+})

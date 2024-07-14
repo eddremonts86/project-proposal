@@ -1,12 +1,11 @@
 import { Link } from '@tanstack/react-router'
 import { features } from './const/menu'
 
-
 const documentationLinks = (features || []).map((feature) => (
   <li className="text-xl font-bold" key={feature.name}>
     <Link
       to={feature.to}
-      className="text-blue-500 cursor-pointer hover:underline"
+      className="cursor-pointer text-blue-500 hover:underline"
     >
       {feature.name}
     </Link>

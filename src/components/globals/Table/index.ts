@@ -5,5 +5,11 @@ import TableFooter from './components/TableFooter'
 import TableColumnsFilter from './components/TableColumnsFilter'
 import TableFilters from './components/TableFilters'
 
-
-export {TableFooter, TableHeaders, TableContent, Table, TableFilters, TableColumnsFilter}
+export {
+  TableFooter,
+  TableHeaders,
+  TableContent,
+  Table,
+  TableFilters,
+  TableColumnsFilter,
+}

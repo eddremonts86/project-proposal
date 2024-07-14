@@ -1,4 +1,6 @@
-export default {
+const { default: plugin } = require('tailwindcss')
+
+module.exports = {
   singleQuote: true,
   semi: false,
   vueIndentScriptAndStyle: true,

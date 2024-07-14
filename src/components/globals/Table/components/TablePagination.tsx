@@ -5,10 +5,12 @@ interface TablePaginationProps {
   table: Table<unknown>
 }
 
-export default function TablePagination({ table }: Readonly<TablePaginationProps>) {
+export default function TablePagination({
+  table,
+}: Readonly<TablePaginationProps>) {
   const btnClass = 'rounded-md min-w-20'
   return (
-    <div className="flex items-center justify-between w-full py-4">
+    <div className="flex w-full items-center justify-between py-4">
       <div className="text-sm">
         {table.getFilteredSelectedRowModel().rows.length} of{' '}
         {table.getFilteredRowModel().rows.length} row(s) selected.

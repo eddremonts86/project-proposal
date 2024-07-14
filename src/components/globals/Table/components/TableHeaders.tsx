@@ -1,9 +1,9 @@
-import type { HeaderGroup } from "@tanstack/react-table";
-import { getHeaderContent } from "../utils/table";
+import type { HeaderGroup } from '@tanstack/react-table'
+import { getHeaderContent } from '../utils/table'
 
 interface TableHeadersProps {
-  headers: HeaderGroup<unknown>[];
-  className?: string;
+  headers: HeaderGroup<unknown>[]
+  className?: string
 }
 export default function TableHeaders({ headers }: Readonly<TableHeadersProps>) {
   return (
@@ -13,17 +13,17 @@ export default function TableHeaders({ headers }: Readonly<TableHeadersProps>) {
           {header.headers.map((subHeader) => {
             return (
               <th
-                className="py-3 border"
+                className="border py-3"
                 key={`header_th_${subHeader.id}`}
                 colSpan={subHeader.colSpan || 1}
                 rowSpan={subHeader.rowSpan || 1}
               >
                 <span>{getHeaderContent(subHeader)}</span>
               </th>
-            );
+            )
           })}
         </tr>
       ))}
     </>
-  );
+  )
 }

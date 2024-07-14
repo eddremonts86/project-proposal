@@ -1,13 +1,20 @@
 {
   "name": "schilling-new",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "generate-types": "swagger-typescript-api -p https://url -o ./src/types --axios",
+    "generate-local-types": "swagger-typescript-api -p http://url -o ./src/types --axios",
+    "format:check": "prettier -c .",
+    "format:fix": "prettier -w -u .",
+    "pre-commit": "npx lint-staged",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "prepare": "husky",
+    "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -50,9 +57,24 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.6.2",
+    "swagger-typescript-api": "^13.0.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,jsx}": [
+      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix"
+    ],
+    "*": "prettier -w -u"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }

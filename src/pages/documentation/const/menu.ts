@@ -4,7 +4,7 @@ export const features = [
     to: '/documentation/tables',
   },
   {
-    name: "Forms",
-    to: "/documentation/forms",
+    name: 'Forms',
+    to: '/documentation/forms',
   },
-];
+]

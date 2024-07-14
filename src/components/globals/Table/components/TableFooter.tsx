@@ -1,26 +1,23 @@
 import { Table } from '@tanstack/react-table'
 
-import TablePagination from "./TablePagination";
+import TablePagination from './TablePagination'
 
 interface TableFooterProps {
-  colSpan: number;
+  colSpan: number
   table: Table<unknown>
-
 }
 
 export default function TableFooter({
   colSpan,
   table,
-}: Readonly<TableFooterProps>) {return (
+}: Readonly<TableFooterProps>) {
+  return (
     <tr className="border">
-      <td
-        colSpan={colSpan}
-        className="border-0"
-      >
+      <td colSpan={colSpan} className="border-0">
         <div className="flex items-center justify-center md:justify-end">
-          <TablePagination table={table}/>
+          <TablePagination table={table} />
         </div>
       </td>
     </tr>
-  );
+  )
 }
