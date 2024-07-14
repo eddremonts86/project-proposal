@@ -1,21 +1,12 @@
 import { Link } from '@tanstack/react-router'
+import { features } from './const/menu'
 
-const features = [
-  {
-    name: 'Tables',
-    to: '/documentation/tables',
-  },
-  {
-    name: "Forms",
-    to: "/documentation/forms",
-  },
-];
 
 const documentationLinks = (features || []).map((feature) => (
   <li className="text-xl font-bold" key={feature.name}>
     <Link
       to={feature.to}
-      className="cursor-pointer text-blue-500 hover:underline"
+      className="text-blue-500 cursor-pointer hover:underline"
     >
       {feature.name}
     </Link>

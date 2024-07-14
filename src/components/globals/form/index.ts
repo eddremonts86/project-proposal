@@ -1,5 +1,5 @@
 import Container from "./components/Container";
-import Content from "./components/Content";
+import Content from "./components/FormContent";
 import TextInput from "./components/base/TextInput";
 
 export {

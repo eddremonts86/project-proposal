@@ -15,9 +15,7 @@ interface DateInputProps {
 
 }
 
-
-
-export function DateInput({placeholder = "Pick a date"}: Readonly<DateInputProps>) {
+export default function DateInput({placeholder = "Pick a date"}: Readonly<DateInputProps>) {
   const [date, setDate] = useState<Date>()
 
   return (
