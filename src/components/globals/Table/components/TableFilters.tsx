@@ -13,7 +13,7 @@
  * ```
  */
 import { Input } from '@/components/ui/input'
-import { InputChangeEvent } from '@/types'
+import { InputChangeEvent } from '@/types/forms'
 import { Table } from '@tanstack/react-table'
 import { useDebounce } from '@uidotdev/usehooks'
 import { useEffect, useState } from 'react'
@@ -37,7 +37,8 @@ export default function TableFilters({
   const debouncedSearchTerm = useDebounce(value, 300)
 
   useEffect(() => {
-    table.getColumn(String(filterKey))?.setFilterValue(debouncedSearchTerm) //TODO: Table is not updating despite the filter value being set
+    table.getColumn(String(filterKey))?.setFilterValue(debouncedSearchTerm)
+    //TODO: Table is not updating despite the filter value being set
   }, [debouncedSearchTerm, filterKey, table])
 
   const handleInputChange = (event: InputChangeEvent) => {
