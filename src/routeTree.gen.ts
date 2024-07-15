@@ -15,10 +15,12 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as DocumentationIndexImport } from './routes/documentation/index'
-import { Route as DocumentationTablesIndexImport } from './routes/documentation/tables/index'
 
 // Create Virtual Routes
 
+const DocumentationTablesIndexLazyImport = createFileRoute(
+  '/documentation/tables/',
+)()
 const DocumentationFormsIndexLazyImport = createFileRoute(
   '/documentation/forms/',
 )()
@@ -35,6 +37,14 @@ const DocumentationIndexRoute = DocumentationIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DocumentationTablesIndexLazyRoute =
+  DocumentationTablesIndexLazyImport.update({
+    path: '/documentation/tables/',
+    getParentRoute: () => rootRoute,
+  } as any).lazy(() =>
+    import('./routes/documentation/tables/index.lazy').then((d) => d.Route),
+  )
+
 const DocumentationFormsIndexLazyRoute =
   DocumentationFormsIndexLazyImport.update({
     path: '/documentation/forms/',
@@ -42,11 +52,6 @@ const DocumentationFormsIndexLazyRoute =
   } as any).lazy(() =>
     import('./routes/documentation/forms/index.lazy').then((d) => d.Route),
   )
-
-const DocumentationTablesIndexRoute = DocumentationTablesIndexImport.update({
-  path: '/documentation/tables/',
-  getParentRoute: () => rootRoute,
-} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -66,18 +71,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocumentationIndexImport
       parentRoute: typeof rootRoute
     }
-    '/documentation/tables/': {
-      id: '/documentation/tables/'
-      path: '/documentation/tables'
-      fullPath: '/documentation/tables'
-      preLoaderRoute: typeof DocumentationTablesIndexImport
-      parentRoute: typeof rootRoute
-    }
     '/documentation/forms/': {
       id: '/documentation/forms/'
       path: '/documentation/forms'
       fullPath: '/documentation/forms'
       preLoaderRoute: typeof DocumentationFormsIndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/documentation/tables/': {
+      id: '/documentation/tables/'
+      path: '/documentation/tables'
+      fullPath: '/documentation/tables'
+      preLoaderRoute: typeof DocumentationTablesIndexLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -88,8 +93,8 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
   DocumentationIndexRoute,
-  DocumentationTablesIndexRoute,
   DocumentationFormsIndexLazyRoute,
+  DocumentationTablesIndexLazyRoute,
 })
 
 /* prettier-ignore-end */
@@ -102,8 +107,8 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/",
         "/documentation/",
-        "/documentation/tables/",
-        "/documentation/forms/"
+        "/documentation/forms/",
+        "/documentation/tables/"
       ]
     },
     "/": {
@@ -112,11 +117,11 @@ export const routeTree = rootRoute.addChildren({
     "/documentation/": {
       "filePath": "documentation/index.tsx"
     },
-    "/documentation/tables/": {
-      "filePath": "documentation/tables/index.tsx"
-    },
     "/documentation/forms/": {
       "filePath": "documentation/forms/index.lazy.tsx"
+    },
+    "/documentation/tables/": {
+      "filePath": "documentation/tables/index.lazy.tsx"
     }
   }
 }

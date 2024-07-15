@@ -10,7 +10,7 @@ export default function DefaultLayout({
   return (
     <>
       <TopBar />
-      <section className="container py-7">{children}</section>
+      <section className="container max-w-screen-2xl py-6">{children}</section>
     </>
   )
 }
