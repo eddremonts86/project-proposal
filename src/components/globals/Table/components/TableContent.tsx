@@ -1,6 +1,7 @@
+import { cn } from '@/lib/utils'
 import { Table } from '@tanstack/react-table'
-import TableLoading from './TableLoading'
 import { getCellContent } from '../utils/table'
+import TableLoading from './TableLoading'
 interface TableContentProps {
   loading: boolean
   table: Table<unknown>
@@ -11,7 +12,7 @@ export default function TableContent({
   loading,
   table,
   headersLength,
-  className = 'p-2 text-center border border-slate-300',
+  className = 'border-slate-300 hover:bg-slate-100 ',
 }: Readonly<TableContentProps>) {
   return (
     <>
@@ -19,17 +20,16 @@ export default function TableContent({
         <TableLoading colspan={headersLength} className={className} />
       ) : (
         table.getRowModel().rows.map((row) => (
-          <tr key={`table_body_tr_${row.id}`} className={className}>
-            {row.getVisibleCells().map((cell) => {
+          <tr key={`table_body_tr_${row.id}`} className={cn('', className)}>                {row.getVisibleCells().map((cell) => {
               return (
                 <td
                   key={`table_body_td_${cell.id}`}
-                  className="border py-4"
+                  className={cn('border p-3 text-left', '')}
                   style={{
                     width: cell.column.getSize(),
                   }}
                 >
-                  {getCellContent(cell)}
+                  <span>{getCellContent(cell)}</span>
                 </td>
               )
             })}

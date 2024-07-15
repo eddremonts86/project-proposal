@@ -16,9 +16,9 @@ export default function TablePage() {
   })
 
   return (
-    <FlexContainer className="flex-col">
+    <FlexContainer className="sm:flex-col">
       <div className="flex items-center justify-between py-5">
-        <TableFilters table={table} filterKey={'WidgetId'} />
+        <TableFilters table={table} filterKey={'Name'} />
         <TableColumnsFilter table={table} />
       </div>
       <Table

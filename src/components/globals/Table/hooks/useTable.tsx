@@ -20,6 +20,8 @@ export default function useTable({ headers, config, data }: TableHooksProps) {
     columns: columnsHeaders,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    rowCount: data.length,
+    pageCount: config.pageSize ?? 20,
   })
   const tHeaders: HeaderGroup<unknown>[] = table.getHeaderGroups()
   const tColumns = headers.length

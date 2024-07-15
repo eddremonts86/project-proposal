@@ -13,7 +13,7 @@ export default function TableHeaders({ headers }: Readonly<TableHeadersProps>) {
           {header.headers.map((subHeader) => {
             return (
               <th
-                className="border py-3"
+                className="border p-3 text-left"
                 key={`header_th_${subHeader.id}`}
                 colSpan={subHeader.colSpan || 1}
                 rowSpan={subHeader.rowSpan || 1}
