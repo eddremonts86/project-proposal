@@ -1,13 +1,15 @@
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { FieldValues } from 'react-hook-form'
 
 interface Props {
-  onSubmit: (data: unknown) => void
-  type: string
+  onSubmit: (data: FieldValues) => void
+  type: string 
   text: string
   children?: React.ReactNode
   icon?: string
   className?: string
+  loading: boolean
 }
 
 const CommonBtn = ({
@@ -17,10 +19,12 @@ const CommonBtn = ({
   children,
   icon,
   className,
+  loading,
 }: Props) => {
   return (
-    <Button onSubmit={onSubmit} type={type} className={className}>
-      {children ? (
+
+    <Button onClick={(data: FieldValues)=>onSubmit(data)} type={type} className={className}>
+    {children ? (
         { children }
       ) : (
         <div className="flex items-center justify-center">
