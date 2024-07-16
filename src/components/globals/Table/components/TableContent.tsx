@@ -1,13 +1,26 @@
-import { cn } from '@/lib/utils'
-import { Table } from '@tanstack/react-table'
-import { getCellContent } from '../utils/table'
-import TableLoading from './TableLoading'
+import { cn } from '@/lib/utils';
+import { Table } from '@tanstack/react-table';
+import { getCellContent } from '../utils/table';
+import TableLoading from './TableLoading';
+
+/**
+ * Props for the TableContent component.
+ */
 interface TableContentProps {
-  loading: boolean
-  table: Table<unknown>
-  headersLength: number
-  className?: string
+  loading: boolean;
+  table: Table<unknown>;
+  headersLength: number;
+  className?: string;
 }
+
+/**
+ * Renders the content of the table.
+ * @param loading - Indicates whether the table is currently loading.
+ * @param table - The table object containing the data.
+ * @param headersLength - The number of table headers.
+ * @param className - Additional CSS class name for the table content.
+ * @returns The rendered table content.
+ */
 export default function TableContent({
   loading,
   table,
@@ -20,7 +33,8 @@ export default function TableContent({
         <TableLoading colspan={headersLength} className={className} />
       ) : (
         table.getRowModel().rows.map((row) => (
-          <tr key={`table_body_tr_${row.id}`} className={cn('', className)}>                {row.getVisibleCells().map((cell) => {
+          <tr key={`table_body_tr_${row.id}`} className={cn('', className)}>
+            {row.getVisibleCells().map((cell) => {
               return (
                 <td
                   key={`table_body_td_${cell.id}`}
@@ -31,11 +45,11 @@ export default function TableContent({
                 >
                   <span>{getCellContent(cell)}</span>
                 </td>
-              )
+              );
             })}
           </tr>
         ))
       )}
     </>
-  )
+  );
 }

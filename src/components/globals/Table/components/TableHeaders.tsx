@@ -5,6 +5,12 @@ interface TableHeadersProps {
   headers: HeaderGroup<unknown>[]
   className?: string
 }
+/**
+ * Renders the table headers component.
+ *
+ * @param headers - An array of header objects.
+ * @returns The rendered table headers.
+ */
 export default function TableHeaders({ headers }: Readonly<TableHeadersProps>) {
   return (
     <>
