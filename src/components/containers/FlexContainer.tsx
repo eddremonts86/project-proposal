@@ -10,13 +10,13 @@ export default function FlexContainer({
   className,
 }: Readonly<PropsWithChildren>) {
   return (
-    <div
+    <section
       className={cn(
-        '-6 flex rounded-xl border bg-gray-50 p-6 shadow-sm justify-around',
+        'flex flex-col sm:flex-row rounded-xl border bg-gray-50 p-6 shadow-sm w-full h-full',
         className
       )}
     >
       {children}
-    </div>
+    </section>
   )
 }

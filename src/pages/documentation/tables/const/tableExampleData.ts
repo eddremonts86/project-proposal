@@ -86,8 +86,8 @@ export const headers = [
 
 export const data = [
   {
-    Id: 3228,
-    WidgetId: '3228',
+    Id: 1,
+    WidgetId: '1',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -102,8 +102,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 32227,
-    WidgetId: '3227',
+    Id: 2,
+    WidgetId: '2',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -117,8 +117,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 312226,
-    WidgetId: '3226',
+    Id: 3,
+    WidgetId: '3',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -133,8 +133,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 2343225,
-    WidgetId: '3225',
+    Id: 4,
+    WidgetId: '4',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -148,8 +148,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 34213432423,
-    WidgetId: '3228',
+    Id: 5,
+    WidgetId: '5',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -164,8 +164,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 34242342343,
-    WidgetId: '3227',
+    Id: 6,
+    WidgetId: '6',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -179,8 +179,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 6546546,
-    WidgetId: '3226',
+    Id: 7,
+    WidgetId: '7',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -195,8 +195,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 3234225,
-    WidgetId: '3225',
+    Id: 8,
+    WidgetId: '8',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -210,8 +210,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 326756728,
-    WidgetId: '3228',
+    Id: 9,
+    WidgetId: '9',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -226,8 +226,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 32798027,
-    WidgetId: '3227',
+    Id: 10,
+    WidgetId: '10',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -241,8 +241,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 328767526,
-    WidgetId: '3226',
+    Id: 11,
+    WidgetId: '11',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -257,8 +257,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 32564565,
-    WidgetId: '3225',
+    Id: 12,
+    WidgetId: '12',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -272,8 +272,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 39098228,
-    WidgetId: '3228',
+    Id: 13,
+    WidgetId: '13',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -288,8 +288,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 309227,
-    WidgetId: '3227',
+    Id: 14,
+    WidgetId: '14',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -303,8 +303,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 32564526,
-    WidgetId: '3226',
+    Id: 15,
+    WidgetId: '16',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -319,8 +319,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 324363425,
-    WidgetId: '3225',
+    Id: 17,
+    WidgetId: '17',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -334,8 +334,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 34534228,
-    WidgetId: '3228',
+    Id: 18,
+    WidgetId: '18',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -350,8 +350,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 3266727,
-    WidgetId: '3227',
+    Id: 19,
+    WidgetId: '19',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -365,8 +365,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 324534526,
-    WidgetId: '3226',
+    Id: 20,
+    WidgetId: '20',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -381,8 +381,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 326756725,
-    WidgetId: '3225',
+    Id: 21,
+    WidgetId: '21',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -396,8 +396,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 324534528,
-    WidgetId: '3228',
+    Id: 23,
+    WidgetId: '23',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -412,8 +412,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 3278678727,
-    WidgetId: '3227',
+    Id: 24,
+    WidgetId: '24',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -427,8 +427,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 324534526,
-    WidgetId: '3226',
+    Id: 25,
+    WidgetId: '25',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -443,8 +443,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 322543455,
-    WidgetId: '3225',
+    Id: 26,
+    WidgetId: '26',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -458,8 +458,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 378678228,
-    WidgetId: '3228',
+    Id: 27,
+    WidgetId: '27',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -474,8 +474,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 3228987,
-    WidgetId: '3227',
+    Id: 28,
+    WidgetId: '28',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -489,8 +489,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 3243526,
-    WidgetId: '3226',
+    Id: 29,
+    WidgetId: '29',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -505,8 +505,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 37989225,
-    WidgetId: '3225',
+    Id: 30,
+    WidgetId: '30',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:
@@ -520,8 +520,8 @@ export const data = [
     ModificationDate: '2024-06-12T11:49:31+02:00',
   },
   {
-    Id: 39056228,
-    WidgetId: '3228',
+    Id: 31,
+    WidgetId: '31',
     Name: 'schilling_dashboard_demo',
     WidgetType: 2,
     DataSource:
@@ -536,8 +536,8 @@ export const data = [
     ModificationDate: '2024-07-01T13:28:34+02:00',
   },
   {
-    Id: 32343227,
-    WidgetId: '3227',
+    Id: 32,
+    WidgetId: '32',
     Name: 'progress',
     WidgetType: 7,
     DataSource:
@@ -551,8 +551,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:42:49+02:00',
   },
   {
-    Id: 326874326,
-    WidgetId: '3226',
+    Id: 33,
+    WidgetId: '33',
     Name: 'martins egen widget',
     WidgetType: 2,
     DataSource:
@@ -567,8 +567,8 @@ export const data = [
     ModificationDate: '2024-06-18T13:39:20+02:00',
   },
   {
-    Id: 32745754725,
-    WidgetId: '3225',
+    Id: 34,
+    WidgetId: '34',
     Name: 'min fine widget med ukendt tæller og nævner',
     WidgetType: 7,
     DataSource:

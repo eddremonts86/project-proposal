@@ -1,3 +1,11 @@
+/**
+ * Renders the footer of a table.
+ *
+ * @component
+ * @param {number} colSpan - The number of columns the footer should span.
+ * @param {Table<unknown>} table - The table object.
+ * @returns {JSX.Element} The rendered table footer.
+ */
 import { Table } from '@tanstack/react-table'
 
 import TablePagination from './TablePagination'

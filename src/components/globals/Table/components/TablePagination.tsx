@@ -5,6 +5,13 @@ interface TablePaginationProps {
   table: Table<unknown>
 }
 
+/**
+ * Renders a pagination component for a table.
+ *
+ * @component
+ * @param {Readonly<TablePaginationProps>} props - The props for the TablePagination component.
+ * @returns {JSX.Element} - The rendered TablePagination component.
+ */
 export default function TablePagination({
   table,
 }: Readonly<TablePaginationProps>) {

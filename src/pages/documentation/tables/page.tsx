@@ -16,9 +16,23 @@ export default function TablePage() {
   })
 
   return (
-    <FlexContainer className="flex-col">
-      <div className="flex items-center justify-between py-5">
-        <TableFilters table={table} filterKey={'WidgetId'} />
+    <FlexContainer className="sm:flex-col">
+      <div className="flex flex-col items-start justify-start gap-2 py-5 md:flex-row md:items-center md:justify-between">
+        <TableFilters
+          table={table}
+          filterKey={'Name'}
+          placeholder="Filter by name"
+        />
+        <TableFilters
+          table={table}
+          filterKey={'WidgetId'}
+          placeholder="Filter by id"
+        />
+        <TableFilters
+          table={table}
+          filterKey={'WidgetType'}
+          placeholder="Filter by type"
+        />
         <TableColumnsFilter table={table} />
       </div>
       <Table

@@ -23,16 +23,18 @@ export default function Table({
   className,
 }: Readonly<TableProps>) {
   return (
-    <TableContextProvider>
-      <CnTable className={className}>
-        <TableHeader>
-          <Headers headers={tHeaders} />
-        </TableHeader>
-        <TableBody>
-          <Content table={table} loading={loading} headersLength={tColumns} />
-          {footer && <Footer colSpan={tColumns} table={table} />}
-        </TableBody>
-      </CnTable>
-    </TableContextProvider>
+    <>
+      <TableContextProvider>
+        <CnTable className={className}>
+          <TableHeader>
+            <Headers headers={tHeaders} />
+          </TableHeader>
+          <TableBody>
+            <Content table={table} loading={loading} headersLength={tColumns} />
+            {footer && <Footer colSpan={tColumns} table={table} />}
+          </TableBody>
+        </CnTable>
+      </TableContextProvider>
+    </>
   )
 }
