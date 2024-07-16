@@ -23,16 +23,6 @@ export default function TablePage() {
           filterKey={'Name'}
           placeholder="Filter by name"
         />
-        <TableFilters
-          table={table}
-          filterKey={'WidgetId'}
-          placeholder="Filter by id"
-        />
-        <TableFilters
-          table={table}
-          filterKey={'WidgetType'}
-          placeholder="Filter by type"
-        />
         <TableColumnsFilter table={table} />
       </div>
       <Table

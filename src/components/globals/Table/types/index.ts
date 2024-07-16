@@ -40,6 +40,7 @@ export interface THeaders {
   show: boolean
   accessor: string
   style: string
+  type: string
 }
 
 export interface TData {

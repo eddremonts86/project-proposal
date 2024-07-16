@@ -1,11 +1,9 @@
-import type { Cell, ColumnDef, Header } from '@tanstack/react-table'
-import { createColumnHelper, flexRender } from '@tanstack/react-table'
+import type { Cell, Header } from '@tanstack/react-table'
+import { flexRender } from '@tanstack/react-table'
 
-const columnHelper = createColumnHelper<unknown>()
 export const getHeaderContent = (header: Header<unknown, unknown>) => {
-  if (!header) {
-    return 'No Header Provided'
-  }
+  if (!header) return 'No header provided'
+  if (header.isPlaceholder) return null
   return flexRender(header.column.columnDef.header, header.getContext())
 }
 
@@ -16,15 +14,32 @@ export const getCellContent = (cell: Cell<unknown, unknown>) => {
   return flexRender(cell.column.columnDef.cell, cell.getContext())
 }
 
-type SubHeader = { id: string; name?: string }
-
+/*
+const columnHelper = createColumnHelper<unknown>()
+interface SubHeader {
+  id: string
+  name?: string
+  type?: string
+}
 export const generateHeaderColumns = (header: SubHeader[]) => {
-  return header.map((subHeader: SubHeader) => {
-    const response = columnHelper.accessor(subHeader.id, {
-      header: (subHeader.name ?? subHeader.id) || 'No Header Name Provided',
-      cell: (info) => info.getValue(),
-    })
+  return header.map((subHeader) => {
+    if (subHeader.type === 'select') {
+      const header = () => <Checkbox />
+      const cell = () => {}
 
-    return response
+      return columnHelper.accessor(subHeader.id, {
+        id: subHeader.id,
+        header,
+        cell,
+        enableSorting: false,
+        enableHiding: false,
+      })
+    }
+
+    return columnHelper.accessor(subHeader.id, {
+      header: (subHeader.name ?? subHeader.id) || 'No Header Name Provided',
+      cell: (info: { getValue: () => void }) => info.getValue(),
+    })
   }) as ColumnDef<unknown>[]
 }
+*/

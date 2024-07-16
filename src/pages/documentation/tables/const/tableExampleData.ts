@@ -25,6 +25,11 @@ export const config = {
 
 export const headers = [
   {
+    type: 'select',
+    id: 'select',
+    name: 'Select',
+  },
+  {
     width: 150,
     sortable: true,
     resizable: true,
