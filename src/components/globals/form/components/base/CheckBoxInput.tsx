@@ -1,6 +1,6 @@
 import { Checkbox } from "@/components/ui/checkbox"
 
-export function CheckBoxInput() {
+export default function CheckBoxInput() {
   return (
     <div className="flex items-center space-x-2">
       <Checkbox id="terms" />

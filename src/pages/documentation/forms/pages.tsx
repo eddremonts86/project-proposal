@@ -1,39 +1,30 @@
-import { inputsExample, selectOptions } from './const/input'
+import FlexContainer from '@/components/containers/FlexContainer'
+import { FormContent } from '@/components/globals/form'
 import {
-  SelectBtn,
-  DateInput,
+  CheckBoxInput,
   CommonBtn,
-} from '../../../components/globals/form/components/base'
-import FlexContainer from '../../../components/containers/FlexContainer'
-import ExampleFormContainer from '../features/ExampleFormContainer'
-import { RadioInput } from '../../../components/globals/form/components/base/RadioInput'
-import { CheckBoxInput } from '../../../components/globals/form/components/base/CheckBoxInput'
-import { FieldValues } from 'react-hook-form'
-import Contents from '../../../components/globals/form/components/Contents'
-import useEventListner from '../../../components/globals/form/hooks/useEventListner'
+  DateInput,
+  RadioInput,
+  SelectBtn,
+} from '@/components/globals/form/components/base'
+import useForms from '@/components/globals/form/hooks/useForms'
 import { useState } from 'react'
+import { FieldValues, useForm } from 'react-hook-form'
+import { inputsExample } from './const/input'
 
 export default function FormsPage() {
   const [showValues, setShowValues] = useState(false)
-
-  const { onSubmit, formValues } = useEventListner()
-
-  const sendFieldValues = () => {
-    console.log('submit btn Clicked', formValues)
-    setShowValues(true)
-  }
+  const { onSubmit, formValues } = useForms()
+  const selectItem = inputsExample.filter((item) => item.type === 'select')[0]
+  const { control } = useForm<FieldValues>()
 
   return (
-    <FlexContainer>
+    <FlexContainer className="gap-3">
       <div className="flex flex-col flex-wrap justify-around gap-2 border p-6">
         <h2 className="text-xl">Inputs list </h2>
         <RadioInput />
         <CheckBoxInput />
-        <SelectBtn
-          selectOptions={selectOptions}
-          selectLabel="Select your size"
-          contentLabel="Man Jeans"
-        />
+        <SelectBtn item={selectItem} control={control} />
         <DateInput placeholder="Date" />
         <div className="flex justify-between gap-2">
           <CommonBtn
@@ -54,8 +45,8 @@ export default function FormsPage() {
           />
         </div>
       </div>
-      <ExampleFormContainer>
-        <Contents
+      <FlexContainer className="sm:flex-col">
+        <FormContent
           onSubmit={(values: FieldValues) => onSubmit(values)}
           inputs={inputsExample}
         />
@@ -64,23 +55,22 @@ export default function FormsPage() {
             type="submit"
             loading={false}
             text="Submit"
-            onSubmit={sendFieldValues}
+            onSubmit={() => setShowValues(true)}
           />
           <CommonBtn
-            onSubmit={sendFieldValues}
+            onSubmit={() => setShowValues(false)}
             loading={false}
             type="button"
             text="Cancel"
           />
         </div>
-      </ExampleFormContainer>
+      </FlexContainer>
       <div className="flex justify-around p-6">
-        {/* {formValues && <div>{JSON.stringify(formValues)}</div>} */}
         {showValues && formValues && (
           <div className="flex flex-col space-y-2">
-            {Object.keys(formValues).map((key, index) => {
+            {Object.keys(formValues).map((key) => {
               return (
-                <p key={index}>
+                <p key={`${key}_id`}>
                   {key}: {formValues[key]}
                 </p>
               )
@@ -88,12 +78,6 @@ export default function FormsPage() {
           </div>
         )}
       </div>
-       <p>Inputs desc</p>
-       <p>Text</p> 
- 
-
-
-
     </FlexContainer>
   )
 }

@@ -1,15 +1,14 @@
 import React from 'react'
 import {
   Control,
-  useController,
-  FieldValues,
   FieldError,
+  FieldValues,
+  useController,
 } from 'react-hook-form'
+import { InputChangeEvent } from '../../../../../types'
 import { Input } from '../../../../ui/input'
 import { Label } from '../../../../ui/label'
-import { useDebounce } from '@uidotdev/usehooks'
-import { InputChangeEvent } from '../../../../../types'
-
+import { IData } from '../../types'
 
 interface TextInputProps {
   name: string
@@ -18,17 +17,17 @@ interface TextInputProps {
   label: string
   type: string | undefined
   description: string
-  placeholder: string,
-  defValue?: string
+  placeholder: string
+  defaultValue?: string
 }
 
-const TextInput: React.FC<TextInputProps> = ({
+const TextInput: React.FC<TextInputProps & IData> = ({
   name,
   control,
   rules,
   label,
   type,
-  defValue
+  defaultValue,
 }) => {
   const {
     field: { onChange, onBlur, value, ref },
@@ -37,33 +36,25 @@ const TextInput: React.FC<TextInputProps> = ({
     name,
     control,
     rules,
-    defaultValue: '',
+    defaultValue,
   })
 
-  const debouncedSearchTerm = useDebounce(value, 300)
-
   const handleInputChange = (value: string) => {
-    onChange(value);
-    debouncedSearchTerm(value);
-  };
-
-
+    onChange(value)
+  }
 
   return (
     <div className="p-4">
       <Label>{label}</Label>
       <Input
-        defaultValue={defValue}
-        onChange={(e: InputChangeEvent) =>
-          handleInputChange(e.target.value)
-        }
+        onChange={(e: InputChangeEvent) => handleInputChange(e.target.value)}
         onBlur={onBlur}
         value={value}
         ref={ref}
         placeholder={label}
         type={type}
       />
-      {error && <span>{(error as FieldError).message}</span>}
+      {error && <span>{error.message}</span>}
     </div>
   )
 }

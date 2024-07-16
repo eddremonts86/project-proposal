@@ -1,5 +1,3 @@
-import Container from './components/Container'
-import Content from './components/FormContent'
-import TextInput from './components/base/TextInput'
+import FormContent from './components/FormContent'
 
-export { Container, Content, TextInput }
+export { FormContent }

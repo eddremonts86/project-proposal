@@ -3,16 +3,26 @@ export interface IOptions {
   label: string
 }
 export interface IData {
-  userName: string
+  inputId: string
+  type: InputsTypes
+  name: string
   label: string
-  value: string
-  inputId: string 
-  type?: string
-  description: string
+  value?: string | null | number | unknown[]
+  description?: string
+  items?: IOptions[]
 }
 
 export interface IUser{
   username: string
   Password: string
   Email: string
+}
+
+export enum InputsTypes {
+  text= 'text',
+  select= 'select',
+  file= 'file',
+  radio= 'radio',
+  checkbox= 'checkbox',
+  textarea= 'textarea',
 }

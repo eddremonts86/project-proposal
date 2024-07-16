@@ -7,32 +7,47 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { IOptions } from '../../types'
+import { InputChangeEvent } from '@/types/forms'
+import { Control, FieldValues, useController } from 'react-hook-form'
+import { IData, IOptions } from '../../types'
 
 interface SelectProps {
-  selectOptions: IOptions[]
-  selectLabel: string
-  contentLabel: string
+  item: IData
+  control: Control<FieldValues>
 }
 
-export default function SelectBtn({
-  selectOptions,
-  selectLabel,
-  contentLabel,
-}: Readonly<SelectProps>) {
+export default function SelectBtn({ item, control }: Readonly<SelectProps>) {
+  const {
+    field: { onChange },
+  } = useController({
+    name: item.name,
+    defaultValue: item.value,
+    control,
+  })
+
+  const handleInputChange = (value: string) => {
+    console.log(value)
+    onChange(value)
+  }
+
   return (
     <Select>
       <SelectTrigger>
-        <SelectValue placeholder={selectLabel} />
+        <SelectValue placeholder={item.label} />
       </SelectTrigger>
       <SelectContent className="cursor-pointer border-0 px-3 py-1 capitalize hover:bg-gray-100 hover:text-gray-900">
         <SelectGroup>
-          <SelectLabel>{contentLabel}</SelectLabel>
-          {selectOptions.map((option: IOptions) => (
-            <SelectItem key={option.value} value={option.value}>
-              {option.label}
-            </SelectItem>
-          ))}
+          {item.description && <SelectLabel>{item.description}</SelectLabel>}
+          {item.items?.length &&
+            item.items.map((option: IOptions) => (
+              <SelectItem
+                key={option.value}
+                value={option.value}
+                onClick={() => handleInputChange(option.value)}
+              >
+                {option.label}
+              </SelectItem>
+            ))}
         </SelectGroup>
       </SelectContent>
     </Select>
