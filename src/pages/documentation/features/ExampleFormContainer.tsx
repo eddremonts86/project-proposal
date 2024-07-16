@@ -5,17 +5,11 @@ interface PropsWithChildren {
   children: ReactNode
   className?: string
 }
-export default function FlexContainer({
+export default function ExampleFormContainer({
   children,
-  className,
 }: Readonly<PropsWithChildren>) {
   return (
-    <div
-      className={cn(
-        '-6 flex rounded-xl border bg-gray-50 p-6 shadow-sm justify-around',
-        className
-      )}
-    >
+    <div>
       {children}
     </div>
   )

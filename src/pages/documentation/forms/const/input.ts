@@ -1,31 +1,36 @@
-import { IData, IOptions } from '@/pages/documentation/forms/types'
+import { IData, IOptions } from "../../../../components/globals/form/types"
 
 export const inputsExample: IData[] = [
   {
-    name: 'username',
+    userName: 'username',
     label: 'Username',
     value: 'John Doe',
+    inputId: 'username',
     type: 'text',
     description: 'This is your public display name.',
   },
   {
-    name: 'Password',
+
+    userName: 'Password',
     label: 'Password',
     value: 'password',
+    inputId: 'password',
     type: 'text',
     description: 'This is your password',
   },
   {
-    name: 'Email',
+    userName: 'Email',
     label: 'Email',
     value: 'example@test.com',
+    inputId: 'email',
     type: 'text',
     description: 'This is your email address',
   },
   {
-    name: 'uploadFile',
+    userName: 'uploadFile',
     label: 'Upload File',
     value: '',
+    inputId: 'file',
     type: 'file',
     description: 'Upload a file here',
   },

@@ -3,9 +3,16 @@ export interface IOptions {
   label: string
 }
 export interface IData {
-  name: string
+  userName: string
   label: string
   value: string
+  inputId: string 
   type?: string
   description: string
+}
+
+export interface IUser{
+  username: string
+  Password: string
+  Email: string
 }
