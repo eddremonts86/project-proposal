@@ -17,6 +17,7 @@ import {
   SortingState,
   useReactTable,
   VisibilityState,
+  Table,
 } from '@tanstack/react-table'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils/dates'
@@ -36,8 +37,8 @@ const getColumns = (headers: THeaders[]) => {
   return headers.map((subHeader: THeaders) => {
     if (subHeader.type === 'select') {
       return {
-        id: 'select',
-        header: ({ table }) => (
+        id: subHeader.id,
+        header: ({ table }: { table: Table<unknown> }) => (
           <Checkbox
             checked={
               table.getIsAllPageRowsSelected() ||
@@ -62,7 +63,7 @@ const getColumns = (headers: THeaders[]) => {
     }
     if (subHeader.type === 'actions') {
       return {
-        id: 'actions',
+        id: subHeader.id,
         enableHiding: false,
         cell: ({ row }) => {
           return (
