@@ -1,14 +1,14 @@
 import FlexContainer from '@/components/containers/FlexContainer'
-import useTable from '@/components/globals/Table/hooks/useTable'
-import { tableExampleData } from './const/tableExampleData'
 import {
   Table,
   TableColumnsFilter,
   TableFilters,
 } from '@/components/globals/Table'
+import useTable from '@/components/globals/Table/hooks/useTable'
+import { tableExampleData } from './const/tableExampleData'
 
 export default function TablePage() {
-  const { headers, data, config } = tableExampleData
+  const { headers, data, config, filters } = tableExampleData
   const { table, tHeaders, tColumns } = useTable({
     config,
     headers,
@@ -18,11 +18,16 @@ export default function TablePage() {
   return (
     <FlexContainer className="sm:flex-col">
       <div className="flex flex-col items-start justify-start gap-2 py-5 md:flex-row md:items-center md:justify-between">
-        <TableFilters
-          table={table}
-          filterKey={'Name'}
-          placeholder="Filter by name"
-        />
+        <div className="flex gap-3">
+          {filters.map((item) => (
+            <TableFilters
+              table={table}
+              filterKey={item.key}
+              key={item.key}
+              placeholder={item.placeholder}
+            />
+          ))}
+        </div>
         <TableColumnsFilter table={table} />
       </div>
       <Table
