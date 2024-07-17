@@ -1,14 +1,13 @@
 import React from 'react'
 import {
   Control,
-  FieldError,
   FieldValues,
   useController,
 } from 'react-hook-form'
-import { InputChangeEvent } from '../../../../../types'
 import { Input } from '../../../../ui/input'
 import { Label } from '../../../../ui/label'
 import { IData } from '../../types'
+import { InputChangeEvent } from '../../../../../types/forms'
 
 interface TextInputProps {
   name: string

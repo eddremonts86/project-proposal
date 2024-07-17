@@ -1,3 +1,5 @@
+import { Control, FieldValues, useController } from 'react-hook-form'
+import { IData, IOptions } from '../../types'
 import {
   Select,
   SelectContent,
@@ -6,10 +8,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { InputChangeEvent } from '@/types/forms'
-import { Control, FieldValues, useController } from 'react-hook-form'
-import { IData, IOptions } from '../../types'
+} from '../../../../ui/select'
+import { useEffect, useState } from 'react'
+import { Label } from '../../../../ui/label'
 
 interface SelectProps {
   item: IData
@@ -18,38 +19,47 @@ interface SelectProps {
 
 export default function SelectBtn({ item, control }: Readonly<SelectProps>) {
   const {
-    field: { onChange },
+    field: { onChange, value },
   } = useController({
     name: item.name,
     defaultValue: item.value,
     control,
   })
+  const [selectedValue, setSelectedValue] = useState(value);
 
-  const handleInputChange = (value: string) => {
-    console.log(value)
-    onChange(value)
-  }
+  // Effect to update the local state when the value changes externally
+  useEffect(() => {
+    setSelectedValue(value);
+  }, [value]);
+
+  const handleInputChange = (newValue: string) => {
+    setSelectedValue(newValue); // Update local state
+    onChange(newValue); // Notify react-hook-form of the change
+  };
+
 
   return (
-    <Select>
+    <div className="p-4">
+    <Select onValueChange={handleInputChange} value={selectedValue}>
+      <Label>{item.description}</Label>
+
       <SelectTrigger>
         <SelectValue placeholder={item.label} />
       </SelectTrigger>
       <SelectContent className="cursor-pointer border-0 px-3 py-1 capitalize hover:bg-gray-100 hover:text-gray-900">
+      
         <SelectGroup>
-          {item.description && <SelectLabel>{item.description}</SelectLabel>}
+          <SelectLabel>{item.label}</SelectLabel>
+         
           {item.items?.length &&
             item.items.map((option: IOptions) => (
-              <SelectItem
-                key={option.value}
-                value={option.value}
-                onClick={() => handleInputChange(option.value)}
-              >
+              <SelectItem value={option.value} key={option.value}>
                 {option.label}
               </SelectItem>
             ))}
         </SelectGroup>
       </SelectContent>
     </Select>
+    </div>
   )
 }
