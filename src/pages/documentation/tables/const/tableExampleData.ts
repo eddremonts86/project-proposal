@@ -625,8 +625,28 @@ export const data = [
   },
 ]
 
+export const filters = [
+  {
+    key: 'Name',
+    placeholder: 'Filter by name',
+  },
+  {
+    key: 'WidgetId',
+    placeholder: 'Filter by widgetId',
+  },
+  {
+    key: 'WidgetType',
+    placeholder: 'Filter by widgetType',
+  },
+  {
+    key: 'CreationDate',
+    placeholder: 'Filter by Creation date',
+  },
+]
+
 export const tableExampleData = {
   headers,
   data,
   config,
+  filters,
 }
