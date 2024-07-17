@@ -5,26 +5,22 @@ import {
   CommonBtn,
   DateInput,
   RadioInput,
-  SelectBtn,
 } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
 import { useState } from 'react'
-import { FieldValues, useForm } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form'
 import { inputsExample } from './const/input'
 
 export default function FormsPage() {
   const [showValues, setShowValues] = useState(false)
   const { onSubmit, formValues } = useForms()
-  const selectItem = inputsExample.filter((item) => item.type === 'select')[0]
-  const { control } = useForm<FieldValues>()
-
+ 
   return (
     <FlexContainer className="gap-3">
       <div className="flex flex-col flex-wrap justify-around gap-2 border p-6">
         <h2 className="text-xl">Inputs list </h2>
         <RadioInput />
         <CheckBoxInput />
-        <SelectBtn item={selectItem} control={control} />
         <DateInput placeholder="Date" />
         <div className="flex justify-between gap-2">
           <CommonBtn
