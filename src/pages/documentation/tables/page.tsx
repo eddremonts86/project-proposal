@@ -1,11 +1,11 @@
 import FlexContainer from '@/components/containers/FlexContainer'
+import useTable from '@/components/globals/Table/hooks/useTable'
+import { tableExampleData } from './const/tableExampleData'
 import {
   Table,
   TableColumnsFilter,
   TableFilters,
 } from '@/components/globals/Table'
-import useTable from '@/components/globals/Table/hooks/useTable'
-import { tableExampleData } from './const/tableExampleData'
 
 export default function TablePage() {
   const { headers, data, config } = tableExampleData
