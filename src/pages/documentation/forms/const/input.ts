@@ -5,11 +5,11 @@ import {
 } from '../../../../components/globals/form/types'
 
 export const selectOptions: IOptions[] = [
-  { value: '1', label: '32' },
-  { value: '2', label: '36' },
-  { value: '3', label: '40' },
-  { value: '4', label: '42' },
-  { value: '5', label: '44' },
+  { value: '32', label: '32' },
+  { value: '36', label: '36' },
+  { value: '40', label: '40' },
+  { value: '42', label: '42' },
+  { value: '44', label: '44' },
 ]
 
 export const inputsExample: IData[] = [
@@ -46,11 +46,12 @@ export const inputsExample: IData[] = [
     description: 'Upload a file here',
   },
   {
-    name: 'List of sizes',
+    name: 'listSizes',
     label: 'Sizes',
     value: null,
-    inputId: 'file',
+    inputId: 'listSizes',
     type: InputsTypes.select,
     items: selectOptions,
+    description: 'Select your size',
   },
 ]

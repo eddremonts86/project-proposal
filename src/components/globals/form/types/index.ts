@@ -12,11 +12,11 @@ export interface IData {
   items?: IOptions[]
 }
 
-export interface IUser{
-  username: string
-  Password: string
-  Email: string
-}
+// export interface IUser{
+//   username: string
+//   Password: string
+//   Email: string
+// }
 
 export enum InputsTypes {
   text= 'text',
