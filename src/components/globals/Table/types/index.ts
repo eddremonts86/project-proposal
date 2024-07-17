@@ -41,8 +41,10 @@ export interface THeaders {
   accessor: string
   style: string
   type: string
+  title: string
+  items: TData[]
 }
 
 export interface TData {
-  [key: string]: string | number | boolean
+  [key: string]: string | number | boolean | Date | ((arg0: TData) => void)
 }

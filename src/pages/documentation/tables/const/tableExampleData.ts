@@ -1,3 +1,18 @@
+interface IWidgetData {
+  Id: number
+  WidgetId: string
+  Name: string
+  WidgetType: number
+  DataSource: string
+  FilterId: number
+  DefaultOptions: string
+  IsDefault: number
+  CreationUser: number
+  CreationDate: string
+  ModificationUser: number
+  ModificationDate: string
+}
+
 export const config = {
   footer: true,
   manual: true,
@@ -54,6 +69,7 @@ export const headers = [
     name: 'Name',
     accessor: 'Name',
     style: {},
+    type: 'sortable',
   },
   {
     width: 110,
@@ -66,6 +82,7 @@ export const headers = [
     id: 'WidgetType',
     name: 'Widget Type',
     accessor: 'WidgetType',
+    type: 'sortable',
     style: {},
   },
   {
@@ -79,6 +96,7 @@ export const headers = [
     id: 'CreationDate',
     name: 'Creation date',
     style: {},
+    type: 'date',
   },
   {
     Header: '',
@@ -86,6 +104,25 @@ export const headers = [
     name: 'Actions',
     sortable: false,
     resizable: false,
+    type: 'actions',
+    title: 'Actions',
+    items: [
+      {
+        type: 'separator',
+        id: 'separator',
+        action: () => console.log('separator'),
+      },
+      {
+        id: 'edit',
+        label: 'Edit',
+        action: (row: IWidgetData) => console.log(row),
+      },
+      {
+        id: 'delete',
+        label: 'Delete',
+        action: (row: IWidgetData) => console.log(row),
+      },
+    ],
   },
 ]
 
