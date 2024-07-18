@@ -1,3 +1,4 @@
+import { ReloadIcon } from '@radix-ui/react-icons'
 import { FieldValues } from 'react-hook-form'
 
 import { cn } from '@/lib/utils'
@@ -10,7 +11,7 @@ interface Props {
   children?: React.ReactNode
   icon?: string
   className?: string
-  loading: boolean
+  loading?: boolean
 }
 
 const CommonBtn = ({
@@ -19,9 +20,11 @@ const CommonBtn = ({
   text,
   children,
   icon,
+  loading,
   className,
 }: Props) => {
   return (
+
     <Button
       onClick={(data: FieldValues) => onSubmit(data)}
       type={type}
@@ -31,8 +34,9 @@ const CommonBtn = ({
         { children }
       ) : (
         <div className="flex items-center justify-center">
-          {icon && <span className={cn('mdi mx-2', icon)} />}
-          {text}
+          {loading && <ReloadIcon className="animate-spin" />}
+          {icon && !loading && <span className={cn('mdi', icon)} />}
+          <span className="mx-2">{text}</span>
         </div>
       )}
     </Button>

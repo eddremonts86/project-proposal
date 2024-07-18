@@ -7,22 +7,21 @@ export interface IData {
   type: InputsTypes
   name: string
   label: string
-  value?: string | null | number | unknown[]
+  value?: string | null | number | boolean | unknown[]
   description?: string
   items?: IOptions[]
+  rules?: Record<string, unknown>
 }
-
-// export interface IUser{
-//   username: string
-//   Password: string
-//   Email: string
-// }
 
 export enum InputsTypes {
   text = 'text',
+  password = 'password',
+  email = 'email',
   select = 'select',
   file = 'file',
   radio = 'radio',
   checkbox = 'checkbox',
   textarea = 'textarea',
+  date = 'date',
+  toggel = 'toggel',
 }

@@ -1,75 +1,42 @@
-import { useState } from 'react'
 import { FieldValues } from 'react-hook-form'
 
 import FlexContainer from '@/components/containers/FlexContainer'
 import { FormContent } from '@/components/globals/form'
-import {
-  CheckBoxInput,
-  CommonBtn,
-  DateInput,
-  RadioInput,
-} from '@/components/globals/form/components/base'
+import { CommonBtn } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
 
 import { inputsExample } from './const/input'
 
 export default function FormsPage() {
-  const [showValues, setShowValues] = useState(false)
   const { onSubmit, formValues } = useForms()
-
   return (
     <FlexContainer className="gap-3">
-      <div className="flex flex-col flex-wrap justify-around gap-2 border p-6">
-        <h2 className="text-xl">Inputs list </h2>
-        <RadioInput />
-        <CheckBoxInput />
-        <DateInput placeholder="Date" />
-        <div className="flex justify-between gap-2">
-          <CommonBtn
-            type="submit"
-            text="Submit"
-            className="w-full max-w-52"
-            loading={true}
-            icon="mdi-account-heart text-red-400 text-2xl"
-            onSubmit={onSubmit}
-          />
-          <CommonBtn
-            type="submit"
-            text="Sending..."
-            className="w-full max-w-52"
-            loading={true}
-            icon="mdi-loading infinite"
-            onSubmit={onSubmit}
-          />
-        </div>
-      </div>
       <FlexContainer className="sm:flex-col">
         <FormContent
-          onSubmit={(values: FieldValues) => onSubmit(values)}
+          onChange={(values: FieldValues) => {
+            onSubmit(values)
+          }}
+          onSubmit={(values: FieldValues) => {
+            onSubmit(values)
+          }}
           inputs={inputsExample}
         />
-        <div className="flex justify-around p-6">
-          <CommonBtn
-            type="submit"
-            loading={false}
-            text="Submit"
-            onSubmit={() => setShowValues(true)}
-          />
-          <CommonBtn
-            onSubmit={() => setShowValues(false)}
-            loading={false}
-            type="button"
-            text="Cancel"
-          />
+        <div className="mt-6 flex items-center justify-end gap-2">
+          <CommonBtn type="button" text="loading..." loading={true} />
+          <CommonBtn type="submit" text="Submit" icon="mdi-send-variant" />
+          <CommonBtn type="button" text="Cancel" icon="mdi-close-thick" />
         </div>
       </FlexContainer>
       <FlexContainer className="flex justify-start p-6">
-        {showValues && formValues && (
+        {formValues && (
           <div className="flex flex-col space-y-2">
             {Object.keys(formValues).map((key) => {
               return (
                 <p key={`${key}_id`}>
-                  {key}: {formValues[key]}
+                  {key}:{' '}
+                  {key === 'dateInput'
+                    ? `${key}: ${formValues[key]?.from} - ${formValues[key]?.to}`
+                    : formValues[key]?.toString()}
                 </p>
               )
             })}

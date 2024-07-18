@@ -1,5 +1,7 @@
+/*
 import { useState } from 'react'
 import { Calendar as CalendarIcon } from 'lucide-react'
+import { Control, FieldValues, useController } from 'react-hook-form'
 
 import { cn } from '@/lib/utils'
 import { formatDate } from '@/lib/utils/dates'
@@ -11,37 +13,45 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 
-interface DateInputProps {
-  placeholder: string
+interface DatePickerComponentProps {
+  name: string
+  label: string
+  control: Control<FieldValues>
 }
 
-export default function DateInput({
-  placeholder = 'Pick a date',
-}: Readonly<DateInputProps>) {
-  const [date, setDate] = useState<Date>()
+const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
+  name,
+  label,
+  control,
+}) => {
+  const {
+    field: { onChange, value },
+  } = useController({
+    name: name,
+    control,
+    defaultValue: new Date(),
+  })
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant={'outline'}
-          className={cn(
-            'justify-start text-left font-normal',
-            !date && 'text-muted-foreground'
-          )}
-        >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? formatDate(date, 'PPP') : <span>{placeholder}</span>}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          initialFocus
-        />
-      </PopoverContent>
-    </Popover>
+    <div>
+      <label>{label}</label>
+      <Controller
+        name={name}
+        control={control}
+        render={() => (
+          <DatePicker
+            selected={value}
+            onChange={(date) => onChange(date)}
+            className="rounded-md border border-gray-300 p-2"
+            // Add any additional props here, like dateFormat, minDate, etc.
+          />
+        )}
+      />
+    </div>
   )
+}
+*/
+
+export default function DatePickerComponent() {
+  return <div>Date Picker Component</div>
 }

@@ -1,24 +1,26 @@
-import React from 'react'
 import { Control, FieldValues, useController } from 'react-hook-form'
 
-import { Checkbox } from '@/components/ui/checkbox'
 import { FormItem, FormLabel } from '@/components/ui/form'
 
-interface CheckboxProps {
+import { Switch } from '../../../../ui/switch'
+
+interface ToggelProps {
   control: Control<FieldValues>
   name: string
   label: string
   defaultValue?: boolean
+  description?: string
 }
 
-const CheckBoxInput: React.FC<CheckboxProps> = ({
+export function ToggleInput({
   control,
   name,
   label,
   defaultValue,
-}) => {
+  description,
+}: Readonly<ToggelProps>) {
   const {
-    field: { onChange, value, ref },
+    field: { onChange, value },
   } = useController({
     name,
     control,
@@ -27,21 +29,16 @@ const CheckBoxInput: React.FC<CheckboxProps> = ({
 
   return (
     <FormItem className="flex items-center space-x-2">
-      <Checkbox
-        id={name}
+      <Switch
         checked={value}
         onCheckedChange={onChange}
-        ref={ref}
+        id={name}
         className="mt-2"
       />
-      <FormLabel
-        htmlFor={name}
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        {label}
+      <FormLabel className="grid" htmlFor={name}>
+        <span className="capitalize">{label}</span>
+        <small> {description}</small>
       </FormLabel>
     </FormItem>
   )
 }
-
-export default CheckBoxInput
