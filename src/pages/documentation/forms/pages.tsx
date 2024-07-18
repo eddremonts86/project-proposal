@@ -14,7 +14,7 @@ import { inputsExample } from './const/input'
 export default function FormsPage() {
   const [showValues, setShowValues] = useState(false)
   const { onSubmit, formValues } = useForms()
- 
+
   return (
     <FlexContainer className="gap-3">
       <div className="flex flex-col flex-wrap justify-around gap-2 border p-6">
@@ -61,7 +61,7 @@ export default function FormsPage() {
           />
         </div>
       </FlexContainer>
-      <div className="flex justify-around p-6">
+      <FlexContainer className="flex justify-start p-6">
         {showValues && formValues && (
           <div className="flex flex-col space-y-2">
             {Object.keys(formValues).map((key) => {
@@ -73,7 +73,7 @@ export default function FormsPage() {
             })}
           </div>
         )}
-      </div>
+      </FlexContainer>
     </FlexContainer>
   )
 }
