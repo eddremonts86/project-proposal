@@ -10,11 +10,6 @@ interface FormProps {
 const FormContent = ({ onSubmit, inputs }: FormProps) => {
 
   const { handleSubmit, control } = useForm<FieldValues>()
-
-  // const onChange = (value: string) => {
-  //   console.log('select clicked', value)
-  // }
-
   const allInputs = inputs.map((item: IData) => {
     if (item.type === InputsTypes.text) {
       return (
