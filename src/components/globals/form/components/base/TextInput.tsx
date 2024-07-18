@@ -1,10 +1,12 @@
 import React from 'react'
 import { Control, FieldValues, useController } from 'react-hook-form'
 
+import { FormDescription, FormItem, FormLabel } from '@/components/ui/form'
+
 import { InputChangeEvent } from '../../../../../types/forms'
 import { Input } from '../../../../ui/input'
-import { Label } from '../../../../ui/label'
 import { IData } from '../../types'
+import Errormessage from './ErrorMessage'
 
 interface TextInputProps {
   name: string
@@ -14,7 +16,7 @@ interface TextInputProps {
   type: string | undefined
   description: string
   placeholder: string
-  defaultValue?: string
+  defaultValue?: string | null | number | boolean | unknown[]
 }
 
 const TextInput: React.FC<TextInputProps & IData> = ({
@@ -24,34 +26,32 @@ const TextInput: React.FC<TextInputProps & IData> = ({
   label,
   type,
   defaultValue,
+  placeholder,
+  description,
 }) => {
   const {
-    field: { onChange, onBlur, value, ref },
-    fieldState: { error },
+    field: { onChange, value, onBlur },
+    fieldState: { error, isTouched },
   } = useController({
     name,
     control,
     rules,
-    defaultValue,
+    defaultValue: defaultValue || '',
   })
 
-  const handleInputChange = (value: string) => {
-    onChange(value)
-  }
-
   return (
-    <div className="p-4">
-      <Label>{label}</Label>
+    <FormItem>
+      <FormLabel className="mb-0 pb-0 capitalize">{label} </FormLabel>
       <Input
-        onChange={(e: InputChangeEvent) => handleInputChange(e.target.value)}
-        onBlur={onBlur}
-        value={value}
-        ref={ref}
-        placeholder={label}
+        onChange={(e: InputChangeEvent) => onChange(e.target.value)}
+        defaultValue={value}
+        placeholder={placeholder}
         type={type}
+        onBlur={onBlur}
       />
-      {error && <span>{error.message}</span>}
-    </div>
+      <FormDescription className="mt-0 pt-0">{description}</FormDescription>
+      {isTouched && error?.message && <Errormessage message={error.message} />}
+    </FormItem>
   )
 }
 

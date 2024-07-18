@@ -12,7 +12,7 @@
     "format:check": "prettier -c .",
     "format:fix": "prettier -w -u .",
     "pre-commit": "npx lint-staged",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && npx eslint . --ext ts,tsx --fix",
+    "lint": "prettier -w -u . && npx eslint . --ext ts,tsx --fix",
     "prepare": "husky",
     "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg"
   },
@@ -28,6 +28,8 @@
     "@radix-ui/react-radio-group": "^1.2.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
+    "@radix-ui/react-toggle": "^1.1.0",
     "@tanstack/react-query": "^5.50.1",
     "@tanstack/react-query-devtools": "^5.51.9",
     "@tanstack/react-router": "^1.43.15",
@@ -41,6 +43,7 @@
     "lucide-react": "^0.407.0",
     "pretty-quick": "^4.0.0",
     "react": "^18.3.1",
+    "react-datepicker": "^7.3.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.1",
@@ -83,10 +86,11 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
+    "*": "prettier -w -u",
     "*.{ts,tsx,jsx}": [
-      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix"
-    ],
-    "*": "prettier -w -u"
+      "npx eslint . --ext ts,tsx --fix",
+      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    ]
   },
   "engines": {
     "node": "20.x"

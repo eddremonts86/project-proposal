@@ -1,65 +1,35 @@
-import { FieldValues, useForm } from 'react-hook-form'
+import { FieldValues, FormProvider, useForm } from 'react-hook-form'
 
-import { IData, InputsTypes } from '../types'
-import { RadioInput, SelectBtn, TextInput } from './base'
+import useInputsFields from '../hooks/useInputsFields'
+import { IData } from '../types'
 
 interface FormProps {
   onSubmit: (values: FieldValues) => void
+  onChange: (values: FieldValues) => void
   inputs: IData[]
 }
 
-const FormContent = ({ onSubmit, inputs }: FormProps) => {
-  const { handleSubmit, control } = useForm<FieldValues>()
-  const allInputs = inputs.map((item: IData) => {
-    if (item.type === InputsTypes.text) {
-      return (
-        <TextInput
-          key={item.inputId}
-          name={item.name}
-          label={item.label}
-          value={item.value || ''}
-          description={item.description || ''}
-          control={control}
-          type={item.type}
-          placeholder={item.label}
-          inputId={item.inputId}
-        />
-      )
-    }
-    if (item.type === InputsTypes.file) {
-      return (
-        <TextInput
-          inputId={item.inputId}
-          key={item.inputId}
-          name={item.inputId}
-          label={item.label}
-          defaultValue={item.value?.toString() || ''}
-          description={item.description || ''}
-          control={control}
-          type={item.type}
-          placeholder={item.label}
-        />
-      )
-    }
+const FormContent = ({ onSubmit, onChange, inputs }: FormProps) => {
+  const { handleSubmit, control } = useForm()
 
-    if (item.type === InputsTypes.select) {
-      return <SelectBtn item={item} control={control} key={item.inputId} />
-    }
-    if (item.type === InputsTypes.radio) {
-      return <RadioInput />
-    }
-    if (item.type === InputsTypes.checkbox) {
-      return
-    }
-    if (item.type === InputsTypes.textarea) {
-      return
-    }
-  })
+  const methods = useForm()
+
+  const formInputs = useInputsFields(inputs, control)
 
   return (
-    <form onChange={handleSubmit((values: FieldValues) => onSubmit(values))}>
-      <div>{allInputs}</div>
-    </form>
+    <FormProvider {...methods}>
+      <form
+        className="flex flex-col gap-4"
+        onChange={handleSubmit((values: FieldValues) => {
+          onChange(values)
+        })}
+        onSubmit={handleSubmit((values: FieldValues) => {
+          onSubmit(values)
+        })}
+      >
+        {formInputs}
+      </form>
+    </FormProvider>
   )
 }
 

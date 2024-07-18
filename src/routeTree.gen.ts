@@ -13,16 +13,16 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
 import { Route as DocumentationIndexImport } from './routes/documentation/index'
+import { Route as IndexImport } from './routes/index'
 
 // Create Virtual Routes
 
 const DocumentationTablesIndexLazyImport = createFileRoute(
-  '/documentation/tables/',
+  '/documentation/tables/'
 )()
 const DocumentationFormsIndexLazyImport = createFileRoute(
-  '/documentation/forms/',
+  '/documentation/forms/'
 )()
 
 // Create/Update Routes
@@ -42,7 +42,7 @@ const DocumentationTablesIndexLazyRoute =
     path: '/documentation/tables/',
     getParentRoute: () => rootRoute,
   } as any).lazy(() =>
-    import('./routes/documentation/tables/index.lazy').then((d) => d.Route),
+    import('./routes/documentation/tables/index.lazy').then((d) => d.Route)
   )
 
 const DocumentationFormsIndexLazyRoute =
@@ -50,7 +50,7 @@ const DocumentationFormsIndexLazyRoute =
     path: '/documentation/forms/',
     getParentRoute: () => rootRoute,
   } as any).lazy(() =>
-    import('./routes/documentation/forms/index.lazy').then((d) => d.Route),
+    import('./routes/documentation/forms/index.lazy').then((d) => d.Route)
   )
 
 // Populate the FileRoutesByPath interface

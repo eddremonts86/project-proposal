@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
 import { routeTree } from './routeTree.gen'
 
 const router = createRouter({ routeTree })
@@ -25,7 +23,6 @@ if (!rootElement.innerHTML) {
     <StrictMode>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </StrictMode>
   )
