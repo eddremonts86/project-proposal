@@ -19,7 +19,7 @@ export default function TableContextProvider({
 }>) {
   const [data, setData] = useState(null)
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
   const handleChangePage = useCallback(
     (value: number | null) => {
       if (value) {

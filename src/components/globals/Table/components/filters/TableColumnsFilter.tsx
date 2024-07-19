@@ -1,19 +1,15 @@
-/**
- * A component that renders a dropdown menu for filtering table columns.
- * @param {Readonly<TableColumnsFilterProps>} props - The component props.
- * @returns {JSX.Element} - The rendered component.
- */
+import { MixerHorizontalIcon } from '@radix-ui/react-icons'
+import { Table } from '@tanstack/react-table'
 
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@radix-ui/react-dropdown-menu'
-import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons'
-import { Table } from '@tanstack/react-table'
-
-import { Button } from '@/components/ui/button'
+} from '@/components/ui/dropdown-menu'
 
 /**
  * Props for the TableColumnsFilter component.
@@ -21,6 +17,13 @@ import { Button } from '@/components/ui/button'
 interface TableColumnsFilterProps {
   table: Table<unknown>
 }
+
+/**
+ * Renders a dropdown menu for toggling table columns visibility.
+ *
+ * @param {Readonly<TableColumnsFilterProps>} props - The component props.
+ * @returns {JSX.Element} The rendered component.
+ */
 export default function TableColumnsFilter({
   table,
 }: Readonly<TableColumnsFilterProps>) {
@@ -32,27 +35,24 @@ export default function TableColumnsFilter({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="ml-auto">
-          Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+        <Button className="ml-auto" variant="outline">
+          <MixerHorizontalIcon className="mr-2 h-4 w-4" /> View
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="z-50 w-auto max-w-96 bg-white p-2 shadow-lg">
+      <DropdownMenuContent className="z-50 w-56">
+        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+        <DropdownMenuSeparator />
         {columns.map((column) => {
           return (
             <DropdownMenuCheckboxItem
               key={column.id}
-              className="cursor-pointer border-0 px-3 py-1 capitalize hover:bg-gray-100 hover:text-gray-900"
+              className="cursor-pointer capitalize"
               checked={column.getIsVisible()}
-              onCheckedChange={(value) => column.toggleVisibility(!!value)}
+              onCheckedChange={(value: boolean) =>
+                column.toggleVisibility(!!value)
+              }
             >
-              <div className="flex items-center justify-start">
-                {column.getIsVisible() ? (
-                  <CheckIcon className="mr-2 h-4 w-4" />
-                ) : (
-                  <div className="mr-2 h-4 w-4" />
-                )}
-                {column.id}
-              </div>
+              <div className="flex items-center justify-start">{column.id}</div>
             </DropdownMenuCheckboxItem>
           )
         })}

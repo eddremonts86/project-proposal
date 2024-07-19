@@ -13,7 +13,7 @@ export default function FlexContainer({
   return (
     <section
       className={cn(
-        'flex h-full w-full flex-col rounded-xl border bg-gray-50 p-6 shadow-sm sm:flex-row',
+        'flex h-full w-full flex-col rounded-xl border p-6 sm:flex-row',
         className
       )}
     >

@@ -177,10 +177,10 @@ export const data = [
   {
     Id: 4,
     WidgetId: '4',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -239,10 +239,10 @@ export const data = [
   {
     Id: 8,
     WidgetId: '8',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -301,10 +301,10 @@ export const data = [
   {
     Id: 12,
     WidgetId: '12',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -363,10 +363,10 @@ export const data = [
   {
     Id: 17,
     WidgetId: '17',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -425,10 +425,10 @@ export const data = [
   {
     Id: 21,
     WidgetId: '21',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -487,10 +487,10 @@ export const data = [
   {
     Id: 26,
     WidgetId: '26',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -549,10 +549,10 @@ export const data = [
   {
     Id: 30,
     WidgetId: '30',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -611,10 +611,10 @@ export const data = [
   {
     Id: 34,
     WidgetId: '34',
-    Name: 'min fine widget med ukendt tæller og nævner',
+    Name: 'Min Fine Widget',
     WidgetType: 7,
     DataSource:
-      '{"View":"VwRAgentAgreementV01","Description":"min fine widget med ukendt tæller og nævner2","Filter2":244}',
+      '{"View":"VwRAgentAgreementV01","Description":"Min Fine Widget2","Filter2":244}',
     FilterId: 59,
     DefaultOptions: '{"Theme":"blue"}',
     IsDefault: 0,
@@ -643,10 +643,58 @@ export const filters = [
     placeholder: 'Filter by Creation date',
   },
 ]
+export const PokeFilters = [
+  {
+    key: 'name',
+    placeholder: 'Search by name',
+  },
+  {
+    key: 'url',
+    placeholder: 'Search by URL',
+  },
+]
+
+export const pokeHeaders = [
+  {
+    type: 'select',
+    id: 'select',
+    name: 'Select',
+  },
+  { id: 'name', label: 'Name', name: 'Poke name', type: 'sortable' },
+  { id: 'url', label: 'URL', name: 'Poke URL', type: 'sortable' },
+  {
+    Header: '',
+    id: 'grid-actions',
+    name: 'Actions',
+    sortable: false,
+    resizable: false,
+    type: 'actions',
+    title: 'Actions',
+    items: [
+      {
+        type: 'separator',
+        id: 'separator',
+        action: () => console.log('separator'),
+      },
+      {
+        id: 'edit',
+        label: 'Edit',
+        action: (row: IWidgetData) => console.log(row),
+      },
+      {
+        id: 'delete',
+        label: 'Delete',
+        action: (row: IWidgetData) => console.log(row),
+      },
+    ],
+  },
+]
 
 export const tableExampleData = {
   headers,
   data,
   config,
   filters,
+  PokeFilters,
+  pokeHeadersExample: pokeHeaders,
 }

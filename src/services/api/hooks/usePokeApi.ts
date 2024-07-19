@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getPokemonList } from '../entities/pokeApi'
 
 export default function usePokeApi() {
-  const [limit, setLimit] = useState(5)
+  const [limit, setLimit] = useState(10)
   const [offset, setOffset] = useState(0)
 
   const getPoke = useQuery({
@@ -13,6 +13,5 @@ export default function usePokeApi() {
       return await getPokemonList(limit, offset)
     },
   })
-  console.log(getPoke)
   return { getPoke, setLimit, setOffset }
 }

@@ -38,7 +38,6 @@ export default function TableFilters({
     () => table.getColumn(String(filterKey)),
     [table, filterKey]
   )
-  const defClass = `bottom-0 w-full border-white rounded-md shadow-sm focus:rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm `
   const [value, setValue] = useState('')
   const debouncedSearchTerm = useDebounce(value, 300)
   useEffect(() => {
@@ -51,7 +50,7 @@ export default function TableFilters({
     <div className="w-full flex-col">
       <Input
         placeholder={placeholder}
-        className={cn(defClass, className)}
+        className={cn('', className)}
         value={value}
         onChange={(event: InputChangeEvent) => setValue(event.target.value)}
       />

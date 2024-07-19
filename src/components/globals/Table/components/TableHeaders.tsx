@@ -1,36 +1,46 @@
 import type { HeaderGroup } from '@tanstack/react-table'
 
+import { cn } from '@/lib/utils'
+import { TableHead, TableRow } from '@/components/ui/table'
+
 import { getHeaderContent } from '../utils/table'
 
 interface TableHeadersProps {
   headers: HeaderGroup<unknown>[]
-  className?: string
+  trClassName?: string
+  thClassName?: string
 }
 /**
  * Renders the table headers component.
  *
  * @param headers - An array of header objects.
+ * @param trClassName - Additional CSS class name for the table content.
+ * @param thClassName - Additional CSS class name for the table content.
  * @returns The rendered table headers.
  */
-export default function TableHeaders({ headers }: Readonly<TableHeadersProps>) {
+
+export default function TableHeaders({
+  headers,
+  trClassName,
+  thClassName = 'text-left',
+}: Readonly<TableHeadersProps>) {
   return (
     <>
       {headers.map((header) => (
-        <tr key={`table_header_tr_${header.id}`}>
+        <TableRow key={`table_header_tr_${header.id}`} className={trClassName}>
           {header.headers.map((subHeader) => {
             return (
-              <th
-                className="w-10 border p-3 text-left"
+              <TableHead
+                className={cn('px-3 py-1', thClassName)}
                 key={`header_th_${subHeader.id}`}
-                colSpan={subHeader.colSpan || 1}
-                rowSpan={subHeader.rowSpan || 1}
-                style={{ width: subHeader.getSize(), ...subHeader.style }}
+                colSpan={subHeader.colSpan}
+                rowSpan={subHeader.rowSpan}
               >
                 <span>{getHeaderContent(subHeader)}</span>
-              </th>
+              </TableHead>
             )
           })}
-        </tr>
+        </TableRow>
       ))}
     </>
   )

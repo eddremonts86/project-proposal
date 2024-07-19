@@ -42,6 +42,7 @@ const getColumns = (headers: THeaders[]) => {
         id: subHeader.id,
         header: ({ table }: { table: Table<unknown> }) => (
           <Checkbox
+            className="m-0 h-4 w-4"
             checked={
               table.getIsAllPageRowsSelected() ||
               (table.getIsSomePageRowsSelected() && 'indeterminate')
@@ -54,13 +55,14 @@ const getColumns = (headers: THeaders[]) => {
         ),
         cell: ({ row }) => (
           <Checkbox
+            className="m-0 h-4 w-4"
             checked={row.getIsSelected()}
             onCheckedChange={(value: boolean) => row.toggleSelected(!!value)}
             aria-label="Select row"
           />
         ),
         enableSorting: false,
-        enableHiding: false,
+        enableHiding: true,
       }
     }
     if (subHeader.type === 'actions') {
@@ -71,7 +73,7 @@ const getColumns = (headers: THeaders[]) => {
           return (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="h-8 w-8 p-0">
+                <Button variant="ghost" className="m-0 h-8 w-8 p-0">
                   <span className="sr-only">Open menu</span>
                   <MoreHorizontal className="h-4 w-4" />
                 </Button>
@@ -112,15 +114,17 @@ const getColumns = (headers: THeaders[]) => {
         id: subHeader.id || subHeader.name,
         header: ({ column }) => {
           return (
-            <Button
-              variant="ghost"
-              onClick={() =>
-                column.toggleSorting(column.getIsSorted() === 'asc')
-              }
-            >
+            <div className="flex items-center justify-start gap-1">
               {subHeader.name ?? subHeader.id}
-              <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
+              <Button
+                variant="ghost"
+                onClick={() =>
+                  column.toggleSorting(column.getIsSorted() === 'asc')
+                }
+              >
+                <ArrowUpDown className="m-0 h-4 w-4 p-0" />
+              </Button>
+            </div>
           )
         },
 

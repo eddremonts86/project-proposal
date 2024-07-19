@@ -1,40 +1,66 @@
 import { HeaderGroup, Table as TableType } from '@tanstack/react-table'
 
+import { cn } from '@/lib/utils'
 import { Table as CnTable, TableBody, TableHeader } from '@/components/ui/table'
 
 import TableContextProvider from '../providers/TableProvider'
+import TablePagination from './actions/TablePagination'
+import TableRowsPages from './actions/TableRowsPages'
+import TableSelectedRows from './actions/TableSelectedRows'
 import Content from './TableContent'
-import Footer from './TableFooter'
+import TableFooter from './TableFooter'
 import Headers from './TableHeaders'
 
 interface TableProps {
   tHeaders: HeaderGroup<unknown>[]
   tColumns: number
   footer: boolean
+  pagination: boolean
   loading: boolean
   className?: string
   table: TableType<unknown>
+  children?: React.ReactNode
 }
 export default function Table({
   table,
   tHeaders,
   tColumns,
-  footer,
+  pagination,
   loading,
   className,
+  children,
 }: Readonly<TableProps>) {
   return (
     <>
       <TableContextProvider>
-        <CnTable className={className}>
-          <TableHeader>
-            <Headers headers={tHeaders} />
-          </TableHeader>
-          <TableBody>
-            <Content table={table} loading={loading} headersLength={tColumns} />
-            {footer && <Footer colSpan={tColumns} table={table} />}
-          </TableBody>
-        </CnTable>
+        <div className="rounded-md border">
+          <div className="relative w-full overflow-auto">
+            <CnTable className={cn('w-full caption-bottom text-sm', className)}>
+              <TableHeader>
+                <Headers headers={tHeaders} />
+              </TableHeader>
+              <TableBody>
+                <Content
+                  table={table}
+                  loading={loading}
+                  headersLength={tColumns}
+                />
+              </TableBody>
+              {children && (
+                <TableFooter headersLength={tColumns}>{children}</TableFooter>
+              )}
+            </CnTable>
+          </div>
+        </div>
+        <div className="flex w-full items-center justify-between ">
+          <div className="p-3">
+            <TableSelectedRows table={table} className="p-3" />
+          </div>
+          <div className="flex items-center">
+            <TableRowsPages table={table} />
+            {pagination && <TablePagination table={table} className="p-3" />}
+          </div>
+        </div>
       </TableContextProvider>
     </>
   )

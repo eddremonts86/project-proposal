@@ -7,8 +7,9 @@ import useTable from '@/components/globals/Table/hooks/useTable'
 import { tableExampleData } from './const/tableExampleData'
 
 export default function TablePage() {
-  const { headers, data, config, filters } = tableExampleData
-  const { getPoke, setLimit } = usePokeApi()
+  const { headers, data, config, filters, PokeFilters, pokeHeadersExample } =
+    tableExampleData
+  const { getPoke } = usePokeApi()
   const { isLoading, data: list } = getPoke
 
   const { table, tHeaders, tColumns } = useTable({
@@ -16,43 +17,30 @@ export default function TablePage() {
     headers,
     data,
   })
+
   const {
     table: pokeTable,
     tHeaders: pokeHeaders,
     tColumns: pokeColumns,
   } = useTable({
     config: {},
-    headers: [
-      { id: 'name', label: 'Name', name: 'Poke name' },
-      { id: 'url', label: 'URL', name: 'Poke URL' },
-    ],
+    headers: pokeHeadersExample,
     data: list?.results ?? [],
   })
 
-  const update = () => {
-    setLimit(50)
-  }
-
   return (
-    <FlexContainer className="gap-2">
+    <>
       <FlexContainer className="mb-3 sm:flex-col">
-        <button
-          onClick={update}
-          className="mb-3 w-40 rounded-lg bg-red-500 px-6 py-2 text-white"
-        >
-          Para buscar mas
-        </button>
-        <h1 className="bold mb-3 text-xl">Testing Api call</h1>
+        <FiltersContainer table={pokeTable} filters={PokeFilters} />
         <Table
           className="w-full"
           table={pokeTable}
           tHeaders={pokeHeaders}
           tColumns={pokeColumns}
           loading={isLoading}
-          footer={true}
+          pagination={true}
         />
       </FlexContainer>
-
       <FlexContainer className="sm:flex-col">
         <FiltersContainer table={table} filters={filters} />
         <Table
@@ -60,9 +48,13 @@ export default function TablePage() {
           table={table}
           tHeaders={tHeaders}
           tColumns={tColumns}
-          footer={true}
-        />
+          pagination={true}
+        >
+          <div className="flex w-full items-center justify-center p-7">
+            <p>Some data in the footer</p>
+          </div>
+        </Table>
       </FlexContainer>
-    </FlexContainer>
+    </>
   )
 }
