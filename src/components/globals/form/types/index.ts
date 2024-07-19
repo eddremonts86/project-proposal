@@ -19,10 +19,10 @@ export interface IData {
 // }
 
 export enum InputsTypes {
-  text= 'text',
-  select= 'select',
-  file= 'file',
-  radio= 'radio',
-  checkbox= 'checkbox',
-  textarea= 'textarea',
+  text = 'text',
+  select = 'select',
+  file = 'file',
+  radio = 'radio',
+  checkbox = 'checkbox',
+  textarea = 'textarea',
 }

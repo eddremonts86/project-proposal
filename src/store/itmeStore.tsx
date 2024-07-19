@@ -1,4 +1,5 @@
 import useExampleItemStore, { ExampleItemStore } from './exampleItemStore'
+
 export default function Test() {
   const { count, inc, updateData } = useExampleItemStore(
     (state: ExampleItemStore) => ({

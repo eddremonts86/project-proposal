@@ -1,4 +1,5 @@
 import type { HeaderGroup } from '@tanstack/react-table'
+
 import { getHeaderContent } from '../utils/table'
 
 interface TableHeadersProps {

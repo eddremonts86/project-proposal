@@ -1,5 +1,6 @@
-import { Button } from '@/components/ui/button'
 import { Table } from '@tanstack/react-table'
+
+import { Button } from '@/components/ui/button'
 
 interface TablePaginationProps {
   table: Table<unknown>

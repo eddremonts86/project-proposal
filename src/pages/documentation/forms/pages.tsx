@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { FieldValues } from 'react-hook-form'
+
 import FlexContainer from '@/components/containers/FlexContainer'
 import { FormContent } from '@/components/globals/form'
 import {
@@ -7,8 +10,7 @@ import {
   RadioInput,
 } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
-import { useState } from 'react'
-import { FieldValues } from 'react-hook-form'
+
 import { inputsExample } from './const/input'
 
 export default function FormsPage() {

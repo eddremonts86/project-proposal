@@ -4,7 +4,6 @@
  * @returns {JSX.Element} - The rendered component.
  */
 
-import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -13,6 +12,8 @@ import {
 } from '@radix-ui/react-dropdown-menu'
 import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons'
 import { Table } from '@tanstack/react-table'
+
+import { Button } from '@/components/ui/button'
 
 /**
  * Props for the TableColumnsFilter component.

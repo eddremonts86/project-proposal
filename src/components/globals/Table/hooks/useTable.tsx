@@ -1,11 +1,4 @@
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { useState } from 'react'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -15,15 +8,24 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   SortingState,
+  Table,
   useReactTable,
   VisibilityState,
-  Table,
 } from '@tanstack/react-table'
-import { Button } from '@/components/ui/button'
-import { formatDate } from '@/lib/utils/dates'
-import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowUpDown, MoreHorizontal } from 'lucide-react'
-import { useState } from 'react'
+
+import { formatDate } from '@/lib/utils/dates'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+
 import { TConfig, TData, THeaders } from '../types'
 
 interface TableHooksProps {

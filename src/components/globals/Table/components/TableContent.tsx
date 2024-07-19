@@ -1,16 +1,18 @@
-import { cn } from '@/lib/utils';
-import { Table } from '@tanstack/react-table';
-import { getCellContent } from '../utils/table';
-import TableLoading from './TableLoading';
+import { Table } from '@tanstack/react-table'
+
+import { cn } from '@/lib/utils'
+
+import { getCellContent } from '../utils/table'
+import TableLoading from './TableLoading'
 
 /**
  * Props for the TableContent component.
  */
 interface TableContentProps {
-  loading: boolean;
-  table: Table<unknown>;
-  headersLength: number;
-  className?: string;
+  loading: boolean
+  table: Table<unknown>
+  headersLength: number
+  className?: string
 }
 
 /**
@@ -45,11 +47,11 @@ export default function TableContent({
                 >
                   <span>{getCellContent(cell)}</span>
                 </td>
-              );
+              )
             })}
           </tr>
         ))
       )}
     </>
-  );
+  )
 }

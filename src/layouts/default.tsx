@@ -1,5 +1,6 @@
-import { TopBar } from '@/features/TopBar'
 import { ReactNode } from 'react'
+import { TopBar } from '@/features/TopBar'
+
 interface DefaultLayoutProps {
   children: ReactNode
 }

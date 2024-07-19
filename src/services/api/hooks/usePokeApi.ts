@@ -1,6 +1,7 @@
-import { useQuery } from '@tanstack/react-query'
-import { getPokemonList } from '../entities/pokeApi'
 import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
+import { getPokemonList } from '../entities/pokeApi'
 
 export default function usePokeApi() {
   const [limit, setLimit] = useState(5)

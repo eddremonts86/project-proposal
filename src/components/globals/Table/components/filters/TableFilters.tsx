@@ -1,9 +1,10 @@
-import { Input } from '@/components/ui/input'
-import { cn } from '@/lib/utils'
-import { InputChangeEvent } from '@/types/forms'
+import { useEffect, useMemo, useState } from 'react'
 import { Table } from '@tanstack/react-table'
 import { useDebounce } from '@uidotdev/usehooks'
-import { useEffect, useMemo, useState } from 'react'
+
+import { InputChangeEvent } from '@/types/forms'
+import { cn } from '@/lib/utils'
+import { Input } from '@/components/ui/input'
 
 /**
  * Represents a component that provides filtering functionality for a table.

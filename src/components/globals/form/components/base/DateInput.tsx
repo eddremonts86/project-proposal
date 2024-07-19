@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Calendar as CalendarIcon } from 'lucide-react'
+
 import { cn } from '@/lib/utils'
 import { formatDate } from '@/lib/utils/dates'
 import { Button } from '@/components/ui/button'
@@ -8,7 +10,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { useState } from 'react'
 
 interface DateInputProps {
   placeholder: string

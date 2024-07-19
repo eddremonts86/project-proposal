@@ -1,7 +1,7 @@
 import {
   IData,
-  IOptions,
   InputsTypes,
+  IOptions,
 } from '../../../../components/globals/form/types'
 
 export const selectOptions: IOptions[] = [

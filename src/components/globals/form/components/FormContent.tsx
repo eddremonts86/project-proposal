@@ -1,4 +1,5 @@
 import { FieldValues, useForm } from 'react-hook-form'
+
 import { IData, InputsTypes } from '../types'
 import { RadioInput, SelectBtn, TextInput } from './base'
 
@@ -8,7 +9,6 @@ interface FormProps {
 }
 
 const FormContent = ({ onSubmit, inputs }: FormProps) => {
-
   const { handleSubmit, control } = useForm<FieldValues>()
   const allInputs = inputs.map((item: IData) => {
     if (item.type === InputsTypes.text) {
@@ -43,7 +43,7 @@ const FormContent = ({ onSubmit, inputs }: FormProps) => {
     }
 
     if (item.type === InputsTypes.select) {
-       return <SelectBtn item={item} control={control} key={item.inputId} />
+      return <SelectBtn item={item} control={control} key={item.inputId} />
     }
     if (item.type === InputsTypes.radio) {
       return <RadioInput />

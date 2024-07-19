@@ -1,11 +1,9 @@
-import FlexContainer from '@/components/containers/FlexContainer'
-import {
-  Table,
-  TableColumnsFilter,
-  TableFilters,
-} from '@/components/globals/Table'
-import useTable from '@/components/globals/Table/hooks/useTable'
 import usePokeApi from '@/services/api/hooks/usePokeApi'
+
+import FlexContainer from '@/components/containers/FlexContainer'
+import { FiltersContainer, Table } from '@/components/globals/Table'
+import useTable from '@/components/globals/Table/hooks/useTable'
+
 import { tableExampleData } from './const/tableExampleData'
 
 export default function TablePage() {
@@ -36,14 +34,14 @@ export default function TablePage() {
   }
 
   return (
-    <>
-      <button
-        onClick={update}
-        className="mb-3 rounded-lg bg-red-500 px-6 py-2 text-white"
-      >
-        Para buscar mas
-      </button>
+    <FlexContainer className="gap-2">
       <FlexContainer className="mb-3 sm:flex-col">
+        <button
+          onClick={update}
+          className="mb-3 w-40 rounded-lg bg-red-500 px-6 py-2 text-white"
+        >
+          Para buscar mas
+        </button>
         <h1 className="bold mb-3 text-xl">Testing Api call</h1>
         <Table
           className="w-full"
@@ -56,19 +54,7 @@ export default function TablePage() {
       </FlexContainer>
 
       <FlexContainer className="sm:flex-col">
-        <div className="flex flex-col items-start justify-start gap-2 py-5 md:flex-row md:items-center md:justify-between">
-          <div className="flex gap-3">
-            {filters.map((item) => (
-              <TableFilters
-                table={table}
-                filterKey={item.key}
-                key={item.key}
-                placeholder={item.placeholder}
-              />
-            ))}
-          </div>
-          <TableColumnsFilter table={table} />
-        </div>
+        <FiltersContainer table={table} filters={filters} />
         <Table
           className="w-full"
           table={table}
@@ -77,6 +63,6 @@ export default function TablePage() {
           footer={true}
         />
       </FlexContainer>
-    </>
+    </FlexContainer>
   )
 }

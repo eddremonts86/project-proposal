@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+
 import { features } from './const/menu'
 
 const documentationLinks = (features || []).map((feature) => (

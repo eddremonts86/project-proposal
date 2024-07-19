@@ -2,11 +2,10 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
+    'prettier',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
-    'turbo',
-    'prettier',
     'plugin:tailwindcss/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],

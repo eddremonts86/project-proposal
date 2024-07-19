@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+
 import { cn } from '@/lib/utils'
 
 interface PropsWithChildren {
@@ -12,7 +13,7 @@ export default function FlexContainer({
   return (
     <section
       className={cn(
-        'flex flex-col sm:flex-row rounded-xl border bg-gray-50 p-6 shadow-sm w-full h-full',
+        'flex h-full w-full flex-col rounded-xl border bg-gray-50 p-6 shadow-sm sm:flex-row',
         className
       )}
     >

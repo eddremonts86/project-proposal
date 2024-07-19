@@ -1,10 +1,11 @@
+import { HeaderGroup, Table as TableType } from '@tanstack/react-table'
+
+import { Table as CnTable, TableBody, TableHeader } from '@/components/ui/table'
+
 import TableContextProvider from '../providers/TableProvider'
 import Content from './TableContent'
 import Footer from './TableFooter'
 import Headers from './TableHeaders'
-import { Table as TableType, HeaderGroup } from '@tanstack/react-table'
-
-import { Table as CnTable, TableBody, TableHeader } from '@/components/ui/table'
 
 interface TableProps {
   tHeaders: HeaderGroup<unknown>[]
