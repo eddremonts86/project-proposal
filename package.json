@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@mdi/font": "^7.4.47",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
@@ -71,7 +72,8 @@
     "swagger-typescript-api": "^13.0.5",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
     "*.{ts,tsx,jsx}": [
