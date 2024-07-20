@@ -12,7 +12,7 @@
     "format:check": "prettier -c .",
     "format:fix": "prettier -w -u .",
     "pre-commit": "npx lint-staged",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && npx eslint . --ext ts,tsx --fix",
     "prepare": "husky",
     "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg"
   },
@@ -64,6 +64,7 @@
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",

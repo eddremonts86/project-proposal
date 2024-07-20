@@ -20,7 +20,6 @@ const CommonBtn = ({
   children,
   icon,
   className,
-  loading,
 }: Props) => {
   return (
     <Button

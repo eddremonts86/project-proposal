@@ -24,6 +24,13 @@ module.exports = {
       callees: ['cn', 'cva'],
       config: 'tailwind.config.cjs',
     },
+    'import/resolver': {
+      alias: {
+        map: [['@', './src']],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+      },
+      typescript: {},
+    },
   },
   overrides: [
     {
