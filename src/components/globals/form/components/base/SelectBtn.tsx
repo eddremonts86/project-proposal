@@ -41,12 +41,11 @@ export default function SelectBtn({ item }: Readonly<SelectProps>) {
   }
 
   return (
-    <FormItem>
+    <FormItem className="w-[300px] p-0">
       <Select onValueChange={handleInputChange} value={selectedValue}>
         <FormLabel className="grid">
           <span className="capitalize">{label}</span>
         </FormLabel>
-
         <SelectTrigger>
           <SelectValue placeholder={description} />
           <hr />

@@ -2,6 +2,7 @@ import { Control, FieldValues } from 'react-hook-form'
 
 import {
   CheckBoxInput,
+  ComboBoxInput,
   DateInput,
   DatePickerWithRange,
   RadioInput,
@@ -30,28 +31,31 @@ const useInputsFields = (
     }
 
     if (textInputs.includes(item.type)) {
-      return <TextInput key={item.inputId} item={item} />
+      return <TextInput key={item.key} item={item} />
     }
     if (item.type === InputsTypes.select) {
-      return <SelectBtn key={item.inputId} item={item} />
+      return <SelectBtn key={item.key} item={item} />
     }
     if (item.type === InputsTypes.radio) {
-      return <RadioInput key={item.inputId} item={item} />
+      return <RadioInput key={item.key} item={item} />
     }
     if (item.type === InputsTypes.dateInput) {
-      return <DateInput key={item.inputId} item={item} />
+      return <DateInput key={item.key} item={item} />
     }
     if (item.type === InputsTypes.dateRange) {
-      return <DatePickerWithRange key={item.inputId} item={item} />
+      return <DatePickerWithRange key={item.key} item={item} />
     }
     if (item.type === InputsTypes.checkbox) {
-      return <CheckBoxInput key={item.inputId} item={item} />
+      return <CheckBoxInput key={item.key} item={item} />
     }
     if (item.type === InputsTypes.toggle) {
-      return <ToggleInput key={item.inputId} item={item} />
+      return <ToggleInput key={item.key} item={item} />
     }
     if (item.type === InputsTypes.textarea) {
-      return <TextAreaInput key={item.inputId} item={item} />
+      return <TextAreaInput key={item.key} item={item} />
+    }
+    if (item.type === InputsTypes.combobox) {
+      return <ComboBoxInput key={item.key} item={item} />
     }
   })
 }

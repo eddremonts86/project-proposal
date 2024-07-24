@@ -17,10 +17,11 @@ export enum InputsTypes {
   toggle = 'toggle',
   dateRange = 'dateRange',
   dateInput = 'Date',
+  combobox = 'combobox',
 }
 
 export interface IData {
-  inputId: string
+  key: string
   name: string
   label: string
   placeholder?: string
