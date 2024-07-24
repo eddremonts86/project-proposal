@@ -34,7 +34,7 @@ export default function FormsPage() {
               return (
                 <p key={`${key}_id`}>
                   {key}:{' '}
-                  {key === 'dateInput'
+                  {key === 'dateRange'
                     ? `${key}: ${formValues[key]?.from} - ${formValues[key]?.to}`
                     : formValues[key]?.toString()}
                 </p>

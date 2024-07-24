@@ -18,18 +18,18 @@ import Errormessage from './ErrorMessage'
 
 interface DatePickerComponentProps {
   item: IData
-  mode?: 'single' | 'range'
+  className?: string
   numberOfMonths?: number
   format?: string
-  className?: string
+  disabledDateRange?: { before: Date; after: Date }[]
 }
 
 export default function DatePickerWithRange({
   item,
   className,
-  mode = 'range',
   numberOfMonths = 2,
   format = 'LLL dd, y',
+  disabledDateRange,
 }: Readonly<DatePickerComponentProps>) {
   const { name, control, defaultValue } = item
 
@@ -42,7 +42,7 @@ export default function DatePickerWithRange({
     defaultValue: defaultValue || { from: new Date(), to: new Date() },
   })
   const dateLabel = useMemo(() => {
-    let dateLabel = 'Pick a date or date range'
+    let dateLabel = 'Pick a date range'
     if (value?.from) {
       if (value.to) {
         dateLabel = `${formatDate(value.from, format)} - ${formatDate(value.to, format)}`
@@ -67,17 +67,17 @@ export default function DatePickerWithRange({
             )}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
-            {value ? dateLabel : 'Pick a date or date range'}
+            {dateLabel}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
-            mode={mode}
+            mode="range"
             initialFocus
             selected={value}
             numberOfMonths={numberOfMonths}
             defaultMonth={value?.from}
-            disabled={[{ before: new Date() }]}
+            disabled={disabledDateRange}
             onSelect={onChange}
           />
         </PopoverContent>
