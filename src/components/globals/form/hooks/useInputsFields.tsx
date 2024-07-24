@@ -2,6 +2,7 @@ import { Control, FieldValues } from 'react-hook-form'
 
 import {
   CheckBoxInput,
+  DateInput,
   DatePickerWithRange,
   RadioInput,
   SelectBtn,
@@ -37,7 +38,10 @@ const useInputsFields = (
     if (item.type === InputsTypes.radio) {
       return <RadioInput key={item.inputId} item={item} />
     }
-    if (item.type === InputsTypes.date) {
+    if (item.type === InputsTypes.dateInput) {
+      return <DateInput key={item.inputId} item={item} />
+    }
+    if (item.type === InputsTypes.dateRange) {
       return <DatePickerWithRange key={item.inputId} item={item} />
     }
     if (item.type === InputsTypes.checkbox) {

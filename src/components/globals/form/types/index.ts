@@ -14,8 +14,9 @@ export enum InputsTypes {
   radio = 'radio',
   checkbox = 'checkbox',
   textarea = 'textarea',
-  date = 'date',
   toggle = 'toggle',
+  dateRange = 'dateRange',
+  dateInput = 'Date',
 }
 
 export interface IData {
