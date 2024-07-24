@@ -20,9 +20,14 @@ export enum InputsTypes {
 
 export interface IData {
   inputId: string
-  type: InputsTypes
   name: string
   label: string
+  placeholder?: string
+  description?: string
+  type: InputsTypes
+  items?: IOptions[]
+  control?: Control<FieldValues>
+  rules?: Record<string, unknown>
   defaultValue?:
     | string
     | null
@@ -30,9 +35,4 @@ export interface IData {
     | boolean
     | unknown[]
     | Record<string, unknown>
-  description?: string
-  items?: IOptions[]
-  rules?: Record<string, unknown>
-  control?: Control<FieldValues>
-  placeholder?: string
 }
