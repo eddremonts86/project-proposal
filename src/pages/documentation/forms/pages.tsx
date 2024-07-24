@@ -34,9 +34,9 @@ export default function FormsPage() {
               return (
                 <p key={`${key}_id`}>
                   {key}:{' '}
-                  {key === 'dateRange'
-                    ? `${key}: ${formValues[key]?.from} - ${formValues[key]?.to}`
-                    : formValues[key]?.toString()}
+                  <small className="mx-1 text-blue-500">
+                    {JSON.stringify(formValues[key])}
+                  </small>
                 </p>
               )
             })}
