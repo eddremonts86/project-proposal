@@ -34,10 +34,9 @@ export default function SelectBtn({ item, control }: Readonly<SelectProps>) {
   }, [value])
 
   const handleInputChange = (newValue: string) => {
-    setSelectedValue(newValue);
-    onChange(newValue);
-  };
-
+    setSelectedValue(newValue)
+    onChange(newValue)
+  }
 
   return (
     <FormItem>

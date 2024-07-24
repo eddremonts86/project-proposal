@@ -24,7 +24,6 @@ const CommonBtn = ({
   className,
 }: Props) => {
   return (
-
     <Button
       onClick={(data: FieldValues) => onSubmit(data)}
       type={type}
