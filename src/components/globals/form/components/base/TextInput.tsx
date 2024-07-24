@@ -1,5 +1,5 @@
 import React from 'react'
-import { Control, FieldValues, useController } from 'react-hook-form'
+import { useController } from 'react-hook-form'
 
 import { FormDescription, FormItem, FormLabel } from '@/components/ui/form'
 
@@ -9,26 +9,20 @@ import { IData } from '../../types'
 import Errormessage from './ErrorMessage'
 
 interface TextInputProps {
-  name: string
-  control: Control<FieldValues>
-  rules?: Record<string, unknown>
-  label: string
-  type: string | undefined
-  description: string
-  placeholder: string
-  defaultValue?: string | null | number | boolean | unknown[]
+  item: IData
 }
 
-const TextInput: React.FC<TextInputProps & IData> = ({
-  name,
-  control,
-  rules,
-  label,
-  type,
-  defaultValue,
-  placeholder,
-  description,
-}) => {
+const TextInput: React.FC<TextInputProps> = ({ item }) => {
+  const {
+    name,
+    control,
+    rules,
+    label,
+    type,
+    defaultValue,
+    placeholder,
+    description,
+  } = item
   const {
     field: { onChange, value, onBlur },
     fieldState: { error, isTouched },

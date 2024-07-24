@@ -9,7 +9,6 @@ export const nameRule = {
     message: 'Maximum length should be 20',
   },
 }
-
 export const passWordRule = {
   required: 'This field is required',
   minLength: {

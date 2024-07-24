@@ -1,32 +1,25 @@
-import React from 'react'
-import { Control, FieldValues, useController } from 'react-hook-form'
+import { useController } from 'react-hook-form'
 
 import { FormDescription, FormItem, FormLabel } from '@/components/ui/form'
 
 import { Textarea } from '../../../../ui/textarea'
 import { IData } from '../../types'
+import Errormessage from './ErrorMessage'
 
 interface TextInputProps {
-  name: string
-  control: Control<FieldValues>
-  rules?: Record<string, unknown>
-  label: string
-  type: string | undefined
-  description: string
-  placeholder: string
-  defaultValue?: string
-  multiline?: boolean
+  item: IData
 }
 
-const TextAreaInput: React.FC<TextInputProps & IData> = ({
-  name,
-  control,
-  rules,
-  label,
-  defaultValue,
-  placeholder,
-  description,
-}) => {
+const TextAreaInput = ({ item }: Readonly<TextInputProps>) => {
+  const {
+    name,
+    control,
+    rules,
+    label,
+    defaultValue,
+    placeholder,
+    description,
+  } = item
   const {
     field: { onChange, value, ref },
     fieldState: { error },
@@ -34,7 +27,7 @@ const TextAreaInput: React.FC<TextInputProps & IData> = ({
     name,
     control,
     rules,
-    defaultValue: defaultValue || '',
+    defaultValue,
   })
 
   return (
@@ -50,7 +43,7 @@ const TextAreaInput: React.FC<TextInputProps & IData> = ({
         className="resize-none"
       />
       <FormDescription>{description}</FormDescription>
-      {error && <span>{error.message}</span>}
+      {error && <Errormessage message={error.message} />}
     </FormItem>
   )
 }

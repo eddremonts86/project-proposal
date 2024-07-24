@@ -1,26 +1,20 @@
-import { Control, FieldValues, useController } from 'react-hook-form'
+import { useController } from 'react-hook-form'
 
 import { FormItem, FormLabel } from '@/components/ui/form'
+import { Switch } from '@/components/ui/switch'
 
-import { Switch } from '../../../../ui/switch'
+import { IData } from '../../types'
+import Errormessage from './ErrorMessage'
 
-interface ToggelProps {
-  control: Control<FieldValues>
-  name: string
-  label: string
-  defaultValue?: boolean
-  description?: string
+interface ToggleProps {
+  item: IData
 }
 
-export function ToggleInput({
-  control,
-  name,
-  label,
-  defaultValue,
-  description,
-}: Readonly<ToggelProps>) {
+export default function ToggleInput({ item }: Readonly<ToggleProps>) {
+  const { name, control, defaultValue, label, description } = item
   const {
     field: { onChange, value },
+    fieldState: { error },
   } = useController({
     name,
     control,
@@ -35,10 +29,11 @@ export function ToggleInput({
         id={name}
         className="mt-2"
       />
-      <FormLabel className="grid" htmlFor={name}>
+      <FormLabel className="grid cursor-pointer" htmlFor={name}>
         <span className="capitalize">{label}</span>
         <small> {description}</small>
       </FormLabel>
+      {error && <Errormessage message={error.message} />}
     </FormItem>
   )
 }
