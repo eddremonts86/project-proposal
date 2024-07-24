@@ -11,6 +11,13 @@ import {
 } from '../components/base'
 import { IData, InputsTypes } from '../types'
 
+const textInputs = [
+  InputsTypes.text,
+  InputsTypes.password,
+  InputsTypes.email,
+  InputsTypes.file,
+]
+
 const useInputsFields = (
   list: IData[],
   control: Control<FieldValues, unknown>
@@ -21,16 +28,7 @@ const useInputsFields = (
       control,
     }
 
-    if (item.type === InputsTypes.text) {
-      return <TextInput key={item.inputId} item={item} />
-    }
-    if (item.type === InputsTypes.password) {
-      return <TextInput key={item.inputId} item={item} />
-    }
-    if (item.type === InputsTypes.email) {
-      return <TextInput key={item.inputId} item={item} />
-    }
-    if (item.type === InputsTypes.file) {
+    if (textInputs.includes(item.type)) {
       return <TextInput key={item.inputId} item={item} />
     }
     if (item.type === InputsTypes.select) {
