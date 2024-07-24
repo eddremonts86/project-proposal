@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Control, FieldValues, useController } from 'react-hook-form'
+import { useController } from 'react-hook-form'
 
 import { FormItem, FormLabel } from '@/components/ui/form'
-
 import {
   Select,
   SelectContent,
@@ -11,20 +10,23 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '../../../../ui/select'
+} from '@/components/ui/select'
+
 import { IData, IOptions } from '../../types'
+import Errormessage from './ErrorMessage'
 
 interface SelectProps {
   item: IData
-  control: Control<FieldValues>
 }
 
-export default function SelectBtn({ item, control }: Readonly<SelectProps>) {
+export default function SelectBtn({ item }: Readonly<SelectProps>) {
+  const { name, control, defaultValue, description, label } = item
   const {
     field: { onChange, value },
+    fieldState: { error },
   } = useController({
-    name: item.name,
-    defaultValue: item.value,
+    name,
+    defaultValue,
     control,
   })
   const [selectedValue, setSelectedValue] = useState(value)
@@ -42,11 +44,11 @@ export default function SelectBtn({ item, control }: Readonly<SelectProps>) {
     <FormItem>
       <Select onValueChange={handleInputChange} value={selectedValue}>
         <FormLabel className="grid">
-          <span className="capitalize">{item.label}</span>
+          <span className="capitalize">{label}</span>
         </FormLabel>
 
         <SelectTrigger>
-          <SelectValue placeholder={item.description} />
+          <SelectValue placeholder={description} />
           <hr />
         </SelectTrigger>
         <SelectContent className="cursor-pointer p-1 capitalize ">
@@ -61,6 +63,7 @@ export default function SelectBtn({ item, control }: Readonly<SelectProps>) {
           </SelectGroup>
         </SelectContent>
       </Select>
+      {error && <Errormessage message={error.message} />}
     </FormItem>
   )
 }

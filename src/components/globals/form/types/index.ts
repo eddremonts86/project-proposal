@@ -1,16 +1,8 @@
+import { Control, FieldValues } from 'react-hook-form'
+
 export interface IOptions {
   value: string
   label: string
-}
-export interface IData {
-  inputId: string
-  type: InputsTypes
-  name: string
-  label: string
-  value?: string | null | number | boolean | unknown[]
-  description?: string
-  items?: IOptions[]
-  rules?: Record<string, unknown>
 }
 
 export enum InputsTypes {
@@ -23,5 +15,24 @@ export enum InputsTypes {
   checkbox = 'checkbox',
   textarea = 'textarea',
   date = 'date',
-  toggel = 'toggel',
+  toggle = 'toggle',
+}
+
+export interface IData {
+  inputId: string
+  type: InputsTypes
+  name: string
+  label: string
+  defaultValue?:
+    | string
+    | null
+    | number
+    | boolean
+    | unknown[]
+    | Record<string, unknown>
+  description?: string
+  items?: IOptions[]
+  rules?: Record<string, unknown>
+  control?: Control<FieldValues>
+  placeholder?: string
 }

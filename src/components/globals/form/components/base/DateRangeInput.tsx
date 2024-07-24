@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { Calendar as CalendarIcon } from 'lucide-react'
-import { DateRange } from 'react-day-picker'
-import { Control, FieldValues, useController } from 'react-hook-form'
+import { useController } from 'react-hook-form'
 
 import { cn } from '@/lib/utils'
 import { formatDate } from '@/lib/utils/dates'
@@ -14,28 +13,29 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 
+import { IData } from '../../types'
+import Errormessage from './ErrorMessage'
+
 interface DatePickerComponentProps {
-  name: string
-  control: Control<FieldValues>
-  label?: string
-  defaultValue?: DateRange
-  className?: string
+  item: IData
   mode?: 'single' | 'range'
   numberOfMonths?: number
   format?: string
+  className?: string
 }
 
 export default function DatePickerWithRange({
-  defaultValue,
-  name,
+  item,
   className,
-  control,
   mode = 'range',
   numberOfMonths = 2,
   format = 'LLL dd, y',
 }: Readonly<DatePickerComponentProps>) {
+  const { name, control, defaultValue } = item
+
   const {
     field: { onChange, value },
+    fieldState: { error },
   } = useController({
     control,
     name: name,
@@ -82,6 +82,7 @@ export default function DatePickerWithRange({
           />
         </PopoverContent>
       </Popover>
+      {error && <Errormessage message={error.message} />}
     </FormItem>
   )
 }
