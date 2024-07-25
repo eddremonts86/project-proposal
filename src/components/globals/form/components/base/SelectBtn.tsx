@@ -17,9 +17,10 @@ import Errormessage from './ErrorMessage'
 
 interface SelectProps {
   item: IData
+  onUpdate?: (value: string) => void
 }
 
-export default function SelectBtn({ item }: Readonly<SelectProps>) {
+export default function SelectBtn({ item, onUpdate }: Readonly<SelectProps>) {
   const { name, control, defaultValue, description, label } = item
   const {
     field: { onChange, value },
@@ -38,12 +39,13 @@ export default function SelectBtn({ item }: Readonly<SelectProps>) {
   const handleInputChange = (newValue: string) => {
     setSelectedValue(newValue)
     onChange(newValue)
+    onUpdate && onUpdate(newValue)
   }
 
   return (
     <FormItem className="w-[300px] p-0">
       <Select onValueChange={handleInputChange} value={selectedValue}>
-        <FormLabel className="grid">
+        <FormLabel className="mb-4 mt-0  pt-0">
           <span className="capitalize">{label}</span>
         </FormLabel>
         <SelectTrigger>

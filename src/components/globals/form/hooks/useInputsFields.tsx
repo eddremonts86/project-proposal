@@ -7,6 +7,7 @@ import {
   DatePickerWithRange,
   RadioInput,
   SelectBtn,
+  TestOfmultiple,
   TextAreaInput,
   TextInput,
   ToggleInput,
@@ -56,6 +57,9 @@ const useInputsFields = (
     }
     if (item.type === InputsTypes.combobox) {
       return <ComboBoxInput key={item.key} item={item} />
+    }
+    if (item.type === InputsTypes.TestOfmultiple) {
+      return <TestOfmultiple key={item.key} item={item} />
     }
   })
 }

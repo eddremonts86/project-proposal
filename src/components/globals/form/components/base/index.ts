@@ -5,19 +5,21 @@ import DateInput from './DateInput'
 import DatePickerWithRange from './DateRangeInput'
 import RadioInput from './RadioInput'
 import SelectBtn from './SelectBtn'
+import TestOfmultiple from './TestOfmultiple'
 import TextAreaInput from './TextAreaInput'
 import TextInput from './TextInput'
 import ToggleInput from './ToggleInput'
 
 export {
   CheckBoxInput,
+  ComboBoxInput,
   CommonBtn,
   DateInput,
+  DatePickerWithRange,
   RadioInput,
   SelectBtn,
-  TextInput,
-  DatePickerWithRange,
+  TestOfmultiple,
   TextAreaInput,
+  TextInput,
   ToggleInput,
-  ComboBoxInput,
 }

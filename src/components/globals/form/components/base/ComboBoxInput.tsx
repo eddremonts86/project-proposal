@@ -18,7 +18,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 
-import { FormItem, FormLabel } from '../../../../ui/form'
+import { FormControl, FormItem, FormLabel } from '../../../../ui/form'
 import { IData, IOptions } from '../../types'
 import Errormessage from './ErrorMessage'
 
@@ -50,44 +50,56 @@ export default function ComboBoxInput({ item }: Readonly<ComboBoxInputProps>) {
     <FormItem>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <div className="flex flex-col justify-start gap-4">
-            <FormLabel>{label}</FormLabel>
-            <Button
-              variant="outline"
-              aria-expanded={open}
-              className="w-[300px] justify-between"
-            >
-              {inputValue?.label || description}
-              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            </Button>
-            {isTouched && error?.message && (
-              <Errormessage message={error.message} />
-            )}
-          </div>
+          <FormControl>
+            <div className="flex w-fit flex-col justify-start gap-4">
+              <FormLabel>{label}</FormLabel>
+              <Button
+                variant="outline"
+                aria-expanded={open}
+                className="w-[300px] justify-between"
+                onClick={() => {
+                  if (!open) {
+                    onChange(inputValue)
+                  }
+                }}
+              >
+                {inputValue?.label || description}
+                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+              </Button>
+              {isTouched && error?.message && (
+                <Errormessage message={error.message} />
+              )}
+            </div>
+          </FormControl>
         </PopoverTrigger>
         <PopoverContent className="w-[300px] p-0">
-          <Command>
+          <Command onSelect={() => console.log('Aqui')}>
             <CommandInput placeholder={description} />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
-              <CommandGroup>
+              <CommandGroup heading={label}>
                 {items.map(({ value, label }: IOptions) => (
                   <CommandItem
                     key={value}
                     value={value}
-                    className="cursor-pointer"
                     onSelect={(currentValue: string) => {
                       onChange(isActive(currentValue) ? null : { value, label })
-                      setOpen(false)
                     }}
+                    className={cn(
+                      'capitalize',
+                      isActive(value) && 'bg-gray-200'
+                    )}
                   >
-                    <Check
-                      className={cn(
-                        'text-bold mr-2 h-4 w-4 shrink-0',
-                        isActive(value) ? 'opacity-100' : 'opacity-0'
-                      )}
-                    />
-                    {label}
+                    <div className="flex w-full items-center justify-between">
+                      <span>{label}</span>
+                      <Check
+                        color="#12316B"
+                        className={cn(
+                          'text-bold mr-2 h-4 w-4 shrink-0',
+                          isActive(value) ? 'opacity-100' : 'opacity-0'
+                        )}
+                      />
+                    </div>
                   </CommandItem>
                 ))}
               </CommandGroup>

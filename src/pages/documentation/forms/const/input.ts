@@ -146,4 +146,13 @@ export const inputsExample: IData[] = [
     description: 'Select to agree',
     type: InputsTypes.checkbox,
   },
+  {
+    key: 'TestOfmultiple',
+    name: 'TestOfmultiple',
+    label: 'Terms and TestOfmultiple',
+    defaultValue: '',
+    description: 'Select to TestOfmultiple',
+    items: frameworks,
+    type: InputsTypes.TestOfmultiple,
+  },
 ]

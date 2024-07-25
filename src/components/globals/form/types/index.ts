@@ -18,6 +18,7 @@ export enum InputsTypes {
   dateRange = 'dateRange',
   dateInput = 'Date',
   combobox = 'combobox',
+  TestOfmultiple = 'TestOfmultiple',
 }
 
 export interface IData {

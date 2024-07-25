@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { Calendar as CalendarIcon } from 'lucide-react'
 import { useController } from 'react-hook-form'
 
@@ -28,10 +28,10 @@ export default function DateInput({
   format = 'LLL dd, y',
 }: Readonly<DatePickerComponentProps>) {
   const { name, control, defaultValue, label } = item
-
+  const [open, setOpen] = useState(false)
   const {
     field: { onChange, value },
-    fieldState: { error },
+    fieldState: { error, isTouched },
   } = useController({
     control,
     name: name,
@@ -45,33 +45,46 @@ export default function DateInput({
     return dateLabel
   }, [value, format])
 
+  const myDate = formatDate(defaultValue, format)
+
   return (
     <FormItem className={cn('grid gap-2', className)}>
-      <Popover>
-        <FormLabel>{label}</FormLabel>
+      {myDate}
+      <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button
-            id="date"
-            variant={'outline'}
-            className={cn(
-              'w-[300px] justify-start text-left font-normal',
-              !value && 'text-muted-foreground'
+          <div className="flex w-fit flex-col justify-start gap-4">
+            <FormLabel>{label}</FormLabel>
+            <Button
+              variant={'outline'}
+              aria-expanded={open}
+              className={cn(
+                'w-[300px] justify-start text-left font-normal',
+                !value && 'text-muted-foreground'
+              )}
+              onClick={() => {
+                if (open) {
+                  onChange(value)
+                }
+              }}
+            >
+              <CalendarIcon className="mr-2 h-4 w-4" />
+              {dateLabel}
+            </Button>
+            {isTouched && error?.message && (
+              <Errormessage message={error.message} />
             )}
-          >
-            <CalendarIcon className="mr-2 h-4 w-4" />
-            {dateLabel}
-          </Button>
+          </div>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
             mode="single"
             selected={value}
             onSelect={onChange}
+            onBlur={() => setOpen(false)}
             initialFocus
           />
         </PopoverContent>
       </Popover>
-      {error && <Errormessage message={error.message} />}
     </FormItem>
   )
 }
