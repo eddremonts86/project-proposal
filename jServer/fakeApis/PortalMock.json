@@ -1,0 +1,153 @@
+{
+  "portal": [
+    { "id": "197663a9-fd25-4072-ae38-4e189c194070", "name": "BookBliss" },
+    { "id": "6c73f854-8b29-4f09-bc2b-35920b995943", "name": "BookishBoutique" },
+    { "id": "89ebe1df-dd82-45da-88df-7b8a3b1c5ef3", "name": "LiteraryLibrary" },
+    { "id": "fe8d5875-01db-4a30-860b-b474cafdb691", "name": "ReadersHaven" },
+    { "id": "fcf5d651-1759-45c7-836e-2f483f105da2", "name": "LiteraryLibrary" },
+    { "id": "165e27e3-50da-4940-a883-54ebdec6b40c", "name": "LiteraryLodge" },
+    { "id": "78b2c0e4-ad3a-4524-a6ba-94805fbf2a88", "name": "LiteraryLibrary" },
+    { "id": "5160d2b1-7792-4377-ba67-0700aff9e17d", "name": "BookBliss" },
+    { "id": "d62202ca-e770-42ab-8c3e-00ffdfee4f31", "name": "BookishHut" },
+    { "id": "fe899199-0934-48c8-8029-8716514ea409", "name": "LiteraryLanding" },
+    { "id": "3d915ba5-0eb6-45c9-b890-8fc3742f3584", "name": "BookishHaven" },
+    { "id": "8bb77ef0-5393-4fe7-b462-07975245830c", "name": "ReadersRetreat" },
+    { "id": "917d0f3f-9d79-46c1-a354-f59c650cac55", "name": "BookshelfBazaar" },
+    { "id": "0883fbf1-63a2-487b-8723-917dca15b7b3", "name": "ChapterCabin" },
+    {
+      "id": "e1a279fa-bc57-425d-baf1-239e13df6139",
+      "name": "BookwormBoutique"
+    },
+    { "id": "a4c4254a-7ff5-4bd8-8c2b-794841448199", "name": "ChapterCabin" },
+    {
+      "id": "87665717-c8f0-409e-aaaf-0ef39aed9636",
+      "name": "BookwormBoutique"
+    },
+    {
+      "id": "ad5005a8-1e54-48b7-a895-aa18352d6b3d",
+      "name": "PageFlipperPlace"
+    },
+    { "id": "742fe482-1df1-4735-a876-83e3a8e7ef6c", "name": "NovelNiche" },
+    { "id": "9a79375d-68cc-49a2-828f-38edcd428dd6", "name": "BookshelfBazaar" },
+    { "id": "be2aeeba-3061-4d00-85d4-bc080dd0479d", "name": "StoryShack" },
+    {
+      "id": "25d6f109-7bcb-4bf2-8725-31d0f62cc118",
+      "name": "PageFlipperPlace"
+    },
+    { "id": "bc1689d0-6b1b-491a-bd9f-ca7b4f54b0c1", "name": "ChapterCove" },
+    { "id": "7a7af1ad-d692-4a7b-9349-acb03a12f32f", "name": "StorySanctuary" },
+    { "id": "8afe8c2e-699f-4135-a366-ff9af74c91a3", "name": "NovelNook" },
+    { "id": "4b0e8c20-2f40-4ced-9720-168bfaf63df0", "name": "ChapterCabin" },
+    { "id": "5d6509f9-6254-40e6-842a-6e212d4f1e9e", "name": "StorySanctuary" },
+    { "id": "8c233dc2-a7b0-42c4-a8f7-33330b1ac4b3", "name": "NovelNiche" },
+    { "id": "5ca58c2f-dd1f-455a-ace7-fde7c618da49", "name": "NovelNest" },
+    { "id": "d4e3d9d7-b5db-4baf-b9cb-868c349dde62", "name": "BookshelfBazaar" },
+    { "id": "a8822736-d88d-4278-a557-6aeab4e6bd55", "name": "BookwormBazaar" },
+    { "id": "4983d727-8eeb-4757-bdfa-1215eb53a12c", "name": "BookishHaven" },
+    {
+      "id": "d2eba2e5-3cef-466e-9a0a-35589413b561",
+      "name": "BookwormBoutique"
+    },
+    { "id": "00b83be0-eb59-4a3b-a4ed-d7bbfec58542", "name": "PageTurnerTrove" },
+    { "id": "c117939e-1b9c-4964-8bfe-1f36681bc14d", "name": "BookBliss" },
+    { "id": "4cdf1af2-2c51-4320-9bb6-3a96a4d74c3c", "name": "PageTurnerPlace" },
+    { "id": "8f22535b-8291-47d3-a75d-98496d9a0046", "name": "NovelNiche" },
+    { "id": "9dea9843-18c7-4461-b4ed-94f643e560cc", "name": "ChapterCottage" },
+    { "id": "c32343ce-20ef-4cce-9b03-6def4cab9934", "name": "BookishHarbor" },
+    { "id": "fc8bf25e-4280-4ca4-a1cb-4203730b0a33", "name": "BookishBoutique" },
+    { "id": "b4627fcb-07ea-4879-b324-84afbe6edb1f", "name": "BookBliss" },
+    {
+      "id": "3a88e400-2e4d-45a9-ada2-2f01f1bf7a3b",
+      "name": "PageTurnerTerritory"
+    },
+    {
+      "id": "2415e838-dde9-480c-be7e-1bf1a09da4ca",
+      "name": "BookwormBoutique"
+    },
+    { "id": "43cf0ada-977b-4d90-83a8-3793abc6b9d7", "name": "ChapterCove" },
+    { "id": "9ecc268f-74a3-43ad-b04a-1766b0973389", "name": "BookishHaven" },
+    { "id": "fa3d109b-51b9-41f0-aabf-d38a8cd0fa48", "name": "NovelNook" },
+    { "id": "344a8454-a024-4345-bce9-2892e2c4fc03", "name": "PageTurnerPlace" },
+    { "id": "afa9b4bd-efd6-46cc-bbe7-0ed720ce81af", "name": "LiteraryLanding" },
+    { "id": "699d4f02-db30-43a4-bccb-5eb849e51592", "name": "BookBliss" },
+    { "id": "bce19ccc-ecd3-45f1-bc50-0bec95cb65f5", "name": "ChapterCottage" },
+    { "id": "e1c25949-1971-4a13-8bd2-04e737e215ce", "name": "BookishHaven" },
+    { "id": "db9dace2-4963-458a-8054-947383f831ca", "name": "BookishHaven" },
+    { "id": "049a9e2f-0b02-4b45-8bac-91caba363afa", "name": "BookBliss" },
+    { "id": "4f71e549-b902-44ec-a4f9-ac84c37967e8", "name": "BookBliss" },
+    { "id": "3a988332-d548-46ab-8630-c57fb8dd3e94", "name": "BookishOasis" },
+    { "id": "1724f4bc-a73c-428e-859f-642670a830c3", "name": "BookishHaven" },
+    { "id": "4e8a3c0c-fa58-41f5-91d1-d0ba5d1b058c", "name": "BookishBoutique" },
+    { "id": "83d23c90-3ce4-4553-8ba5-5b67da4854ed", "name": "NovelNoon" },
+    {
+      "id": "f68e79ed-5f25-4001-b860-f56304afc22f",
+      "name": "BookwormBoutique"
+    },
+    { "id": "ca579a5e-d165-4c9b-b524-595d03c5f36f", "name": "ChapterCottage" },
+    { "id": "ea6be157-5f7f-43d3-b217-dba75cf7c93b", "name": "BookishHaven" },
+    { "id": "7eee61c4-6146-4626-b70b-2c0624d6a9fa", "name": "BookishHaven" },
+    { "id": "a98f5dc3-0f32-48d6-9f8c-b693f68ca803", "name": "NovelNook" },
+    { "id": "86552740-8148-49c5-b61e-db89a46738fd", "name": "BookishHaven" },
+    { "id": "ad5ddc4a-70c3-40f7-955c-418ad9366952", "name": "BookBliss" },
+    { "id": "750c8173-d839-450f-a461-c2b9dbb5babd", "name": "ChapterCharm" },
+    {
+      "id": "16199f79-7cb0-4c1a-b04d-99ce29fbce55",
+      "name": "BookwormBoutique"
+    },
+    { "id": "9c6520c8-c78e-4f06-86e0-6e916746737d", "name": "ReadersRefuge" },
+    { "id": "039fb318-0524-48ac-b8b8-c711beb38061", "name": "PageTurnerPlace" },
+    { "id": "79ab1164-5b80-4ca1-8ba8-2b51f7e8299c", "name": "BookishOasis" },
+    { "id": "2d2fa265-e173-48c1-b0ba-e48a0fac120c", "name": "BookBliss" },
+    { "id": "a2f674d6-adb3-4a69-9805-a64774d7a3f9", "name": "ReadersHideaway" },
+    { "id": "73e38f9b-181c-4ca7-add9-604defb4172e", "name": "ChapterCove" },
+    { "id": "fd3f426d-ae11-4c2c-a92a-9e50df70cd27", "name": "ReadersRefuge" },
+    {
+      "id": "7204bdee-efe3-462c-826f-da9d909ab34d",
+      "name": "PageTurnerTerritory"
+    },
+    { "id": "45968628-1501-465f-927c-10617b1595dc", "name": "BookBliss" },
+    { "id": "6f333460-ecd1-4f4e-ac6a-ab0700f4762b", "name": "BookishHut" },
+    { "id": "14faf73a-48ae-431f-bef1-cce4b2b7f180", "name": "LiteraryLodge" },
+    { "id": "5f973b15-c840-4529-a1ea-30652b4fa887", "name": "StorySafari" },
+    { "id": "ae6b3187-02e7-4e52-9334-7eef7ed5a0cd", "name": "LiteraryLounge" },
+    { "id": "70c5dfb8-f172-4d0a-ab24-d2c1d460fc4e", "name": "NovelNoon" },
+    { "id": "401a0998-f646-4674-9a87-8009d5308579", "name": "LiteraryLounge" },
+    { "id": "52516bbc-e276-4cb3-a524-4436e60d44c2", "name": "PageTurnerPlace" },
+    { "id": "c90d1653-ebcb-4042-bc58-d867d44b254c", "name": "PageTurnerTrove" },
+    { "id": "d8092935-0ded-4fde-9f32-5ac7fa4270de", "name": "BookishHaven" },
+    { "id": "0807a5db-a460-4cdd-b321-694234e27135", "name": "BookBliss" },
+    {
+      "id": "f3a84b2a-b973-44d4-a464-d8a0edd78899",
+      "name": "BookwormBoutique"
+    },
+    { "id": "52b53620-2729-4a6b-94a2-316a34b1c7dd", "name": "BookBliss" },
+    { "id": "525e6b93-dd27-4912-b253-438b5f10c505", "name": "ChapterCharm" },
+    { "id": "74f803c5-1c5a-4e5b-9a9d-dad80cc2948e", "name": "NovelNiche" },
+    { "id": "17084ac1-7943-43a8-a026-265144b775e2", "name": "ReadersRetreat" },
+    { "id": "afe0a0cb-e180-4bd8-b924-ed847e477c81", "name": "PageTurnerTrove" },
+    {
+      "id": "e3bbda12-1bd9-4f71-afd1-59542eed8094",
+      "name": "BookwormBoutique"
+    },
+    { "id": "641c34f7-7b31-4d83-a11b-c755164dc569", "name": "NovelNest" },
+    { "id": "480ed7fe-b4b8-4829-93c7-fe0283cf04c6", "name": "ChapterCharm" },
+    { "id": "fc7a2ed9-ebba-4f11-8305-8c3c0ec72359", "name": "BookBliss" },
+    { "id": "8a3e88dd-bb2f-407b-b864-663e64fae592", "name": "BookBliss" },
+    { "id": "651bff3d-a945-4ff7-9512-b1fe617f58e7", "name": "StorySanctuary" },
+    { "id": "033ffe11-6197-42f3-8106-b3048efc980a", "name": "BookishBoutique" },
+    { "id": "a3d13461-1735-4b38-ad5f-d5fc61f9b0e7", "name": "BookBliss" }
+  ],
+  "meta": {
+    "total": 100,
+    "form_structure": [
+      {
+        "key": "checkInput",
+        "name": "checkInput",
+        "label": "Terms and Conditions",
+        "defaultValue": true,
+        "description": "Select to agree",
+        "type": "checkbox"
+      }
+    ]
+  }
+}

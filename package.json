@@ -14,7 +14,10 @@
     "pre-commit": "npx lint-staged",
     "lint": "prettier -w -u . && npx eslint . --ext ts,tsx --fix",
     "prepare": "husky",
-    "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg"
+    "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg",
+    "createFakeApi": "node ./jServer/fakeApis/index.js",
+    "useFakeApi": "json-server ./jServer/fakeApis/Api.json --port 3001",
+    "fakeApi": "npm run createFakeApi && npm run useFakeApi"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -41,6 +44,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
+    "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "lucide-react": "^0.407.0",
     "pretty-quick": "^4.0.0",
@@ -75,6 +79,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-tailwindcss": "3.13.1",
     "husky": "^9.0.11",
+    "json-server": "^1.0.0-beta.1",
     "lint-staged": "^15.2.2",
     "npm-run-all": "^4.1.5",
     "postcss": "^8",

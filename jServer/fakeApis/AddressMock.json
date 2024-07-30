@@ -1,0 +1,16 @@
+{
+  "address": [
+    {
+      "id": "97053565-b7d6-42a6-b527-115ef0e2cae8",
+      "street_address": "0 Bowman Terrace",
+      "city": "Storuman",
+      "postal_code": "923 24",
+      "country": "Sweden",
+      "latitude": 65.1047244,
+      "longitude": 17.1227163,
+      "address_line_2": "Apt 1275",
+      "street_number": "713",
+      "street_suffix": "Drive"
+    }
+  ]
+}

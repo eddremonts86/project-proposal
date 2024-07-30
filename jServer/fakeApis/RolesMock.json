@@ -1,0 +1,54 @@
+{
+  "roles": [
+    {
+      "id": "db9e752a-0de2-4348-92ed-70e2aa3e1f2f",
+      "royalty_recipient": "1e189aa5-ad3a-4e58-ac3b-feab592432a0",
+      "heir": "active"
+    },
+    {
+      "id": "927cf44b-2e3f-4f2a-b662-50d4b556ad61",
+      "royalty_recipient": "988ed7c0-2d4f-4c7d-8601-82088a8c6c60",
+      "heir": "living"
+    },
+    {
+      "id": "8419c5db-5d95-4b79-a2ed-e1b9d0a241c6",
+      "royalty_recipient": "ec5f7eb6-ccb2-4968-9854-ad135f48c314",
+      "heir": "active"
+    },
+    {
+      "id": "d7965c0a-3a1d-487f-ad8d-6965e7301599",
+      "royalty_recipient": "af44a293-596a-4372-984f-7f518ccc2baa",
+      "heir": "living"
+    },
+    {
+      "id": "4c15bd15-509f-4098-aafa-cc334a0c1499",
+      "royalty_recipient": "6cef76f0-efc2-47ae-98e8-04a249d4ff80",
+      "heir": "living"
+    },
+    {
+      "id": "5126e11a-4ea7-41eb-be0f-3ce8ada37629",
+      "royalty_recipient": "f73ce32d-828a-41fc-8a07-7ecfb00a048e",
+      "heir": "active"
+    },
+    {
+      "id": "a8562774-ec45-4a2b-827d-e7068fe3d5ab",
+      "royalty_recipient": "188b5dd4-b757-4ef4-b8ee-efc7dec1f926",
+      "heir": "living"
+    },
+    {
+      "id": "c1c51658-6774-42b8-8d17-77bb12801977",
+      "royalty_recipient": "94b92266-e1bd-4645-acca-8117d8b7cef5",
+      "heir": "living"
+    },
+    {
+      "id": "9e268386-cf42-4bbf-a0e4-0bfb66e474ba",
+      "royalty_recipient": "55647c85-5817-4704-a603-2bf1b295bdca",
+      "heir": "active"
+    },
+    {
+      "id": "9c3adde9-b4b8-464f-8941-199983fff3f0",
+      "royalty_recipient": "d9d063cd-df33-4fff-aa12-77ba3d443d5b",
+      "heir": "active"
+    }
+  ]
+}
