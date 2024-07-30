@@ -4,10 +4,10 @@ import FlexContainer from '@/components/containers/FlexContainer'
 import { FiltersContainer, Table } from '@/components/globals/Table'
 import useTable from '@/components/globals/Table/hooks/useTable'
 
-import { tableExampleData } from './const/tableExampleData'
+import { tableConfig } from './const/tableConfig'
 
 export default function TablePage() {
-  const { headers, filters } = tableExampleData
+  const { headers, filters } = tableConfig
   const { getPoke } = useRoyalty()
   const { isLoading, data } = getPoke
 

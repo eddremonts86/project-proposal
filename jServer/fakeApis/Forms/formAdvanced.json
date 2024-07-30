@@ -1,0 +1,10 @@
+[
+  {
+    "key": "TestOfmultiple",
+    "name": "TestOfmultiple",
+    "label": "Terms and TestOfmultiple",
+    "defaultValue": "",
+    "description": "Select to TestOfmultiple",
+    "type": "dateInputPlusSelect"
+  }
+]

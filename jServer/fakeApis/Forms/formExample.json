@@ -1,0 +1,91 @@
+[
+  {
+    "key": "toggleInput",
+    "name": "toggleInput",
+    "label": "Turn On",
+    "description": "Select to bold",
+    "type": "toggle"
+  },
+  {
+    "key": "username",
+    "name": "username",
+    "label": "username",
+    "description": "This is your public display name.",
+    "rules": "name",
+    "type": "text"
+  },
+  {
+    "key": "password",
+    "name": "Password",
+    "label": "Password",
+    "description": "This is your password",
+    "rules": "passWord",
+    "type": "password"
+  },
+  {
+    "key": "email",
+    "name": "Email",
+    "label": "Email",
+    "description": "This is your email address",
+    "rules": "email",
+    "type": "email"
+  },
+  {
+    "key": "file",
+    "name": "uploadFile",
+    "label": "Upload File",
+    "description": "Upload a file here",
+    "type": "file"
+  },
+  {
+    "key": "textarea",
+    "name": "textarea",
+    "label": "Bio",
+    "description": "This is your biography",
+    "type": "textarea"
+  },
+  {
+    "key": "radioInput",
+    "name": "radioInput",
+    "label": "Colors",
+    "description": "Select color",
+    "items": "radioOptions",
+    "type": "radio"
+  },
+  {
+    "key": "listSizes",
+    "name": "listSizes",
+    "label": "Sizes",
+    "description": "Select size",
+    "type": "select"
+  },
+
+  {
+    "key": "combobox",
+    "name": "combobox",
+    "label": "Frameworks",
+    "description": "Select Framework",
+    "type": "combobox"
+  },
+  {
+    "key": "dateRange",
+    "name": "dateRange",
+    "label": "Pick a date range",
+    "description": "Select Date",
+    "type": "dateRange"
+  },
+  {
+    "key": "dateInput",
+    "name": "dateInput",
+    "label": "Pick a date",
+    "description": "Select Date",
+    "type": "dateInput"
+  },
+  {
+    "key": "checkInput",
+    "name": "checkInput",
+    "label": "Terms and Conditions",
+    "description": "Select to agree",
+    "type": "checkbox"
+  }
+]

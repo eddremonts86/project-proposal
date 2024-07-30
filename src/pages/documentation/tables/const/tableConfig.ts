@@ -189,7 +189,7 @@ export const filters = [
   },
 ]
 
-export const tableExampleData = {
+export const tableConfig = {
   headers,
   config,
   filters,

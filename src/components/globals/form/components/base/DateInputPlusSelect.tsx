@@ -7,7 +7,7 @@ import SelectBtn from './SelectBtn'
 interface SelectProps {
   item: IData
 }
-export default function TestOfmultiple({ item }: Readonly<SelectProps>) {
+export default function DateInputPlusSelect({ item }: Readonly<SelectProps>) {
   const [selectedValue, setSelectedValue] = useState('')
 
   return (
