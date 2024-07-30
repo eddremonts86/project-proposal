@@ -2,7 +2,6 @@ import CheckBoxInput from './CheckBoxInput'
 import ComboBoxInput from './ComboBoxInput'
 import CommonBtn from './CommonBtn'
 import DateInput from './DateInput'
-import DateInputPlusSelect from './DateInputPlusSelect'
 import DatePickerWithRange from './DateRangeInput'
 import RadioInput from './RadioInput'
 import SelectBtn from './SelectBtn'
@@ -18,7 +17,6 @@ export {
   DatePickerWithRange,
   RadioInput,
   SelectBtn,
-  DateInputPlusSelect,
   TextAreaInput,
   TextInput,
   ToggleInput,

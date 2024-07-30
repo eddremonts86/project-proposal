@@ -20,12 +20,14 @@ interface DatePickerComponentProps {
   item: IData
   format?: string
   className?: string
+  onUpdate?: (value: string) => void
 }
 
 export default function DateInput({
   item,
   className,
   format = 'LLL dd, y',
+  onUpdate,
 }: Readonly<DatePickerComponentProps>) {
   const { name, control, defaultValue, label } = item
   const [open, setOpen] = useState(false)
@@ -45,11 +47,8 @@ export default function DateInput({
     return dateLabel
   }, [value, format])
 
-  const myDate = formatDate(defaultValue, format)
-
   return (
     <FormItem className={cn('grid gap-2', className)}>
-      {myDate}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <div className="flex w-fit flex-col justify-start gap-4">
@@ -79,7 +78,10 @@ export default function DateInput({
           <Calendar
             mode="single"
             selected={value}
-            onSelect={onChange}
+            onSelect={(value: string) => {
+              onChange(value)
+              onUpdate?.(value)
+            }}
             onBlur={() => setOpen(false)}
             initialFocus
           />

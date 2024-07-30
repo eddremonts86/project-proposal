@@ -19,6 +19,7 @@ export enum InputsTypes {
   dateInput = 'Date',
   combobox = 'combobox',
   dateInputPlusSelect = 'dateInputPlusSelect',
+  checkboxPlusSelect = 'checkboxPlusSelect',
 }
 
 export interface IData {
@@ -38,4 +39,8 @@ export interface IData {
     | boolean
     | unknown[]
     | Record<string, unknown>
+}
+
+export interface IAdvanceData extends Omit<IData, 'items'> {
+  items: IData[]
 }

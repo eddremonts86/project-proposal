@@ -1,0 +1,215 @@
+{
+  "advanced": [
+    {
+      "defaultValue": "10/25/2024",
+      "description": "Select to TestOfmultiple",
+      "label": "Terms and TestOfmultiple",
+      "key": "checkboxPlusSelect",
+      "name": "checkboxPlusSelect",
+      "type": "checkboxPlusSelect",
+      "items": [
+        {
+          "defaultValue": false,
+          "description": "Select to options",
+          "key": "options",
+          "label": "Select any option",
+          "name": "options",
+          "type": "checkbox"
+        },
+        {
+          "defaultValue": "10/25/2024",
+          "key": "myOption",
+          "placeholder": "Select any option",
+          "name": "myOption",
+          "type": "select",
+          "items": [
+            {
+              "label": "Option 1",
+              "value": "option1"
+            },
+            {
+              "label": "Option 2",
+              "value": "option2"
+            },
+            {
+              "label": "Option 3",
+              "value": "option3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "defaultValue": "10/25/2024",
+      "description": "Select to TestOfmultiple",
+      "label": "Terms and TestOfmultiple",
+      "key": "dateInputPlusSelect",
+      "name": "dateInputPlusSelect",
+      "type": "dateInputPlusSelect",
+      "items": [
+        {
+          "defaultValue": false,
+          "description": "Select to options",
+          "key": "options",
+          "label": "Terms and options",
+          "name": "options",
+          "type": "checkbox"
+        },
+        {
+          "defaultValue": "10/25/2024",
+          "description": "Select any option",
+          "key": "myOption",
+          "label": "Select any option",
+          "name": "myOption",
+          "type": "select",
+          "items": [
+            {
+              "label": "Option 1",
+              "value": "option1"
+            },
+            {
+              "label": "Option 2",
+              "value": "option2"
+            },
+            {
+              "label": "Option 3",
+              "value": "option3"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "basic": [
+    {
+      "description": "Select to bold",
+      "key": "toggleInput",
+      "label": "Turn On",
+      "name": "toggleInput",
+      "type": "toggle",
+      "defaultValue": true
+    },
+    {
+      "description": "This is your public display name.",
+      "key": "username",
+      "label": "username",
+      "name": "username",
+      "rules": "name",
+      "type": "text"
+    },
+    {
+      "description": "This is your password",
+      "key": "password",
+      "label": "Password",
+      "name": "Password",
+      "rules": "passWord",
+      "type": "password"
+    },
+    {
+      "description": "This is your email address",
+      "key": "email",
+      "label": "Email",
+      "name": "Email",
+      "rules": "email",
+      "type": "email"
+    },
+    {
+      "description": "Upload a file here",
+      "key": "file",
+      "label": "Upload File",
+      "name": "uploadFile",
+      "type": "file"
+    },
+    {
+      "description": "This is your biography",
+      "key": "textarea",
+      "label": "Bio",
+      "name": "textarea",
+      "type": "textarea"
+    },
+    {
+      "description": "Select color",
+      "items": [
+        {
+          "label": "Red",
+          "value": "red"
+        },
+        {
+          "label": "Blue",
+          "value": "blue"
+        },
+        {
+          "label": "Green",
+          "value": "green"
+        }
+      ],
+      "key": "radioInput",
+      "label": "Colors",
+      "name": "radioInput",
+      "type": "radio"
+    },
+    {
+      "description": "Select size",
+      "items": [
+        {
+          "label": "Small",
+          "value": "small"
+        },
+        {
+          "label": "Medium",
+          "value": "medium"
+        },
+        {
+          "label": "Large",
+          "value": "large"
+        }
+      ],
+      "key": "listSizes",
+      "label": "Sizes",
+      "name": "listSizes",
+      "type": "select"
+    },
+    {
+      "description": "Select Framework",
+      "items": [
+        {
+          "label": "React",
+          "value": "react"
+        },
+        {
+          "label": "Vue",
+          "value": "vue"
+        },
+        {
+          "label": "Angular",
+          "value": "angular"
+        }
+      ],
+      "key": "combobox",
+      "label": "Frameworks",
+      "name": "combobox",
+      "type": "combobox"
+    },
+    {
+      "description": "Select Date",
+      "key": "dateRange",
+      "label": "Pick a date range",
+      "name": "dateRange",
+      "type": "dateRange"
+    },
+    {
+      "description": "Select Date",
+      "key": "dateInput",
+      "label": "Pick a date",
+      "name": "dateInput",
+      "type": "dateInput"
+    },
+    {
+      "description": "Select to agree",
+      "key": "checkInput",
+      "label": "Terms and Conditions",
+      "name": "checkInput",
+      "type": "checkbox"
+    }
+  ]
+}

@@ -12,7 +12,7 @@ const json = () => ({
 })
 
 const data = JSON.stringify(json(), null, 2)
-const path = './jServer/Forms.json'
+const path = './src/jServer/Forms.json'
 writeFileSync(path, data, function (err) {
   if (err) throw err
   console.log('complete')

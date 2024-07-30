@@ -21,7 +21,7 @@ interface SelectProps {
 }
 
 export default function SelectBtn({ item, onUpdate }: Readonly<SelectProps>) {
-  const { name, control, defaultValue, description, label } = item
+  const { name, control, defaultValue, placeholder, label } = item
   const {
     field: { onChange, value },
     fieldState: { error },
@@ -49,7 +49,7 @@ export default function SelectBtn({ item, onUpdate }: Readonly<SelectProps>) {
           <span className="capitalize">{label}</span>
         </FormLabel>
         <SelectTrigger>
-          <SelectValue placeholder={description} />
+          <SelectValue placeholder={placeholder} />
           <hr />
         </SelectTrigger>
         <SelectContent className="cursor-pointer p-1 capitalize ">

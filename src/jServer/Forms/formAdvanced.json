@@ -1,0 +1,81 @@
+[
+  {
+    "defaultValue": "10/25/2024",
+    "description": "Select to TestOfmultiple",
+    "label": "Terms and TestOfmultiple",
+    "key": "checkboxPlusSelect",
+    "name": "checkboxPlusSelect",
+    "type": "checkboxPlusSelect",
+    "items": [
+      {
+        "defaultValue": false,
+        "description": "Select to options",
+        "key": "options",
+        "label": "Select any option",
+        "name": "options",
+        "type": "checkbox"
+      },
+      {
+        "defaultValue": "10/25/2024",
+        "key": "myOption",
+        "placeholder": "Select any option",
+        "name": "myOption",
+        "type": "select",
+        "items": [
+          {
+            "label": "Option 1",
+            "value": "option1"
+          },
+          {
+            "label": "Option 2",
+            "value": "option2"
+          },
+          {
+            "label": "Option 3",
+            "value": "option3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "defaultValue": "10/25/2024",
+    "description": "Select to TestOfmultiple",
+    "label": "Terms and TestOfmultiple",
+    "key": "dateInputPlusSelect",
+    "name": "dateInputPlusSelect",
+    "type": "dateInputPlusSelect",
+    "items": [
+      {
+        "defaultValue": false,
+        "description": "Select to options",
+        "key": "options",
+        "label": "Terms and options",
+        "name": "options",
+        "type": "checkbox"
+      },
+      {
+        "defaultValue": "10/25/2024",
+        "description": "Select any option",
+        "key": "myOption",
+        "label": "Select any option",
+        "name": "myOption",
+        "type": "select",
+        "items": [
+          {
+            "label": "Option 1",
+            "value": "option1"
+          },
+          {
+            "label": "Option 2",
+            "value": "option2"
+          },
+          {
+            "label": "Option 3",
+            "value": "option3"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -4,7 +4,6 @@ import {
   CheckBoxInput,
   ComboBoxInput,
   DateInput,
-  DateInputPlusSelect,
   DatePickerWithRange,
   RadioInput,
   SelectBtn,
@@ -12,7 +11,11 @@ import {
   TextInput,
   ToggleInput,
 } from '../components/base'
-import { IData, InputsTypes } from '../types'
+import {
+  CheckboxPlusSelect,
+  DateInputPlusSelect,
+} from '../components/combinations'
+import { IAdvanceData, IData, InputsTypes } from '../types'
 
 const textInputs = [
   InputsTypes.text,
@@ -25,41 +28,44 @@ const useInputsFields = (
   list: IData[],
   control: Control<FieldValues, unknown>
 ) => {
-  return list.map((listItem: IData) => {
+  return list.map((listItem: IData | IAdvanceData) => {
     const item = {
       ...listItem,
       control,
     }
 
     if (textInputs.includes(item.type)) {
-      return <TextInput key={item.key} item={item} />
+      return <TextInput key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.select) {
-      return <SelectBtn key={item.key} item={item} />
+      return <SelectBtn key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.radio) {
-      return <RadioInput key={item.key} item={item} />
+      return <RadioInput key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.dateInput) {
-      return <DateInput key={item.key} item={item} />
+      return <DateInput key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.dateRange) {
-      return <DatePickerWithRange key={item.key} item={item} />
+      return <DatePickerWithRange key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.checkbox) {
-      return <CheckBoxInput key={item.key} item={item} />
+      return <CheckBoxInput key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.toggle) {
-      return <ToggleInput key={item.key} item={item} />
+      return <ToggleInput key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.textarea) {
-      return <TextAreaInput key={item.key} item={item} />
+      return <TextAreaInput key={item.key} item={item as IData} />
     }
     if (item.type === InputsTypes.combobox) {
-      return <ComboBoxInput key={item.key} item={item} />
+      return <ComboBoxInput key={item.key} item={item as IData} />
+    }
+    if (item.type === InputsTypes.checkboxPlusSelect) {
+      return <CheckboxPlusSelect key={item.key} item={item as IAdvanceData} />
     }
     if (item.type === InputsTypes.dateInputPlusSelect) {
-      return <DateInputPlusSelect key={item.key} item={item} />
+      return <DateInputPlusSelect key={item.key} item={item as IAdvanceData} />
     }
   })
 }

@@ -9,10 +9,12 @@ import Errormessage from './ErrorMessage'
 
 interface CheckboxProps {
   item: IData
+  onUpdate?: (value: string) => void
 }
 
 const CheckBoxInput: React.FC<CheckboxProps> = ({
   item,
+  onUpdate,
 }: Readonly<CheckboxProps>) => {
   const { name, control, defaultValue, label } = item
   const {
@@ -29,7 +31,10 @@ const CheckBoxInput: React.FC<CheckboxProps> = ({
       <Checkbox
         id={name}
         checked={value}
-        onCheckedChange={onChange}
+        onCheckedChange={(value: string) => {
+          onChange(value)
+          onUpdate && onUpdate(value)
+        }}
         ref={ref}
         className="mt-2"
       />
