@@ -15,9 +15,9 @@
     "lint": "prettier -w -u . && npx eslint . --ext ts,tsx --fix",
     "prepare": "husky",
     "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg",
-    "createApi": "node ./jServer/fakeApis/Api/index.js",
-    "createForms": "node ./jServer/fakeApis/Forms/index.js",
-    "useFakeApi": "json-server ./jServer/fakeApis/Api.json --port 3001",
+    "createApi": "node ./jServer/Api/index.js",
+    "createForms": "node ./jServer/Forms/index.js",
+    "useFakeApi": "json-server ./jServer/Api.json --port 3001",
     "fakeApi": "npm run createForms && npm run createApi && npm run useFakeApi"
   },
   "dependencies": {

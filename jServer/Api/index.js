@@ -20,7 +20,7 @@ const json = () => ({
 })
 
 const data = JSON.stringify(json(), null, 2)
-const path = './jServer/fakeApis/Api.json'
+const path = './jServer/Api.json'
 writeFileSync(path, data, function (err) {
   if (err) throw err
   console.log('complete')
