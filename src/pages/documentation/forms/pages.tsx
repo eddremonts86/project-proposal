@@ -1,6 +1,7 @@
 import { FieldValues } from 'react-hook-form'
 
 import FlexContainer from '@/components/containers/FlexContainer'
+import GridContainer from '@/components/containers/GridContainer'
 import { FormContent } from '@/components/globals/form'
 import { CommonBtn } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
@@ -11,7 +12,7 @@ export default function FormsPage() {
   const { onSubmit, formValues } = useForms()
   return (
     <FlexContainer className="gap-3">
-      <FlexContainer className="sm:flex-col">
+      <GridContainer className="p-2">
         <FormContent
           onChange={(values: FieldValues) => {
             onSubmit(values)
@@ -21,13 +22,13 @@ export default function FormsPage() {
           }}
           inputs={basic}
         />
-        <div className="mt-6 flex items-center justify-end gap-2">
+        <div className="mt-6 flex items-center justify-center gap-2">
           <CommonBtn type="button" text="loading..." loading={true} />
           <CommonBtn type="submit" text="Submit" icon="mdi-send-variant" />
           <CommonBtn type="button" text="Cancel" icon="mdi-close-thick" />
         </div>
-      </FlexContainer>
-      <FlexContainer className="sm:flex-col">
+      </GridContainer>
+      <GridContainer className="border-0 p-0">
         <FormContent
           onChange={(values: FieldValues) => {
             onSubmit(values)
@@ -37,18 +38,21 @@ export default function FormsPage() {
           }}
           inputs={advanced}
         />
-      </FlexContainer>
+      </GridContainer>
+
       <FlexContainer className="flex justify-start p-6">
         {formValues && (
           <div className="flex flex-col space-y-2">
             {Object.keys(formValues).map((key) => {
               return (
-                <p key={`${key}_id`}>
-                  {key}:{' '}
-                  <small className="mx-1 text-blue-500">
+                <>
+                  <p key={`${key}_id`} className="capitalize">
+                    {key}:{' '}
+                  </p>
+                  <code className="m-21 rounded-md bg-slate-800 p-3 text-white">
                     {JSON.stringify(formValues[key])}
-                  </small>
-                </p>
+                  </code>
+                </>
               )
             })}
           </div>

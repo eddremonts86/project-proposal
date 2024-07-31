@@ -1,5 +1,7 @@
 import { FieldValues, FormProvider, useForm } from 'react-hook-form'
 
+import GridContainer from '@/components/containers/GridContainer'
+
 import useInputsFields from '../hooks/useInputsFields'
 import { IData } from '../types'
 
@@ -27,7 +29,7 @@ const FormContent = ({ onSubmit, onChange, inputs }: FormProps) => {
           onSubmit(values)
         })}
       >
-        {formInputs}
+        <GridContainer className="gap-3">{formInputs}</GridContainer>
       </form>
     </FormProvider>
   )

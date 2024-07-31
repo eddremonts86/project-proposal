@@ -2,14 +2,14 @@ import { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
-interface PropsWithChildren {
+interface FlexContainerProps {
   children: ReactNode
   className?: string
 }
 export default function FlexContainer({
   children,
   className,
-}: Readonly<PropsWithChildren>) {
+}: Readonly<FlexContainerProps>) {
   return (
     <section
       className={cn(

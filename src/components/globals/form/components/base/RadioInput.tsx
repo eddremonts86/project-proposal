@@ -29,12 +29,12 @@ const RadioInput: FC<RadioInputProps> = ({
   return (
     <FormItem>
       <FormLabel>{label}</FormLabel>
-      <RadioGroup value={value} onValueChange={onChange} className="py-3">
+      <RadioGroup value={value} onValueChange={onChange}>
         {item.items?.length &&
           item.items?.map((option: IOptions) => (
             <div
               key={option.value}
-              className="flex flex-col items-center justify-start gap-2 sm:flex-row"
+              className="my-1 flex items-center justify-start gap-2"
             >
               <RadioGroupItem value={option.value} id={option.value} />
               <Label htmlFor={option.value} className="cursor-pointer">

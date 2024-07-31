@@ -1,83 +1,83 @@
 {
   "advanced": [
     {
-      "defaultValue": "10/25/2024",
-      "description": "Select to TestOfmultiple",
-      "label": "Terms and TestOfmultiple",
-      "key": "checkboxPlusSelect",
-      "name": "checkboxPlusSelect",
-      "type": "checkboxPlusSelect",
       "items": [
         {
           "defaultValue": false,
           "description": "Select to options",
-          "key": "options",
-          "label": "Select any option",
-          "name": "options",
+          "key": "haveClub",
+          "label": "Are you member of any club?",
+          "name": "haveClub",
           "type": "checkbox"
         },
         {
-          "defaultValue": "10/25/2024",
-          "key": "myOption",
-          "placeholder": "Select any option",
-          "name": "myOption",
-          "type": "select",
+          "defaultValue": {
+            "label": "Book club",
+            "value": "book_club"
+          },
           "items": [
             {
-              "label": "Option 1",
-              "value": "option1"
+              "label": "Book club",
+              "value": "book_club"
             },
             {
-              "label": "Option 2",
-              "value": "option2"
+              "label": "Runner club",
+              "value": "runner_club"
             },
             {
-              "label": "Option 3",
-              "value": "option3"
+              "label": "Swimmer club",
+              "value": "swimmer_club"
             }
-          ]
+          ],
+          "key": "clubMember",
+          "name": "clubMember",
+          "placeholder": "Select your club",
+          "type": "select"
         }
-      ]
+      ],
+      "type": "checkboxPlusSelect",
+      "key": "clubMemberGroup",
+      "name": "clubMemberGroup",
+      "label": "User Information",
+      "description": "Information about user club membership"
     },
     {
-      "defaultValue": "10/25/2024",
-      "description": "Select to TestOfmultiple",
-      "label": "Terms and TestOfmultiple",
-      "key": "dateInputPlusSelect",
-      "name": "dateInputPlusSelect",
-      "type": "dateInputPlusSelect",
       "items": [
         {
-          "defaultValue": false,
-          "description": "Select to options",
-          "key": "options",
-          "label": "Terms and options",
-          "name": "options",
-          "type": "checkbox"
+          "key": "subscriptionStartDate",
+          "label": "Subscription start date",
+          "description": "Date when subscription starts",
+          "name": "subscriptionStartDate",
+          "type": "dateInput",
+          "defaultValue": "10/25/2024"
         },
         {
-          "defaultValue": "10/25/2024",
-          "description": "Select any option",
-          "key": "myOption",
-          "label": "Select any option",
-          "name": "myOption",
-          "type": "select",
           "items": [
             {
-              "label": "Option 1",
-              "value": "option1"
+              "label": "Type 1",
+              "value": "subscription_type_1"
             },
             {
-              "label": "Option 2",
-              "value": "option2"
+              "label": "Type 2",
+              "value": "subscription_type_2"
             },
             {
-              "label": "Option 3",
-              "value": "option3"
+              "label": "Type 3",
+              "value": "subscription_type_3"
             }
-          ]
+          ],
+          "type": "select",
+          "key": "subscriptionType",
+          "name": "subscriptionType",
+          "label": "Select subscription type",
+          "description": "Select your subscription"
         }
-      ]
+      ],
+      "type": "dateInputPlusSelect",
+      "key": "MemberShip",
+      "name": "MemberShip",
+      "label": "Membership Information",
+      "description": "Type and date input with select"
     }
   ],
   "basic": [

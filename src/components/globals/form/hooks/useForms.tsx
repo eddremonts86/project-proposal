@@ -5,7 +5,7 @@ const useForms = () => {
   const [formValues, setFormValues] = useState<FieldValues | null>(null)
 
   const onSubmit = (data: FieldValues) => {
-    setFormValues(data)
+    setFormValues((prev) => (prev ? { ...prev, ...data } : data))
   }
 
   return {

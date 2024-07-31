@@ -16,7 +16,7 @@ export enum InputsTypes {
   textarea = 'textarea',
   toggle = 'toggle',
   dateRange = 'dateRange',
-  dateInput = 'Date',
+  dateInput = 'dateInput',
   combobox = 'combobox',
   dateInputPlusSelect = 'dateInputPlusSelect',
   checkboxPlusSelect = 'checkboxPlusSelect',
