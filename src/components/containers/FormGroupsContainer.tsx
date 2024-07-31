@@ -12,7 +12,7 @@ export default function FormGroupsContainer({
         <legend className="-ml-1 px-1 text-sm font-medium">
           <span className="text-black dark:text-white">{name}</span>
         </legend>
-        <div>{children}</div>
+        <div className="flex flex-col gap-4">{children}</div>
       </fieldset>
     </div>
   )
