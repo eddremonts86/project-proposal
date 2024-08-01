@@ -59,8 +59,13 @@ export default function SelectBtn({
         </SelectTrigger>
         <SelectContent className="cursor-pointer p-1 capitalize ">
           <SelectGroup>
-            <SelectLabel>{description}</SelectLabel>
-            <hr className="my-2" />
+            {description && (
+              <>
+                {' '}
+                <SelectLabel>{description}</SelectLabel>
+                <hr className="my-2" />
+              </>
+            )}
             {item.items?.length &&
               item.items.map((option: IOptions) => (
                 <SelectItem value={option.value} key={option.value}>
