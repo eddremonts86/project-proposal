@@ -2,21 +2,21 @@ import { useController } from 'react-hook-form'
 
 import FormGroupsContainer from '@/components/containers/FormGroupsContainer'
 
-import { IAdvanceData, InputsTypes } from '../../types'
+import { IAdvanceData, IData, InputsTypes } from '../../types'
 import DateInput from '../base/DateInput'
 import SelectBtn from '../base/SelectBtn'
 
 interface SelectProps {
   item: IAdvanceData
 }
-const defDateInput = {
+const defDateInput: IData = {
   key: '',
   name: '',
   label: '',
   type: InputsTypes.dateInput,
-  defaultValue: '',
+  defaultValue: new Date(),
 }
-const defSelect = {
+const defSelect: IData = {
   key: '',
   name: '',
   label: '',
@@ -35,7 +35,7 @@ export default function DateInputPlusSelect({ item }: Readonly<SelectProps>) {
     name,
     control,
     defaultValue: {
-      [dateInput.name]: new Date(dateInput?.defaultValue as string),
+      [dateInput.name]: dateInput?.defaultValue,
       [select.name]: select?.defaultValue,
     },
   })

@@ -39,6 +39,8 @@ export interface IData {
     | boolean
     | unknown[]
     | Record<string, unknown>
+    | undefined
+    | Date
 }
 
 export interface IAdvanceData extends Omit<IData, 'items'> {

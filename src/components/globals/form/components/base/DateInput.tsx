@@ -3,7 +3,7 @@ import { Calendar as CalendarIcon } from 'lucide-react'
 import { useController } from 'react-hook-form'
 
 import { cn } from '@/lib/utils'
-import { formatDate } from '@/lib/utils/dates'
+import { createDate, formatDate } from '@/lib/utils/dates'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import {
@@ -36,7 +36,7 @@ export default function DateInput({
   } = useController({
     control,
     name: name,
-    defaultValue: defaultValue || new Date(),
+    defaultValue: createDate(defaultValue),
   })
   const dateLabel = useMemo(() => {
     let dateLabel = 'Pick a date'
