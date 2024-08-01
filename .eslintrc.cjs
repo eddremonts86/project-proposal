@@ -10,8 +10,9 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'tailwindcss'],
+  plugins: ['react-refresh', 'tailwindcss', '@typescript-eslint'],
   rules: {
+    semi: ['off'],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -38,4 +39,8 @@ module.exports = {
       parser: '@typescript-eslint/parser',
     },
   ],
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
 }

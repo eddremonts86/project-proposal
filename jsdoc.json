@@ -1,0 +1,42 @@
+{
+  "typescript": {
+    "allowJs": true,
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es6"
+  },
+
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc"]
+  },
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/better-docs/typescript",
+    "node_modules/better-docs/component"
+  ],
+  "opts": {
+    "destination": "./docs",
+    "encoding": "utf8",
+    "readme": "README.md",
+    "recurse": true,
+    "verbose": true,
+    "template": "./node_modules/better-docs"
+  },
+  "source": {
+    "include": ["./src"],
+    "exclude": ["./src/**/*.text,tsx", "./src/**/*.test.ts"],
+    "includePattern": ".+\\.(js|ts|jsx|tsx)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "search": true,
+    "better-docs": {
+      "name": "framework documentation",
+      "title": "Framework Documentation",
+      "hideGenerator": false
+    }
+  }
+}
