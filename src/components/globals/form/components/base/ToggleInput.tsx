@@ -4,7 +4,7 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 
 import { IData } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface ToggleProps {
   item: IData

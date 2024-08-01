@@ -5,7 +5,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { FormLabel } from '@/components/ui/form'
 
 import { IData } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface CheckboxProps {
   item: IData

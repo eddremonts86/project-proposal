@@ -3,7 +3,7 @@ import { useController } from 'react-hook-form'
 import { Textarea } from '@/components/ui/textarea'
 
 import { IData } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface TextInputProps {
   item: IData

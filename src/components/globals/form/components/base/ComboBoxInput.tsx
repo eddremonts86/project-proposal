@@ -20,7 +20,7 @@ import {
 } from '@/components/ui/popover'
 
 import { IData, IOptions } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface ComboBoxInputProps {
   item: IData

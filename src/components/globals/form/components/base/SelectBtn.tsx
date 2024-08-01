@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/select'
 
 import { IData, IOptions } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface SelectProps {
   item: IData

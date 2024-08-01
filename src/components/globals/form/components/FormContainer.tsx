@@ -11,7 +11,7 @@ interface FormProps {
   inputs: IData[]
 }
 
-const FormContent = ({ onSubmit, onChange, inputs }: FormProps) => {
+const FormContainer = ({ onSubmit, onChange, inputs }: FormProps) => {
   const { handleSubmit, control } = useForm()
 
   const methods = useForm()
@@ -35,4 +35,4 @@ const FormContent = ({ onSubmit, onChange, inputs }: FormProps) => {
   )
 }
 
-export default FormContent
+export default FormContainer

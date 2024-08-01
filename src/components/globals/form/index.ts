@@ -1,3 +1,3 @@
-import FormContent from './components/FormContent'
+import FormContainer from './components/FormContainer'
 
-export { FormContent }
+export { FormContainer }

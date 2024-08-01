@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 
 import { InputChangeEvent } from '../../../../../types/forms'
 import { IData } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface TextInputProps {
   item: IData

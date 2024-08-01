@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/popover'
 
 import { IData } from '../../types'
-import FormItemContainer from './FormItemContainer'
+import FormItemContainer from '../FormItemContainer'
 
 interface DatePickerComponentProps {
   item: IData

@@ -31,7 +31,7 @@ export interface IData {
   type: InputsTypes
   items?: IOptions[]
   control?: Control<FieldValues>
-  rules?: Record<string, unknown>
+  rules?: Record<string, unknown> | null | string
   defaultValue?:
     | string
     | null

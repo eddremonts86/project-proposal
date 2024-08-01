@@ -15,13 +15,13 @@ export const passWordRule = {
     value: 6,
     message: 'Minimum 6 letters are required',
   },
-  pattern: {
-    value: /^(?=.*[A-Z]).*$/,
-    message: 'Password must include at least one capital letter',
-  },
   maxLength: {
     value: 10,
     message: 'Maximum length should be 10',
+  },
+  pattern: {
+    value: /^(?=.*[A-Z]).*$/,
+    message: 'Password must include at least one capital letter',
   },
 }
 export const emailRule = {
@@ -30,4 +30,19 @@ export const emailRule = {
     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     message: 'Please enter a valid email address',
   },
+}
+
+export const isRequired = {
+  required: 'This field is required',
+  patten: {
+    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    message: 'This field is required',
+  },
+}
+
+export const rules = {
+  name: nameRule,
+  password: passWordRule,
+  email: emailRule,
+  required: isRequired,
 }

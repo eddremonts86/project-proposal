@@ -2,7 +2,7 @@ import { FieldValues } from 'react-hook-form'
 
 import FlexContainer from '@/components/containers/FlexContainer'
 import GridContainer from '@/components/containers/GridContainer'
-import { FormContent } from '@/components/globals/form'
+import { FormContainer } from '@/components/globals/form'
 import { CommonBtn } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
 
@@ -13,7 +13,7 @@ export default function FormsPage() {
   return (
     <FlexContainer className="gap-3">
       <GridContainer className="p-2">
-        <FormContent
+        <FormContainer
           onChange={(values: FieldValues) => {
             onSubmit(values)
           }}
@@ -29,7 +29,7 @@ export default function FormsPage() {
         </div>
       </GridContainer>
       <GridContainer className="border-0 p-0">
-        <FormContent
+        <FormContainer
           onChange={(values: FieldValues) => {
             onSubmit(values)
           }}

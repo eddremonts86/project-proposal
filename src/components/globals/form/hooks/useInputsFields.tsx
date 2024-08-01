@@ -16,6 +16,7 @@ import {
   DateInputPlusSelect,
 } from '../components/combinations'
 import { IAdvanceData, IData, InputsTypes } from '../types'
+import { rules } from '../validations/validationSchema'
 
 const textInputs = [
   InputsTypes.text,
@@ -32,6 +33,8 @@ const useInputsFields = (
     const item = {
       ...listItem,
       control,
+      // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
+      rules: listItem.rules ? rules[listItem.rules] : null,
     }
 
     if (textInputs.includes(item.type)) {
