@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useController } from 'react-hook-form'
 
-import { FormItem, FormLabel } from '@/components/ui/form'
 import {
   Select,
   SelectContent,
@@ -13,15 +12,20 @@ import {
 } from '@/components/ui/select'
 
 import { IData, IOptions } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface SelectProps {
   item: IData
   onUpdate?: (value: string) => void
+  className?: string
 }
 
-export default function SelectBtn({ item, onUpdate }: Readonly<SelectProps>) {
-  const { name, control, defaultValue, placeholder, label } = item
+export default function SelectBtn({
+  item,
+  onUpdate,
+  className,
+}: Readonly<SelectProps>) {
+  const { name, control, defaultValue, placeholder, label, description } = item
   const {
     field: { onChange, value },
     fieldState: { error },
@@ -43,18 +47,20 @@ export default function SelectBtn({ item, onUpdate }: Readonly<SelectProps>) {
   }
 
   return (
-    <FormItem className="w-[300px] p-0">
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
       <Select onValueChange={handleInputChange} value={selectedValue}>
-        <FormLabel className="mb-4 mt-0  pt-0">
-          <span className="capitalize">{label}</span>
-        </FormLabel>
         <SelectTrigger>
           <SelectValue placeholder={placeholder} />
-          <hr />
         </SelectTrigger>
         <SelectContent className="cursor-pointer p-1 capitalize ">
           <SelectGroup>
-            <SelectLabel>{item.description}</SelectLabel>
+            <SelectLabel>{description}</SelectLabel>
+            <hr className="my-2" />
             {item.items?.length &&
               item.items.map((option: IOptions) => (
                 <SelectItem value={option.value} key={option.value}>
@@ -64,7 +70,6 @@ export default function SelectBtn({ item, onUpdate }: Readonly<SelectProps>) {
           </SelectGroup>
         </SelectContent>
       </Select>
-      {error && <Errormessage message={error.message} />}
-    </FormItem>
+    </FormItemContainer>
   )
 }

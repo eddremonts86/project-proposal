@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils'
 import { formatDate } from '@/lib/utils/dates'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
-import { FormItem, FormLabel } from '@/components/ui/form'
 import {
   Popover,
   PopoverContent,
@@ -14,7 +13,7 @@ import {
 } from '@/components/ui/popover'
 
 import { IData } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface DatePickerComponentProps {
   item: IData
@@ -29,11 +28,11 @@ export default function DateInput({
   format = 'LLL dd, y',
   onUpdate,
 }: Readonly<DatePickerComponentProps>) {
-  const { name, control, defaultValue, label } = item
+  const { name, control, defaultValue, label, description } = item
   const [open, setOpen] = useState(false)
   const {
     field: { onChange, value },
-    fieldState: { error, isTouched },
+    fieldState: { error },
   } = useController({
     control,
     name: name,
@@ -48,11 +47,15 @@ export default function DateInput({
   }, [value, format])
 
   return (
-    <FormItem className={cn('grid gap-2', className)}>
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <div className="flex w-fit flex-col justify-start gap-4">
-            <FormLabel>{label}</FormLabel>
             <Button
               variant={'outline'}
               aria-expanded={open}
@@ -61,17 +64,12 @@ export default function DateInput({
                 !value && 'text-muted-foreground'
               )}
               onClick={() => {
-                if (open) {
-                  onChange(value)
-                }
+                onChange(value)
               }}
             >
               <CalendarIcon className="mr-2 h-4 w-4" />
               {dateLabel}
             </Button>
-            {isTouched && error?.message && (
-              <Errormessage message={error.message} />
-            )}
           </div>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
@@ -87,6 +85,6 @@ export default function DateInput({
           />
         </PopoverContent>
       </Popover>
-    </FormItem>
+    </FormItemContainer>
   )
 }

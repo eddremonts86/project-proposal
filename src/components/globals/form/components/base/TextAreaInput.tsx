@@ -1,16 +1,16 @@
 import { useController } from 'react-hook-form'
 
-import { FormDescription, FormItem, FormLabel } from '@/components/ui/form'
+import { Textarea } from '@/components/ui/textarea'
 
-import { Textarea } from '../../../../ui/textarea'
 import { IData } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface TextInputProps {
   item: IData
+  className?: string
 }
 
-const TextAreaInput = ({ item }: Readonly<TextInputProps>) => {
+const TextAreaInput = ({ item, className }: Readonly<TextInputProps>) => {
   const {
     name,
     control,
@@ -31,10 +31,12 @@ const TextAreaInput = ({ item }: Readonly<TextInputProps>) => {
   })
 
   return (
-    <FormItem>
-      <FormLabel className="grid">
-        <span className="capitalize">{label}</span>
-      </FormLabel>
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
       <Textarea
         value={value}
         ref={ref}
@@ -42,9 +44,7 @@ const TextAreaInput = ({ item }: Readonly<TextInputProps>) => {
         placeholder={placeholder}
         className="resize-none"
       />
-      <FormDescription>{description}</FormDescription>
-      {error && <Errormessage message={error.message} />}
-    </FormItem>
+    </FormItemContainer>
   )
 }
 

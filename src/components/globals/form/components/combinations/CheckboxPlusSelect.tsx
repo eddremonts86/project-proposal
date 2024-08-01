@@ -48,10 +48,7 @@ export default function CheckboxPlusSelect({ item }: SelectProps) {
   }
 
   return (
-    <FormGroupsContainer
-      className="flex-col gap-4 rounded-sm bg-slate-50 p-4"
-      name={item.label}
-    >
+    <FormGroupsContainer className="flex-col" name={item.label}>
       <CheckBoxInput
         item={checkbox}
         onUpdate={(value) => handledSelect({ [checkbox.name]: value })}

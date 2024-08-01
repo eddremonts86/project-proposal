@@ -2,21 +2,23 @@ import React from 'react'
 import { useController } from 'react-hook-form'
 
 import { Checkbox } from '@/components/ui/checkbox'
-import { FormItem, FormLabel } from '@/components/ui/form'
+import { FormLabel } from '@/components/ui/form'
 
 import { IData } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface CheckboxProps {
   item: IData
   onUpdate?: (value: string) => void
+  className?: string
 }
 
 const CheckBoxInput: React.FC<CheckboxProps> = ({
   item,
   onUpdate,
+  className,
 }: Readonly<CheckboxProps>) => {
-  const { name, control, defaultValue, label } = item
+  const { name, control, defaultValue, label, description } = item
   const {
     field: { onChange, value, ref },
     fieldState: { error },
@@ -27,25 +29,31 @@ const CheckBoxInput: React.FC<CheckboxProps> = ({
   })
 
   return (
-    <FormItem className="flex items-center space-x-2">
-      <Checkbox
-        id={name}
-        checked={value}
-        onCheckedChange={(value: string) => {
-          onChange(value)
-          onUpdate && onUpdate(value)
-        }}
-        ref={ref}
-        className="mt-2"
-      />
-      <FormLabel
-        htmlFor={name}
-        className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-      >
-        <span>{label}</span>
-      </FormLabel>
-      {error && <Errormessage message={error.message} />}
-    </FormItem>
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
+      <div className="flex items-center">
+        <Checkbox
+          id={name}
+          checked={value}
+          onCheckedChange={(value: string) => {
+            onChange(value)
+            onUpdate && onUpdate(value)
+          }}
+          ref={ref}
+          className="mr-2"
+        />
+        <FormLabel
+          htmlFor={name}
+          className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          <span>{label}</span>
+        </FormLabel>
+      </div>
+    </FormItemContainer>
   )
 }
 

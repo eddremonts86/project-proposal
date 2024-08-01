@@ -49,10 +49,7 @@ export default function DateInputPlusSelect({ item }: Readonly<SelectProps>) {
   }
 
   return (
-    <FormGroupsContainer
-      className="flex-col gap-4 rounded-sm bg-slate-50"
-      name={item.label}
-    >
+    <FormGroupsContainer className="flex-col" name={item.label}>
       <SelectBtn
         item={select}
         onUpdate={(value) => handledSelect({ [select.name]: value })}

@@ -1,18 +1,18 @@
 import React from 'react'
 import { useController } from 'react-hook-form'
 
-import { FormDescription, FormItem, FormLabel } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
 import { InputChangeEvent } from '../../../../../types/forms'
-import { Input } from '../../../../ui/input'
 import { IData } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface TextInputProps {
   item: IData
+  className?: string
 }
 
-const TextInput: React.FC<TextInputProps> = ({ item }) => {
+const TextInput: React.FC<TextInputProps> = ({ item, className }) => {
   const {
     name,
     control,
@@ -25,7 +25,7 @@ const TextInput: React.FC<TextInputProps> = ({ item }) => {
   } = item
   const {
     field: { onChange, value, onBlur },
-    fieldState: { error, isTouched },
+    fieldState: { error },
   } = useController({
     name,
     control,
@@ -34,8 +34,12 @@ const TextInput: React.FC<TextInputProps> = ({ item }) => {
   })
 
   return (
-    <FormItem>
-      <FormLabel className="mb-0 pb-0 capitalize">{label} </FormLabel>
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
       <Input
         onChange={(e: InputChangeEvent) => onChange(e.target.value)}
         defaultValue={value}
@@ -43,9 +47,7 @@ const TextInput: React.FC<TextInputProps> = ({ item }) => {
         type={type}
         onBlur={onBlur}
       />
-      <FormDescription className="mt-0 pt-0">{description}</FormDescription>
-      {isTouched && error?.message && <Errormessage message={error.message} />}
-    </FormItem>
+    </FormItemContainer>
   )
 }
 

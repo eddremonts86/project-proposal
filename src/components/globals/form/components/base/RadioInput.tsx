@@ -1,21 +1,22 @@
 import { FC } from 'react'
 import { useController } from 'react-hook-form'
 
-import { FormItem, FormLabel } from '@/components/ui/form'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 import { IData, IOptions } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface RadioInputProps {
   item: IData
+  className?: string
 }
 
 const RadioInput: FC<RadioInputProps> = ({
   item,
+  className,
 }: Readonly<RadioInputProps>) => {
-  const { name, control, defaultValue, label } = item
+  const { name, control, defaultValue, label, description } = item
 
   const {
     field: { onChange, value },
@@ -25,10 +26,13 @@ const RadioInput: FC<RadioInputProps> = ({
     control,
     defaultValue,
   })
-
   return (
-    <FormItem>
-      <FormLabel>{label}</FormLabel>
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
       <RadioGroup value={value} onValueChange={onChange}>
         {item.items?.length &&
           item.items?.map((option: IOptions) => (
@@ -43,8 +47,7 @@ const RadioInput: FC<RadioInputProps> = ({
             </div>
           ))}
       </RadioGroup>
-      {error && <Errormessage message={error.message} />}
-    </FormItem>
+    </FormItemContainer>
   )
 }
 

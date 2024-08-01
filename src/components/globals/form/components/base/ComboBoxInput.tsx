@@ -12,26 +12,30 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command'
+import { FormControl } from '@/components/ui/form'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
 
-import { FormControl, FormItem, FormLabel } from '../../../../ui/form'
 import { IData, IOptions } from '../../types'
-import Errormessage from './ErrorMessage'
+import FormItemContainer from './FormItemContainer'
 
 interface ComboBoxInputProps {
   item: IData
+  className?: string
 }
-export default function ComboBoxInput({ item }: Readonly<ComboBoxInputProps>) {
+export default function ComboBoxInput({
+  item,
+  className,
+}: Readonly<ComboBoxInputProps>) {
   const { items, label, description, defaultValue, name, rules, control } = item
   const [open, setOpen] = useState(false)
 
   const {
     field: { onChange, value: inputValue },
-    fieldState: { error, isTouched },
+    fieldState: { error },
   } = useController({
     name,
     control,
@@ -47,12 +51,16 @@ export default function ComboBoxInput({ item }: Readonly<ComboBoxInputProps>) {
   if (items === undefined || !items.length) return null
 
   return (
-    <FormItem>
+    <FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
+    >
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <FormControl>
             <div className="flex w-fit flex-col justify-start gap-4">
-              <FormLabel>{label}</FormLabel>
               <Button
                 variant="outline"
                 aria-expanded={open}
@@ -66,9 +74,6 @@ export default function ComboBoxInput({ item }: Readonly<ComboBoxInputProps>) {
                 {inputValue?.label || description}
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
-              {isTouched && error?.message && (
-                <Errormessage message={error.message} />
-              )}
             </div>
           </FormControl>
         </PopoverTrigger>
@@ -107,6 +112,6 @@ export default function ComboBoxInput({ item }: Readonly<ComboBoxInputProps>) {
           </Command>
         </PopoverContent>
       </Popover>
-    </FormItem>
+    </FormItemContainer>
   )
 }

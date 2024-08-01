@@ -21,7 +21,7 @@ const FormContent = ({ onSubmit, onChange, inputs }: FormProps) => {
   return (
     <FormProvider {...methods}>
       <form
-        className="flex flex-col gap-4"
+        className="flex flex-col"
         onChange={handleSubmit((values: FieldValues) => {
           onChange(values)
         })}
