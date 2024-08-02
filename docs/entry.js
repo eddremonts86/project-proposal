@@ -28,8 +28,5 @@ reactComponents['TableFiltersProps'] = Component0;
 import Component1 from '../src/components/containers/FlexContainer.tsx';
 reactComponents['exports'] = Component1;
 
-import Component2 from '../src/components/containers/FlexContainer.tsx';
+import Component2 from '../src/components/globals/Table/components/actions/TableLoading.tsx';
 reactComponents['exports'] = Component2;
-
-import Component3 from '../src/components/globals/Table/components/actions/TableLoading.tsx';
-reactComponents['exports'] = Component3;
