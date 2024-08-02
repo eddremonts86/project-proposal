@@ -102,8 +102,8 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
-    "*": [
-      "jsdoc -c .jsdoc.json"
+    "src/*": [
+      "jsdoc -c .jsdoc.json && git add ."
     ],
     "*.{ts,tsx,jsx}": [
       "npx eslint . --ext ts,tsx --fix",
