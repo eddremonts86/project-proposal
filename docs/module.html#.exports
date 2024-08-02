@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Framework Documentation exports</title>
+  <title>Schilling - React Documentation exports</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -42,7 +42,7 @@
             
              
                 <a href="index.html">
-                    <h1 class="navbar-item">framework documentation</h1>
+                    <h1 class="navbar-item">Schilling - React Documentation</h1>
                 </a>
             
         </div>
@@ -74,7 +74,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="FlexContainerProps.html">FlexContainerProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
                 
             </nav>
         </div>
@@ -128,7 +128,7 @@
     
     
     <div class="description">
-        <p>Renders a container for form groups.</p>
+        <p>Represents a flexible container component.</p>
     </div>
     
 
@@ -174,7 +174,7 @@
   <td class="type">
   
       
-<code class="param-type">Readonly.&lt;FormGroupsContainerProps></code>
+<code class="param-type">Readonly.&lt;<a href="FlexContainerProps.html">FlexContainerProps</a>></code>
 
 
   
@@ -184,57 +184,8 @@
 
   
 
-  <td class="description last"><p>The component props.</p></td>
+  <td class="description last"><p>The props for the FlexContainer component.</p></td>
 </tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>name</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">string</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>The name of the form group container.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">ReactNode</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>The child components to render inside the container.</p></td>
-</tr>
-
-  
 
 
         
@@ -279,9 +230,9 @@
 
     
         <p class="tag-source">
-            <a href="containers_FormGroupsContainer.tsx.html" class="button">View Source</a>
+            <a href="containers_FlexContainer.tsx.html" class="button">View Source</a>
             <span>
-                <a href="containers_FormGroupsContainer.tsx.html">containers/FormGroupsContainer.tsx</a>, <a href="containers_FormGroupsContainer.tsx.html#line11">line 11</a>
+                <a href="containers_FlexContainer.tsx.html">containers/FlexContainer.tsx</a>, <a href="containers_FlexContainer.tsx.html#line10">line 10</a>
             </span>
         </p>
     
@@ -312,7 +263,240 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>The rendered form groups container.</p></div>
+    <div class='param-desc column is-7'><p>The rendered FlexContainer component.</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">JSX.Element</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            &ltexports  /&gt
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
+
+
+    
+    <h4 class="name" id=".exports">
+        <a class="href-link" href="#.exports">#</a>
+        
+        <span class="code-name">
+            
+                &ltexports  /&gt
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Represents a flexible container component.</p>
+    </div>
+    
+
+
+
+
+
+
+
+    
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>props</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Readonly.&lt;<a href="FlexContainerProps.html">FlexContainerProps</a>></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The props for the FlexContainer component.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="containers_FlexContainer.tsx.html" class="button">View Source</a>
+            <span>
+                <a href="containers_FlexContainer.tsx.html">containers/FlexContainer.tsx</a>, <a href="containers_FlexContainer.tsx.html#line10">line 10</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>The rendered FlexContainer component.</p></div>
     
     
     <div class='column is-5 has-text-left'>
@@ -627,16 +811,6 @@
 
 
             </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
             
         </div>
         <div id="side-nav" class="side-nav">

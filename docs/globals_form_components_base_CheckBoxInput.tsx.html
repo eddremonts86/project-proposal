@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Framework Documentation containers/GridContainer.tsx</title>
+  <title>Schilling - React Documentation globals/form/components/base/CheckBoxInput.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -44,7 +44,7 @@
             
              
                 <a href="index.html">
-                    <h1 class="navbar-item">framework documentation</h1>
+                    <h1 class="navbar-item">Schilling - React Documentation</h1>
                 </a>
             
         </div>
@@ -76,7 +76,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="FlexContainerProps.html">FlexContainerProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
                 
             </nav>
         </div>
@@ -84,7 +84,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>containers/GridContainer.tsx</h1>
+                    <h1>globals/form/components/base/CheckBoxInput.tsx</h1>
                 </header>
                 
 
@@ -93,34 +93,79 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { cn } from '../../lib/utils'
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import { useController } from 'react-hook-form'
 
-interface GridContainerProps {
-  children: React.ReactNode
-  className?: string
-}
+import { Checkbox } from '@/components/ui/checkbox'
+import { FormLabel } from '@/components/ui/form'
+
+import { IData } from '../../types'
+import FormItemContainer from '../FormItemContainer'
 
 /**
- * Renders a container component with a grid layout.
+ * Props for the CheckBoxInput component.
  *
- * @param children - The content to be rendered inside the container.
- * @param className - Additional CSS class names to apply to the container.
+ * @typedef {Object} CheckboxProps
+ * @property {IData} item - The data item containing form field information.
+ * @property {function(string): void} [onUpdate] - Optional callback function to handle updates.
+ * @property {string} [className] - Optional CSS class name for styling.
  */
-export default function GridContainer({
-  children,
+interface CheckboxProps {
+  item: IData
+  onUpdate?: (value: string) => void
+  className?: string
+}
+/**
+ * CheckBoxInput component integrates a checkbox input with react-hook-form.
+ *
+ * @param {CheckboxProps} props - The props for the CheckBoxInput component.
+ * @returns {JSX.Element} The rendered CheckBoxInput component.
+ */
+const CheckBoxInput: React.FC&lt;CheckboxProps> = ({
+  item,
+  onUpdate,
   className,
-}: Readonly&lt;GridContainerProps>) {
+}: Readonly&lt;CheckboxProps>) => {
+  const { name, control, defaultValue, label, description } = item
+  const {
+    field: { onChange, value, ref },
+    fieldState: { error },
+  } = useController({
+    name,
+    control,
+    defaultValue,
+  })
+
   return (
-    &lt;div
-      className={cn(
-        'h-full w-full flex-col flex-wrap items-center justify-center gap-4 rounded-xl border p-6 md:flex-row md:items-start md:justify-start',
-        className
-      )}
+    &lt;FormItemContainer
+      error={error || null}
+      label={label}
+      description={description || ''}
+      className={className}
     >
-      {children}
-    &lt;/div>
+      &lt;div className="flex items-center">
+        &lt;Checkbox
+          id={name}
+          checked={value}
+          onCheckedChange={(value: string) => {
+            onChange(value)
+            onUpdate &amp;&amp; onUpdate(value)
+          }}
+          ref={ref}
+          className="mr-2"
+        />
+        &lt;FormLabel
+          htmlFor={name}
+          className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          &lt;span>{label}&lt;/span>
+        &lt;/FormLabel>
+      &lt;/div>
+    &lt;/FormItemContainer>
   )
 }
+
+export default CheckBoxInput
 </code></pre>
         </article>
     </section>
@@ -129,16 +174,6 @@ export default function GridContainer({
 
 
             </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
             
         </div>
         <div id="side-nav" class="side-nav">

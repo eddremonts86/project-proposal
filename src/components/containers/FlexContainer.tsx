@@ -1,29 +1,24 @@
-/**
- * Represents a flexible container component.
- *
- * @component
- * @example
- * ```tsx
- * import FlexContainer from '@/components/containers/FlexContainer';
- *
- * function App() {
- *   return (
- *     <FlexContainer className="my-container">
- *       <div>Child 1</div>
- *       <div>Child 2</div>
- *     </FlexContainer>
- *   );
- * }
- * ```
- */
 import { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
+/**
+ * Props for the FlexContainer component.
+ * @interface
+ * @property {ReactNode} children - The children of the component.
+ * @property {string} [className] - The class name of the component.
+ */
 interface FlexContainerProps {
   children: ReactNode
   className?: string
 }
+/**
+ * Represents a flexible container component.
+ *
+ * @component
+ * @param {Readonly<FlexContainerProps>} props - The props for the FlexContainer component.
+ * @returns {JSX.Element} The rendered FlexContainer component.
+ */
 export default function FlexContainer({
   children,
   className,

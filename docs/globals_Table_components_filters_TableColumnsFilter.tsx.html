@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Framework Documentation globals/Table/components/filters/TableFilters.tsx</title>
+  <title>Schilling - React Documentation globals/Table/components/filters/TableColumnsFilter.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -44,7 +44,7 @@
             
              
                 <a href="index.html">
-                    <h1 class="navbar-item">framework documentation</h1>
+                    <h1 class="navbar-item">Schilling - React Documentation</h1>
                 </a>
             
         </div>
@@ -76,7 +76,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="FlexContainerProps.html">FlexContainerProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
                 
             </nav>
         </div>
@@ -84,7 +84,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>globals/Table/components/filters/TableFilters.tsx</h1>
+                    <h1>globals/Table/components/filters/TableColumnsFilter.tsx</h1>
                 </header>
                 
 
@@ -93,68 +93,66 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useEffect, useMemo, useState } from 'react'
+            <pre class="prettyprint source linenums"><code>import { MixerHorizontalIcon } from '@radix-ui/react-icons'
 import { Table } from '@tanstack/react-table'
-import { useDebounce } from '@uidotdev/usehooks'
 
-import { InputChangeEvent } from '@/types/forms'
-import { cn } from '@/lib/utils'
-import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 /**
- * Represents a component that provides filtering functionality for a table.
- *
- * @component
- * @example
- * ```tsx
- * &lt;TableFilters
- *   table={myTable}
- *   placeholder="Filter name..."
- *   filterKey="name"
- *   className="my-custom-class"
- * />
- * ```
+ * Props for the TableColumnsFilter component.
  */
-
-interface TableFiltersProps {
+interface TableColumnsFilterProps {
   table: Table&lt;unknown>
-  placeholder: string
-  filterKey: string
-  className?: string
 }
 
-export default function TableFilters({
+/**
+ * Renders a dropdown menu for toggling table columns visibility.
+ *
+ * @param {Readonly&lt;TableColumnsFilterProps>} props - The component props.
+ * @returns {JSX.Element} The rendered component.
+ */
+export default function TableColumnsFilter({
   table,
-  placeholder = 'Filter name...',
-  className,
-  filterKey,
-}: Readonly&lt;TableFiltersProps>) {
-  const column = useMemo(
-    () => table.getColumn(String(filterKey)),
-    [table, filterKey]
-  )
-  const [value, setValue] = useState('')
-  const debouncedSearchTerm = useDebounce(value, 300)
-  useEffect(() => {
-    if (column) {
-      column.setFilterValue(debouncedSearchTerm)
-    }
-  }, [debouncedSearchTerm, filterKey, column])
+}: Readonly&lt;TableColumnsFilterProps>) {
+  const columns = table
+    .getAllColumns()
+    .filter((column) => column.getCanHide())
+    .sort((a, b) => a.id.localeCompare(b.id))
 
   return (
-    &lt;div className="w-full flex-col">
-      &lt;Input
-        placeholder={placeholder}
-        className={cn('', className)}
-        value={value}
-        onChange={(event: InputChangeEvent) => setValue(event.target.value)}
-      />
-      {!column &amp;&amp; (
-        &lt;div className="m-2 text-sm text-red-500">
-          &lt;b>"{filterKey}"&lt;/b> is not a valid column-id to filter.
-        &lt;/div>
-      )}
-    &lt;/div>
+    &lt;DropdownMenu>
+      &lt;DropdownMenuTrigger asChild>
+        &lt;Button className="ml-auto" variant="outline">
+          &lt;MixerHorizontalIcon className="mr-2 h-4 w-4" /> View
+        &lt;/Button>
+      &lt;/DropdownMenuTrigger>
+      &lt;DropdownMenuContent className="z-50 w-56">
+        &lt;DropdownMenuLabel>Toggle columns&lt;/DropdownMenuLabel>
+        &lt;DropdownMenuSeparator />
+        {columns.map((column) => {
+          return (
+            &lt;DropdownMenuCheckboxItem
+              key={column.id}
+              className="cursor-pointer capitalize"
+              checked={column.getIsVisible()}
+              onCheckedChange={(value: boolean) =>
+                column.toggleVisibility(!!value)
+              }
+            >
+              &lt;div className="flex items-center justify-start">{column.id}&lt;/div>
+            &lt;/DropdownMenuCheckboxItem>
+          )
+        })}
+      &lt;/DropdownMenuContent>
+    &lt;/DropdownMenu>
   )
 }
 </code></pre>
@@ -165,16 +163,6 @@ export default function TableFilters({
 
 
             </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
             
         </div>
         <div id="side-nav" class="side-nav">

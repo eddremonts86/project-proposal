@@ -34,9 +34,9 @@
     "monospaceLinks": false,
     "search": true,
     "better-docs": {
-      "name": "framework documentation",
-      "title": "Framework Documentation",
-      "hideGenerator": false
+      "name": "Schilling - React Documentation",
+      "title": "Schilling - React Documentation",
+      "hideGenerator": true
     }
   }
 }

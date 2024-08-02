@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Framework Documentation TableColumnsFilterProps</title>
+  <title>Schilling - React Documentation globals/Table/components/TableContent.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -42,7 +44,7 @@
             
              
                 <a href="index.html">
-                    <h1 class="navbar-item">framework documentation</h1>
+                    <h1 class="navbar-item">Schilling - React Documentation</h1>
                 </a>
             
         </div>
@@ -74,123 +76,88 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="FlexContainerProps.html">FlexContainerProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
                 
             </nav>
         </div>
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Interface</p>
-                    <h1>TableColumnsFilterProps</h1>
+                    <p>Source</p>
+                    <h1>globals/Table/components/TableContent.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>TableColumnsFilterProps</h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Table } from '@tanstack/react-table'
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Props for the TableColumnsFilter component.</p></div>
-        
+import { cn } from '@/lib/utils'
 
-        
+import { getCellContent } from '../utils/table'
+import TableLoading from './actions/TableLoading'
 
+/**
+ * Props for the TableContent component.
+ */
+interface TableContentProps {
+  loading: boolean
+  table: Table&lt;unknown>
+  headersLength: number
+  trClassName?: string
+  tdClassName?: string
+}
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="globals_Table_components_filters_TableColumnsFilter.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="globals_Table_components_filters_TableColumnsFilter.tsx.html">globals/Table/components/filters/TableColumnsFilter.tsx</a>, <a href="globals_Table_components_filters_TableColumnsFilter.tsx.html#line34">line 34</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-        
-    
-    </div>
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+/**
+ * Renders the content of the table.
+ * @param loading - Indicates whether the table is currently loading.
+ * @param table - The table object containing the data.
+ * @param headersLength - The number of table headers.
+ * @param trClassName - Additional CSS class name for the table content.
+ * @param tdClassName - Additional CSS class name for the table content.
+ * @returns The rendered table content.
+ */
+export default function TableContent({
+  loading,
+  table,
+  headersLength,
+  trClassName = 'border-slate-300 hover:bg-slate-100',
+  tdClassName = 'text-left',
+}: Readonly&lt;TableContentProps>) {
+  return (
+    &lt;>
+      {loading ? (
+        &lt;TableLoading colspan={headersLength} className={trClassName} />
+      ) : (
+        table.getRowModel().rows.map((row) => (
+          &lt;tr key={`table_body_tr_${row.id}`} className={cn('', trClassName)}>
+            {row.getVisibleCells().map((cell) => {
+              return (
+                &lt;td
+                  key={`table_body_td_${cell.id}`}
+                  className={cn('border-t px-3 py-1', tdClassName)}
+                >
+                  &lt;span>{getCellContent(cell)}&lt;/span>
+                &lt;/td>
+              )
+            })}
+          &lt;/tr>
+        ))
+      )}
+    &lt;/>
+  )
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
 
             </div>
-            
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
-                    <p class="sidebar-created-by">
-                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
-                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
-                    </p>
-                </div>
-            </footer>
             
         </div>
         <div id="side-nav" class="side-nav">

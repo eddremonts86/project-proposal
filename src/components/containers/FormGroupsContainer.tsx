@@ -2,15 +2,6 @@ interface FormGroupsContainerProps {
   children: React.ReactNode
   name: string
 }
-/**
- * Renders a container for form groups.
- *
- * @component
- * @param {Readonly<FormGroupsContainerProps>} props - The component props.
- * @param {string} props.name - The name of the form group container.
- * @param {ReactNode} props.children - The child components to render inside the container.
- * @returns {JSX.Element} The rendered form groups container.
- */
 export default function FormGroupsContainer({
   name,
   children,
