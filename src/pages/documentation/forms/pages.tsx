@@ -1,3 +1,11 @@
+/**
+ * Renders the FormsPage component.
+ *
+ * This component displays a form with basic and advanced inputs.
+ * It uses react-hook-form for form handling and submission.
+ *
+ * @returns The rendered FormsPage component.
+ */
 import { FieldValues } from 'react-hook-form'
 
 import FlexContainer from '@/components/containers/FlexContainer'
@@ -6,7 +14,7 @@ import { FormContainer } from '@/components/globals/form'
 import { CommonBtn } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
 
-import { advanced, basic } from './const/apiFormconfig'
+import { advanced, basic } from './const/apiFormConfig'
 
 export default function FormsPage() {
   const { onSubmit, formValues } = useForms()
@@ -49,7 +57,7 @@ export default function FormsPage() {
                   <p key={`${key}_id`} className="capitalize">
                     {key}:{' '}
                   </p>
-                  <code className="m-21 rounded-md bg-slate-800 p-3 text-white">
+                  <code className="m-21 break-all rounded-md bg-slate-800 p-3 text-white">
                     {JSON.stringify(formValues[key])}
                   </code>
                 </>

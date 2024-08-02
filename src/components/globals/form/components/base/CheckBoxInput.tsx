@@ -7,12 +7,25 @@ import { FormLabel } from '@/components/ui/form'
 import { IData } from '../../types'
 import FormItemContainer from '../FormItemContainer'
 
+/**
+ * Props for the CheckBoxInput component.
+ *
+ * @typedef {Object} CheckboxProps
+ * @property {IData} item - The data item containing form field information.
+ * @property {function(string): void} [onUpdate] - Optional callback function to handle updates.
+ * @property {string} [className] - Optional CSS class name for styling.
+ */
 interface CheckboxProps {
   item: IData
   onUpdate?: (value: string) => void
   className?: string
 }
-
+/**
+ * CheckBoxInput component integrates a checkbox input with react-hook-form.
+ *
+ * @param {CheckboxProps} props - The props for the CheckBoxInput component.
+ * @returns {JSX.Element} The rendered CheckBoxInput component.
+ */
 const CheckBoxInput: React.FC<CheckboxProps> = ({
   item,
   onUpdate,

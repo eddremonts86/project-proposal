@@ -1,3 +1,21 @@
+/**
+ * Represents a flexible container component.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * import FlexContainer from '@/components/containers/FlexContainer';
+ *
+ * function App() {
+ *   return (
+ *     <FlexContainer className="my-container">
+ *       <div>Child 1</div>
+ *       <div>Child 2</div>
+ *     </FlexContainer>
+ *   );
+ * }
+ * ```
+ */
 import { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'

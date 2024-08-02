@@ -5,6 +5,12 @@ interface GridContainerProps {
   className?: string
 }
 
+/**
+ * Renders a container component with a grid layout.
+ *
+ * @param children - The content to be rendered inside the container.
+ * @param className - Additional CSS class names to apply to the container.
+ */
 export default function GridContainer({
   children,
   className,
