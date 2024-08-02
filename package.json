@@ -19,7 +19,8 @@
     "createForms": "node ./src/jServer/Forms/index.js",
     "useFakeApi": "json-server ./src/jServer/Api.json --port 3001",
     "fakeApi": "npm run createForms && npm run createApi && npm run useFakeApi",
-    "docs": "jsdoc -c .jsdoc.json"
+    "docs": "jsdoc -c .jsdoc.json",
+    "watch:docs": "nodemon"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -88,6 +89,7 @@
     "jsdoc": "^4.0.3",
     "json-server": "^1.0.0-beta.1",
     "lint-staged": "^15.2.2",
+    "nodemon": "^3.1.4",
     "npm-run-all": "^4.1.5",
     "postcss": "^8",
     "prettier": "^3.2.5",
@@ -100,10 +102,13 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
-    "*": "prettier -w -u",
+    "*": [
+      "jsdoc -c .jsdoc.json"
+    ],
     "*.{ts,tsx,jsx}": [
       "npx eslint . --ext ts,tsx --fix",
-      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+      "prettier -w -u ."
     ]
   },
   "engines": {
