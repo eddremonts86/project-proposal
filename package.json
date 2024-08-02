@@ -18,7 +18,8 @@
     "createApi": "node ./src/jServer/Api/index.js",
     "createForms": "node ./src/jServer/Forms/index.js",
     "useFakeApi": "json-server ./src/jServer/Api.json --port 3001",
-    "fakeApi": "npm run createForms && npm run createApi && npm run useFakeApi"
+    "fakeApi": "npm run createForms && npm run createApi && npm run useFakeApi",
+    "docs": "jsdoc -c .jsdoc.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
