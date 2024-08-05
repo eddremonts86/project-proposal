@@ -104,9 +104,6 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
-    "tests": [
-      "playwright test --config playwright.config.ts"
-    ],
     "*": [
       "prettier -w -u ."
     ],
