@@ -18,9 +18,11 @@ export default function TableRowsPages({
   table,
   pageSizeOptions = [5, 10, 25, 50, 100],
 }: Readonly<TableRowsPagesProps>) {
+  const pageSize = table.getState().pagination.pageSize
+
   return (
     <Select
-      value={table.getState().pagination.pageSize}
+      value={pageSize}
       onValueChange={(value: number) => {
         table.setPageSize(Number(value))
       }}

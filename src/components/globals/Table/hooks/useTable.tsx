@@ -156,6 +156,12 @@ export default function useTable({ headers, config, data }: TableHooksProps) {
       columnVisibility,
       rowSelection,
     },
+    initialState: {
+      pagination: {
+        pageSize: config.pageSize ?? 20,
+        pageIndex: config.page ?? 0,
+      },
+    },
     rowCount: data.length,
     pageCount: config.pageSize ?? 20,
     onSortingChange: setSorting,

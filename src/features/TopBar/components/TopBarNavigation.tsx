@@ -15,7 +15,7 @@ const navigation = (topBarLinks || []).map((feature) => (
   <Link
     to={feature.to}
     key={feature.name}
-    className="text-md hover:bg-grey-400 cursor-pointer space-x-1 rounded-xl bg-gray-50 px-6 py-3"
+    className="text-md hover:bg-grey-400 cursor-pointer space-x-1 rounded-xl bg-gray-50 px-6 py-3 dark:bg-gray-800 dark:hover:bg-gray-700"
   >
     {feature.name}
   </Link>

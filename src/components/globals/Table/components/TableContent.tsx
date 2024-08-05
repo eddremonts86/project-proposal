@@ -29,7 +29,7 @@ export default function TableContent({
   loading,
   table,
   headersLength,
-  trClassName = 'border-slate-300 hover:bg-slate-100',
+  trClassName = 'border-slate-300 hover:bg-slate-100 transition-colors duration-200 ease-in-out dark:border-gray-700 dark:hover:bg-gray-800',
   tdClassName = 'text-left',
 }: Readonly<TableContentProps>) {
   return (

@@ -8,18 +8,23 @@ import { tableConfig } from './const/tableConfig'
 
 export default function TablePage() {
   const { headers, filters } = tableConfig
-  const { getPoke } = useRoyalty()
+  const { getPoke, pageSize, updateTableData } = useRoyalty()
   const { isLoading, data } = getPoke
-
   const {
     table: pokeTable,
     tHeaders: pokeHeaders,
     tColumns: pokeColumns,
   } = useTable({
-    config: {},
+    config: {
+      pageSize,
+    },
     headers: headers,
-    data: data ?? [],
+    data: data?.royalty ? data.royalty : [],
   })
+  const { pageSize: pokePageSize, pageIndex: pokePageIndex } =
+    pokeTable.getState().pagination
+
+  updateTableData(pokePageSize, pokePageIndex)
 
   return (
     <FlexContainer className="mb-3 sm:flex-col">
