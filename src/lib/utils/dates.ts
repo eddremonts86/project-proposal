@@ -1,7 +1,7 @@
 import { format } from 'date-fns'
 
-type DateType = string | number | Date | undefined | null
-enum Intervals {
+export type DateType = string | number | Date | undefined | null
+export enum Intervals {
   second = 'second',
   minute = 'minute',
   hour = 'hour',

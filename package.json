@@ -20,7 +20,8 @@
     "useFakeApi": "json-server ./src/jServer/Api.json --port 3001",
     "fakeApi": "npm run createForms && npm run createApi && npm run useFakeApi",
     "docs": "jsdoc -c .jsdoc.json",
-    "watch:docs": "nodemon"
+    "watch:docs": "nodemon",
+    "test": "playwright test --config playwright.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -66,6 +67,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.2.2",
+    "@playwright/test": "^1.45.3",
     "@tanstack/eslint-plugin-query": "^5.50.1",
     "@tanstack/router-devtools": "^1.43.15",
     "@tanstack/router-plugin": "^1.43.13",
@@ -102,14 +104,13 @@
     "vite-tsconfig-paths": "^4.3.2"
   },
   "lint-staged": {
+    "test": "playwright test --config playwright.config.ts",
     "*": [
-      "jsdoc -c .jsdoc.json",
-      " git add ."
+      "prettier -w -u ."
     ],
     "*.{ts,tsx,jsx}": [
       "npx eslint . --ext ts,tsx --fix",
-      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-      "prettier -w -u ."
+      "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
     ]
   },
   "engines": {
