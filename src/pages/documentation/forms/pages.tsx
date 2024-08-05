@@ -6,6 +6,7 @@
  *
  * @returns The rendered FormsPage component.
  */
+import { advanced, basic } from '@/jServer/Forms.json'
 import { FieldValues } from 'react-hook-form'
 
 import FlexContainer from '@/components/containers/FlexContainer'
@@ -13,8 +14,6 @@ import GridContainer from '@/components/containers/GridContainer'
 import { FormContainer } from '@/components/globals/form'
 import { CommonBtn } from '@/components/globals/form/components/base'
 import useForms from '@/components/globals/form/hooks/useForms'
-
-import { advanced, basic } from './const/apiFormConfig'
 
 export default function FormsPage() {
   const { onSubmit, formValues } = useForms()

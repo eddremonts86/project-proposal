@@ -1,3 +1,12 @@
+/**
+ * ComboBoxInput component.
+ *
+ * @component
+ * @param {ComboBoxInputProps} props - The component props.
+ * @param {IData} props.item - The data item.
+ * @param {string} [props.className] - The optional class name.
+ * @returns {JSX.Element} The rendered ComboBoxInput component.
+ */
 import { useState } from 'react'
 import { Check, ChevronsUpDown } from 'lucide-react'
 import { useController } from 'react-hook-form'
@@ -22,6 +31,11 @@ import {
 import { IData, IOptions } from '../../types'
 import FormItemContainer from '../FormItemContainer'
 
+/**
+ * Props for the ComboBoxInput component.
+ *  @property {IData} item - The data item containing form field information.
+ * @property {string} [className] - Optional CSS class name for styling.
+ */
 interface ComboBoxInputProps {
   item: IData
   className?: string
@@ -43,6 +57,11 @@ export default function ComboBoxInput({
     defaultValue: defaultValue || '',
   })
 
+  /**
+   * Checks if the provided value is active.
+   * @param value - The value to check against the input value.
+   * @returns True if the input value is equal to the provided value, otherwise false.
+   */
   const isActive = (value: string) => {
     if (!inputValue) return false
     return inputValue.value === value

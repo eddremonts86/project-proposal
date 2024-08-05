@@ -74,7 +74,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="FlexContainerProps.html">FlexContainerProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="CheckboxProps.html">CheckboxProps</a></li><li><a href="ComboBoxInputProps.html">ComboBoxInputProps</a></li><li><a href="FlexContainerProps.html">FlexContainerProps</a></li><li><a href="TableColumnsFilterProps.html">TableColumnsFilterProps</a></li><li><a href="TableContentProps.html">TableContentProps</a></li></ul><h3>Components</h3><ul><li><a href="TableFiltersProps.html">TableFiltersProps</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckBoxInput">CheckBoxInput</a></li><li><a href="global.html#Tools">Tools</a></li></ul></div>
                 
             </nav>
         </div>

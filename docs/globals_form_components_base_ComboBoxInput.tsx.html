@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
       Schilling - React Documentation
-      globals/form/components/base/CheckBoxInput.tsx
+      globals/form/components/base/ComboBoxInput.tsx
     </title>
 
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
@@ -107,55 +107,81 @@
         <div class="content">
           <header class="page-title">
             <p>Source</p>
-            <h1>globals/form/components/base/CheckBoxInput.tsx</h1>
+            <h1>globals/form/components/base/ComboBoxInput.tsx</h1>
           </header>
 
           <section>
             <article>
-              <pre
-                class="prettyprint source linenums"
-              ><code>import React from 'react'
+              <pre class="prettyprint source linenums"><code>/**
+ * ComboBoxInput component.
+ *
+ * @component
+ * @param {ComboBoxInputProps} props - The component props.
+ * @param {IData} props.item - The data item.
+ * @param {string} [props.className] - The optional class name.
+ * @returns {JSX.Element} The rendered ComboBoxInput component.
+ */
+import { useState } from 'react'
+import { Check, ChevronsUpDown } from 'lucide-react'
 import { useController } from 'react-hook-form'
 
-import { Checkbox } from '@/components/ui/checkbox'
-import { FormLabel } from '@/components/ui/form'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command'
+import { FormControl } from '@/components/ui/form'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 
-import { IData } from '../../types'
+import { IData, IOptions } from '../../types'
 import FormItemContainer from '../FormItemContainer'
 
 /**
- * Props for the CheckBoxInput component.
- *
- * @typedef {Object} CheckboxProps
- * @property {IData} item - The data item containing form field information.
- * @property {function(string): void} [onUpdate] - Optional callback function to handle updates.
+ * Props for the ComboBoxInput component.
+ *  @property {IData} item - The data item containing form field information.
  * @property {string} [className] - Optional CSS class name for styling.
  */
-interface CheckboxProps {
+interface ComboBoxInputProps {
   item: IData
-  onUpdate?: (value: string) => void
   className?: string
 }
-/**
- * CheckBoxInput component integrates a checkbox input with react-hook-form.
- *
- * @param {CheckboxProps} props - The props for the CheckBoxInput component.
- * @returns {JSX.Element} The rendered CheckBoxInput component.
- */
-const CheckBoxInput: React.FC&lt;CheckboxProps> = ({
+export default function ComboBoxInput({
   item,
-  onUpdate,
   className,
-}: Readonly&lt;CheckboxProps>) => {
-  const { name, control, defaultValue, label, description } = item
+}: Readonly&lt;ComboBoxInputProps>) {
+  const { items, label, description, defaultValue, name, rules, control } = item
+  const [open, setOpen] = useState(false)
+
   const {
-    field: { onChange, value, ref },
+    field: { onChange, value: inputValue },
     fieldState: { error },
   } = useController({
     name,
     control,
-    defaultValue,
+    rules,
+    defaultValue: defaultValue || '',
   })
+
+  /**
+   * Checks if the provided value is active.
+   * @param value - The value to check against the input value.
+   * @returns True if the input value is equal to the provided value, otherwise false.
+   */
+  const isActive = (value: string) => {
+    if (!inputValue) return false
+    return inputValue.value === value
+  }
+
+  if (items === undefined || !items.length) return null
 
   return (
     &lt;FormItemContainer
@@ -164,29 +190,64 @@ const CheckBoxInput: React.FC&lt;CheckboxProps> = ({
       description={description || ''}
       className={className}
     >
-      &lt;div className="flex items-center">
-        &lt;Checkbox
-          id={name}
-          checked={value}
-          onCheckedChange={(value: string) => {
-            onChange(value)
-            onUpdate &amp;&amp; onUpdate(value)
-          }}
-          ref={ref}
-          className="mr-2"
-        />
-        &lt;FormLabel
-          htmlFor={name}
-          className="cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        >
-          &lt;span>{label}&lt;/span>
-        &lt;/FormLabel>
-      &lt;/div>
+      &lt;Popover open={open} onOpenChange={setOpen}>
+        &lt;PopoverTrigger asChild>
+          &lt;FormControl>
+            &lt;div className="flex w-fit flex-col justify-start gap-4">
+              &lt;Button
+                variant="outline"
+                aria-expanded={open}
+                className="w-[300px] justify-between"
+                onClick={() => {
+                  if (!open) {
+                    onChange(inputValue)
+                  }
+                }}
+              >
+                {inputValue?.label || description}
+                &lt;ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+              &lt;/Button>
+            &lt;/div>
+          &lt;/FormControl>
+        &lt;/PopoverTrigger>
+        &lt;PopoverContent className="w-[300px] p-0">
+          &lt;Command onSelect={() => console.log('Aqui')}>
+            &lt;CommandInput placeholder={description} />
+            &lt;CommandList>
+              &lt;CommandEmpty>No results found.&lt;/CommandEmpty>
+              &lt;CommandGroup heading={label}>
+                {items.map(({ value, label }: IOptions) => (
+                  &lt;CommandItem
+                    key={value}
+                    value={value}
+                    onSelect={(currentValue: string) => {
+                      onChange(isActive(currentValue) ? null : { value, label })
+                    }}
+                    className={cn(
+                      'capitalize',
+                      isActive(value) &amp;&amp; 'bg-gray-200'
+                    )}
+                  >
+                    &lt;div className="flex w-full items-center justify-between">
+                      &lt;span>{label}&lt;/span>
+                      &lt;Check
+                        color="#12316B"
+                        className={cn(
+                          'text-bold mr-2 h-4 w-4 shrink-0',
+                          isActive(value) ? 'opacity-100' : 'opacity-0'
+                        )}
+                      />
+                    &lt;/div>
+                  &lt;/CommandItem>
+                ))}
+              &lt;/CommandGroup>
+            &lt;/CommandList>
+          &lt;/Command>
+        &lt;/PopoverContent>
+      &lt;/Popover>
     &lt;/FormItemContainer>
   )
 }
-
-export default CheckBoxInput
 </code></pre>
             </article>
           </section>
