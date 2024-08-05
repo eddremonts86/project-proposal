@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IDE
+tests/test-results
+tests/test-results/*
