@@ -1,4 +1,2 @@
 npm run test
-npm run docs
-#git add .
 npm run pre-commit

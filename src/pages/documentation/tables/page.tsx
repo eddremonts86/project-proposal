@@ -7,33 +7,30 @@ import useTable from '@/components/globals/Table/hooks/useTable'
 import { tableConfig } from './const/tableConfig'
 
 export default function TablePage() {
+  const { isLoading, data, setPagination } = useRoyalty(0, 5)
   const { headers, filters } = tableConfig
-  const { getPoke, pageSize, updateTableData } = useRoyalty()
-  const { isLoading, data } = getPoke
-  const {
-    table: pokeTable,
-    tHeaders: pokeHeaders,
-    tColumns: pokeColumns,
-  } = useTable({
-    config: {
-      pageSize,
-    },
-    headers: headers,
-    data: data?.royalty ? data.royalty : [],
-  })
-  const { pageSize: pokePageSize, pageIndex: pokePageIndex } =
-    pokeTable.getState().pagination
 
-  updateTableData(pokePageSize, pokePageIndex)
+  const { table, tHeaders, tColumns, tablePagination } = useTable({
+    headers: headers,
+    data: data.data,
+    config: {
+      pageIndex: 0,
+      pageSize: 5,
+      rows: data.items,
+      pages: data.pages,
+    },
+  })
+
+  setPagination(tablePagination)
 
   return (
     <FlexContainer className="mb-3 sm:flex-col">
-      <FiltersContainer table={pokeTable} filters={filters} />
+      <FiltersContainer table={table} filters={filters} />
       <Table
         className="w-full"
-        table={pokeTable}
-        tHeaders={pokeHeaders}
-        tColumns={pokeColumns}
+        table={table}
+        tHeaders={tHeaders}
+        tColumns={tColumns}
         loading={isLoading}
         pagination={true}
       />

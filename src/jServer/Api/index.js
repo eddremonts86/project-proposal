@@ -11,12 +11,12 @@ const royalty = loadJSON('./RoyaltyMock.json')
 const recipient = loadJSON('./RoyaltyRecipientMock.json')
 
 const json = () => ({
-  address: address,
-  paymentInfo: paymentInfo,
-  portal: portal,
-  roles: roles,
-  royalty: royalty,
-  recipient: recipient,
+  ...address,
+  ...paymentInfo,
+  ...portal,
+  ...roles,
+  ...royalty,
+  ...recipient,
 })
 
 const data = JSON.stringify(json(), null, 2)

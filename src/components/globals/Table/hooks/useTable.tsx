@@ -147,6 +147,10 @@ export default function useTable({ headers, config, data }: TableHooksProps) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
+  const [pagination, setPagination] = useState({
+    pageIndex: config.pageIndex ?? 0,
+    pageSize: config.pageSize ?? 25,
+  })
   const table = useReactTable({
     data,
     columns: getColumns(headers),
@@ -155,19 +159,17 @@ export default function useTable({ headers, config, data }: TableHooksProps) {
       columnFilters,
       columnVisibility,
       rowSelection,
+      pagination,
     },
-    initialState: {
-      pagination: {
-        pageSize: config.pageSize ?? 20,
-        pageIndex: config.page ?? 0,
-      },
-    },
-    rowCount: data.length,
-    pageCount: config.pageSize ?? 20,
+    initialState: {},
+    manualPagination: true,
+    rowCount: config.rows ?? 0,
+    pageCount: config.pages ?? 0,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -181,9 +183,10 @@ export default function useTable({ headers, config, data }: TableHooksProps) {
   }
 
   return {
+    showFooter,
     table,
     tHeaders,
     tColumns,
-    showFooter,
+    tablePagination: pagination,
   }
 }

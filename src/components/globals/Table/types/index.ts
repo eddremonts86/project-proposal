@@ -9,6 +9,7 @@ export interface TConfig {
   pageSize: number
   pages: number
   rows: number
+  pageIndex: number
   loading: boolean
   sortBy: [
     {

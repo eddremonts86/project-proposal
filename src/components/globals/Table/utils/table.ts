@@ -13,33 +13,3 @@ export const getCellContent = (cell: Cell<unknown, unknown>) => {
   }
   return flexRender(cell.column.columnDef.cell, cell.getContext())
 }
-
-/*
-const columnHelper = createColumnHelper<unknown>()
-interface SubHeader {
-  id: string
-  name?: string
-  type?: string
-}
-export const generateHeaderColumns = (header: SubHeader[]) => {
-  return header.map((subHeader) => {
-    if (subHeader.type === 'select') {
-      const header = () => <Checkbox />
-      const cell = () => {}
-
-      return columnHelper.accessor(subHeader.id, {
-        id: subHeader.id,
-        header,
-        cell,
-        enableSorting: false,
-        enableHiding: false,
-      })
-    }
-
-    return columnHelper.accessor(subHeader.id, {
-      header: (subHeader.name ?? subHeader.id) || 'No Header Name Provided',
-      cell: (info: { getValue: () => void }) => info.getValue(),
-    })
-  }) as ColumnDef<unknown>[]
-}
-*/
