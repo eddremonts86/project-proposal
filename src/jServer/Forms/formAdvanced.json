@@ -1,81 +1,83 @@
-[
-  {
-    "items": [
-      {
-        "defaultValue": false,
-        "description": "Select to options",
-        "key": "haveClub",
-        "label": "Are you member of any club?",
-        "name": "haveClub",
-        "type": "checkbox"
-      },
-      {
-        "defaultValue": {
-          "label": "Book club",
-          "value": "book_club"
+{
+  "advancedForm": [
+    {
+      "description": "Information about user club membership",
+      "items": [
+        {
+          "defaultValue": false,
+          "description": "Select to options",
+          "key": "haveClub",
+          "label": "Are you member of any club?",
+          "name": "haveClub",
+          "type": "checkbox"
         },
-        "items": [
-          {
+        {
+          "defaultValue": {
             "label": "Book club",
             "value": "book_club"
           },
-          {
-            "label": "Runner club",
-            "value": "runner_club"
-          },
-          {
-            "label": "Swimmer club",
-            "value": "swimmer_club"
-          }
-        ],
-        "key": "clubMember",
-        "name": "clubMember",
-        "placeholder": "Select your club",
-        "type": "select"
-      }
-    ],
-    "type": "checkboxPlusSelect",
-    "key": "clubMemberGroup",
-    "name": "clubMemberGroup",
-    "label": "User Information",
-    "description": "Information about user club membership"
-  },
-  {
-    "items": [
-      {
-        "key": "subscriptionStartDate",
-        "label": "Subscription start date",
-        "description": "Date when subscription starts",
-        "name": "subscriptionStartDate",
-        "type": "dateInput",
-        "defaultValue": "10/25/2024"
-      },
-      {
-        "items": [
-          {
-            "label": "Type 1",
-            "value": "subscription_type_1"
-          },
-          {
-            "label": "Type 2",
-            "value": "subscription_type_2"
-          },
-          {
-            "label": "Type 3",
-            "value": "subscription_type_3"
-          }
-        ],
-        "type": "select",
-        "key": "subscriptionType",
-        "name": "subscriptionType",
-        "label": "Select subscription type",
-        "description": "Select your subscription"
-      }
-    ],
-    "type": "dateInputPlusSelect",
-    "key": "MemberShip",
-    "name": "MemberShip",
-    "label": "Membership Information",
-    "description": "Type and date input with select"
-  }
-]
+          "items": [
+            {
+              "label": "Book club",
+              "value": "book_club"
+            },
+            {
+              "label": "Runner club",
+              "value": "runner_club"
+            },
+            {
+              "label": "Swimmer club",
+              "value": "swimmer_club"
+            }
+          ],
+          "key": "clubMember",
+          "name": "clubMember",
+          "placeholder": "Select your club",
+          "type": "select"
+        }
+      ],
+      "key": "clubMemberGroup",
+      "label": "User Information",
+      "name": "clubMemberGroup",
+      "type": "checkboxPlusSelect"
+    },
+    {
+      "description": "Type and date input with select",
+      "items": [
+        {
+          "defaultValue": "10/25/2024",
+          "description": "Date when subscription starts",
+          "key": "subscriptionStartDate",
+          "label": "Subscription start date",
+          "name": "subscriptionStartDate",
+          "type": "dateInput"
+        },
+        {
+          "description": "Select your subscription",
+          "items": [
+            {
+              "label": "Type 1",
+              "value": "subscription_type_1"
+            },
+            {
+              "label": "Type 2",
+              "value": "subscription_type_2"
+            },
+            {
+              "label": "Type 3",
+              "value": "subscription_type_3"
+            }
+          ],
+          "key": "subscriptionType",
+          "label": "Select subscription type",
+          "name": "subscriptionType",
+          "type": "select"
+        }
+      ],
+      "key": "MemberShip",
+      "label": "Membership Information",
+      "name": "MemberShip",
+      "type": "dateInputPlusSelect"
+    }
+  ]
+}

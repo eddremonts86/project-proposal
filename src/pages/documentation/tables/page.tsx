@@ -7,21 +7,21 @@ import useTable from '@/components/globals/Table/hooks/useTable'
 import { tableConfig } from './const/tableConfig'
 
 export default function TablePage() {
-  const { isLoading, data, setPagination } = useRoyalty(0, 5)
+  const initPagination = { pageIndex: 0, pageSize: 25 }
+  const { isLoading, data, setPagination, pagination } =
+    useRoyalty(initPagination)
   const { headers, filters } = tableConfig
 
-  const { table, tHeaders, tColumns, tablePagination } = useTable({
+  const { table, tHeaders, tColumns } = useTable({
     headers: headers,
     data: data.data,
     config: {
-      pageIndex: 0,
-      pageSize: 5,
+      ...pagination,
       rows: data.items,
       pages: data.pages,
     },
+    onSetPagination: setPagination,
   })
-
-  setPagination(tablePagination)
 
   return (
     <FlexContainer className="mb-3 sm:flex-col">

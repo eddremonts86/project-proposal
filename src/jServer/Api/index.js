@@ -9,7 +9,8 @@ const portal = loadJSON('./PortalMock.json')
 const roles = loadJSON('./RolesMock.json')
 const royalty = loadJSON('./RoyaltyMock.json')
 const recipient = loadJSON('./RoyaltyRecipientMock.json')
-
+const formAdvanced = loadJSON('../Forms/formAdvanced.json')
+const formExample = loadJSON('../Forms/formExample.json')
 const json = () => ({
   ...address,
   ...paymentInfo,
@@ -17,6 +18,8 @@ const json = () => ({
   ...roles,
   ...royalty,
   ...recipient,
+  ...formAdvanced,
+  ...formExample,
 })
 
 const data = JSON.stringify(json(), null, 2)

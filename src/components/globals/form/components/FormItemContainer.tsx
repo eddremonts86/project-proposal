@@ -9,8 +9,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 
-import Errormessage from './base/ErrorMessage'
-
 interface FormItemContainerProps {
   children: React.ReactNode
   error?: FieldError | null
@@ -28,14 +26,14 @@ export default function FormItemContainer({
 }: Readonly<FormItemContainerProps>) {
   return (
     <FormItem className={cn('mb-3 flex flex-col', className)}>
-      {label && <FormLabel className="capitalize">{label}</FormLabel>}
+      {label && (
+        <FormLabel className="capitalize" htmlFor={label}>
+          {label}
+        </FormLabel>
+      )}
       {children}
       {description && <FormDescription>{description}</FormDescription>}
-      {error && (
-        <FormMessage>
-          <Errormessage message={error.message} />
-        </FormMessage>
-      )}
+      {error && <FormMessage>{error.message}</FormMessage>}
     </FormItem>
   )
 }

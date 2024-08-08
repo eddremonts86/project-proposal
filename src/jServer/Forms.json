@@ -1,6 +1,7 @@
 {
   "advanced": [
     {
+      "description": "Information about user club membership",
       "items": [
         {
           "defaultValue": false,
@@ -35,23 +36,24 @@
           "type": "select"
         }
       ],
-      "type": "checkboxPlusSelect",
       "key": "clubMemberGroup",
-      "name": "clubMemberGroup",
       "label": "User Information",
-      "description": "Information about user club membership"
+      "name": "clubMemberGroup",
+      "type": "checkboxPlusSelect"
     },
     {
+      "description": "Type and date input with select",
       "items": [
         {
+          "defaultValue": "10/25/2024",
+          "description": "Date when subscription starts",
           "key": "subscriptionStartDate",
           "label": "Subscription start date",
-          "description": "Date when subscription starts",
           "name": "subscriptionStartDate",
-          "type": "dateInput",
-          "defaultValue": "10/25/2024"
+          "type": "dateInput"
         },
         {
+          "description": "Select your subscription",
           "items": [
             {
               "label": "Type 1",
@@ -66,18 +68,16 @@
               "value": "subscription_type_3"
             }
           ],
-          "type": "select",
           "key": "subscriptionType",
-          "name": "subscriptionType",
           "label": "Select subscription type",
-          "description": "Select your subscription"
+          "name": "subscriptionType",
+          "type": "select"
         }
       ],
-      "type": "dateInputPlusSelect",
       "key": "MemberShip",
-      "name": "MemberShip",
       "label": "Membership Information",
-      "description": "Type and date input with select"
+      "name": "MemberShip",
+      "type": "dateInputPlusSelect"
     }
   ],
   "basic": [

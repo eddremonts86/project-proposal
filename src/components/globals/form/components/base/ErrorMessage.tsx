@@ -5,9 +5,7 @@ interface ErrorProps {
 }
 
 const Errormessage: React.FC<ErrorProps> = ({ message }) => {
-  if (!message) return null
-
-  return <div className="mt-1 text-xs text-red-500">{message}</div>
+  return message && <p className="mt-1 text-xs text-red-500">{message}</p>
 }
 
 export default Errormessage

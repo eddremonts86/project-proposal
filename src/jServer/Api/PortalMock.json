@@ -136,18 +136,5 @@
     { "id": "651bff3d-a945-4ff7-9512-b1fe617f58e7", "name": "StorySanctuary" },
     { "id": "033ffe11-6197-42f3-8106-b3048efc980a", "name": "BookishBoutique" },
     { "id": "a3d13461-1735-4b38-ad5f-d5fc61f9b0e7", "name": "BookBliss" }
-  ],
-  "meta": {
-    "total": 100,
-    "form_structure": [
-      {
-        "key": "checkInput",
-        "name": "checkInput",
-        "label": "Terms and Conditions",
-        "defaultValue": true,
-        "description": "Select to agree",
-        "type": "checkbox"
-      }
-    ]
-  }
+  ]
 }

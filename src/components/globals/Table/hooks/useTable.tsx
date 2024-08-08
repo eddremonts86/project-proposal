@@ -7,6 +7,7 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  Row,
   SortingState,
   Table,
   useReactTable,
@@ -32,8 +33,13 @@ interface TableHooksProps {
   headers: THeaders[]
   config: TConfig
   data: TData[]
+  onSetPagination?: () => void
 }
 
+const handleDropdownItemMenuClick = (row: Row<TData>, item: TData) => {
+  if (typeof item.action !== 'function') return
+  item.action(row.original)
+}
 const columnHelper = createColumnHelper<unknown>()
 const getColumns = (headers: THeaders[]) => {
   return headers.map((subHeader: THeaders) => {
@@ -86,10 +92,7 @@ const getColumns = (headers: THeaders[]) => {
                   ) : (
                     <DropdownMenuItem
                       key={item.id}
-                      onClick={() => {
-                        if (typeof item.action !== 'function') return
-                        item.action(row.original)
-                      }}
+                      onClick={() => handleDropdownItemMenuClick(row, item)}
                     >
                       {item.label}
                     </DropdownMenuItem>
@@ -142,7 +145,12 @@ const getColumns = (headers: THeaders[]) => {
   }) as ColumnDef<TData, unknown>[]
 }
 
-export default function useTable({ headers, config, data }: TableHooksProps) {
+export default function useTable({
+  headers,
+  config,
+  data,
+  onSetPagination,
+}: TableHooksProps) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
@@ -169,7 +177,7 @@ export default function useTable({ headers, config, data }: TableHooksProps) {
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
-    onPaginationChange: setPagination,
+    onPaginationChange: onSetPagination || setPagination,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),

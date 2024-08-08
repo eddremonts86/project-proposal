@@ -3,12 +3,12 @@ import { readFileSync, writeFileSync } from 'fs'
 const loadJSON = (path) =>
   JSON.parse(readFileSync(new URL(path, import.meta.url)).toString())
 
-const formAdvanced = loadJSON('./formAdvanced.json')
-const formExample = loadJSON('./formExample.json')
+const { advancedForm } = loadJSON('./formAdvanced.json')
+const { basicForm } = loadJSON('./formExample.json')
 
 const json = () => ({
-  advanced: formAdvanced,
-  basic: formExample,
+  advanced: advancedForm,
+  basic: basicForm,
 })
 
 const data = JSON.stringify(json(), null, 2)

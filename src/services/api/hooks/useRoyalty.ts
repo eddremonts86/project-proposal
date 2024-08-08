@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { getRoyalty } from '../entities/royaltyApi'
 import { useQueryInterface } from './query/useQueryInterface'
 
@@ -6,30 +8,21 @@ export interface Pagination {
   pageSize: number
 }
 
-export default function useRoyalty(index: number, size: number) {
+export default function useRoyalty(paginationInit: Pagination) {
+  const [pagination, setPagination] = useState<Pagination>(paginationInit)
   const {
     isLoading,
     data: response,
     isError,
   } = useQueryInterface({
-    key: { name: 'Royalties', dependencies: { size, index } },
+    key: { name: 'Royalties', dependencies: { ...pagination } },
     fn: async () =>
       await getRoyalty({
-        pageIndex: index,
-        pageSize: size,
+        ...pagination,
       }),
   })
 
-  const setPagination = async (pagination: Pagination) => {
-    index = pagination.pageIndex
-    size = pagination.pageSize
-    const data = await getRoyalty({
-      pageIndex: index,
-      pageSize: size,
-    })
-    console.log('pagination', data)
-  }
-
+  console.log('pagination', pagination)
   const data = response?.data
     ? response
     : {
@@ -38,5 +31,5 @@ export default function useRoyalty(index: number, size: number) {
         items: 0,
       }
 
-  return { isLoading, data, isError, setPagination }
+  return { isLoading, data, isError, setPagination, pagination }
 }

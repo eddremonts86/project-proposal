@@ -1017,19 +1017,6 @@
       "name": "BookBliss"
     }
   ],
-  "meta": {
-    "total": 100,
-    "form_structure": [
-      {
-        "key": "checkInput",
-        "name": "checkInput",
-        "label": "Terms and Conditions",
-        "defaultValue": true,
-        "description": "Select to agree",
-        "type": "checkbox"
-      }
-    ]
-  },
   "roles": [
     {
       "id": "db9e752a-0de2-4348-92ed-70e2aa3e1f2f",
@@ -2484,7 +2471,7 @@
       "payment_info": "eeef717f-81af-4aa2-88e8-662887d3f860"
     }
   ],
-  "royaltyRecipient": [
+  "recipient": [
     {
       "id": "8f5035c6-6356-4aa4-87dc-5b6240d745c2",
       "recipient_type": "foreign",
@@ -4184,6 +4171,219 @@
       "sett_lement_layout": "maze",
       "transfer_payments": true,
       "pay_negative": false
+    }
+  ],
+  "advancedForm": [
+    {
+      "description": "Information about user club membership",
+      "items": [
+        {
+          "defaultValue": false,
+          "description": "Select to options",
+          "key": "haveClub",
+          "label": "Are you member of any club?",
+          "name": "haveClub",
+          "type": "checkbox"
+        },
+        {
+          "defaultValue": {
+            "label": "Book club",
+            "value": "book_club"
+          },
+          "items": [
+            {
+              "label": "Book club",
+              "value": "book_club"
+            },
+            {
+              "label": "Runner club",
+              "value": "runner_club"
+            },
+            {
+              "label": "Swimmer club",
+              "value": "swimmer_club"
+            }
+          ],
+          "key": "clubMember",
+          "name": "clubMember",
+          "placeholder": "Select your club",
+          "type": "select"
+        }
+      ],
+      "key": "clubMemberGroup",
+      "label": "User Information",
+      "name": "clubMemberGroup",
+      "type": "checkboxPlusSelect"
+    },
+    {
+      "description": "Type and date input with select",
+      "items": [
+        {
+          "defaultValue": "10/25/2024",
+          "description": "Date when subscription starts",
+          "key": "subscriptionStartDate",
+          "label": "Subscription start date",
+          "name": "subscriptionStartDate",
+          "type": "dateInput"
+        },
+        {
+          "description": "Select your subscription",
+          "items": [
+            {
+              "label": "Type 1",
+              "value": "subscription_type_1"
+            },
+            {
+              "label": "Type 2",
+              "value": "subscription_type_2"
+            },
+            {
+              "label": "Type 3",
+              "value": "subscription_type_3"
+            }
+          ],
+          "key": "subscriptionType",
+          "label": "Select subscription type",
+          "name": "subscriptionType",
+          "type": "select"
+        }
+      ],
+      "key": "MemberShip",
+      "label": "Membership Information",
+      "name": "MemberShip",
+      "type": "dateInputPlusSelect"
+    }
+  ],
+  "basicForm": [
+    {
+      "description": "Select to bold",
+      "key": "toggleInput",
+      "label": "Turn On",
+      "name": "toggleInput",
+      "type": "toggle",
+      "defaultValue": true
+    },
+    {
+      "description": "This is your public display name.",
+      "key": "username",
+      "label": "username",
+      "name": "username",
+      "rules": "name",
+      "type": "text"
+    },
+    {
+      "description": "This is your password",
+      "key": "password",
+      "label": "Password",
+      "name": "Password",
+      "rules": "passWord",
+      "type": "password"
+    },
+    {
+      "description": "This is your email address",
+      "key": "email",
+      "label": "Email",
+      "name": "Email",
+      "rules": "email",
+      "type": "email"
+    },
+    {
+      "description": "Upload a file here",
+      "key": "file",
+      "label": "Upload File",
+      "name": "uploadFile",
+      "type": "file"
+    },
+    {
+      "description": "This is your biography",
+      "key": "textarea",
+      "label": "Bio",
+      "name": "textarea",
+      "type": "textarea"
+    },
+    {
+      "description": "Select color",
+      "items": [
+        {
+          "label": "Red",
+          "value": "red"
+        },
+        {
+          "label": "Blue",
+          "value": "blue"
+        },
+        {
+          "label": "Green",
+          "value": "green"
+        }
+      ],
+      "key": "radioInput",
+      "label": "Colors",
+      "name": "radioInput",
+      "type": "radio"
+    },
+    {
+      "description": "Select size",
+      "items": [
+        {
+          "label": "Small",
+          "value": "small"
+        },
+        {
+          "label": "Medium",
+          "value": "medium"
+        },
+        {
+          "label": "Large",
+          "value": "large"
+        }
+      ],
+      "key": "listSizes",
+      "label": "Sizes",
+      "name": "listSizes",
+      "type": "select"
+    },
+    {
+      "description": "Select Framework",
+      "items": [
+        {
+          "label": "React",
+          "value": "react"
+        },
+        {
+          "label": "Vue",
+          "value": "vue"
+        },
+        {
+          "label": "Angular",
+          "value": "angular"
+        }
+      ],
+      "key": "combobox",
+      "label": "Frameworks",
+      "name": "combobox",
+      "type": "combobox"
+    },
+    {
+      "description": "Select Date",
+      "key": "dateRange",
+      "label": "Pick a date range",
+      "name": "dateRange",
+      "type": "dateRange"
+    },
+    {
+      "description": "Select Date",
+      "key": "dateInput",
+      "label": "Pick a date",
+      "name": "dateInput",
+      "type": "dateInput"
+    },
+    {
+      "description": "Select to agree",
+      "key": "checkInput",
+      "label": "Terms and Conditions",
+      "name": "checkInput",
+      "type": "checkbox"
     }
   ]
 }

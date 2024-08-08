@@ -46,6 +46,7 @@ const TextInput: React.FC<TextInputProps> = ({ item, className }) => {
         placeholder={placeholder}
         type={type}
         onBlur={onBlur}
+        id={name}
       />
     </FormItemContainer>
   )
