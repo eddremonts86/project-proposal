@@ -13,7 +13,7 @@
     "format:fix": "prettier -w -u .",
     "pre-commit": "npx lint-staged",
     "lint": "prettier -w -u . && npx eslint . --ext ts,tsx --fix",
-    "prepare": "husky",
+    "prepare": "husky && npx playwright install                                              ║",
     "husky": "npx husky init && echo \"pnpm run pre-commit\" > .husky/pre-commit  && echo \"npx --no -- commitlint --edit ${1}\" > .husky/pre-commit-msg",
     "createApi": "node ./src/jServer/Api/index.js",
     "createForms": "node ./src/jServer/Forms/index.js",
@@ -21,7 +21,8 @@
     "fakeApi": "npm run createForms && npm run createApi && npm run useFakeApi",
     "docs": "jsdoc -c .jsdoc.json",
     "watch:docs": "nodemon",
-    "test": "playwright test --config playwright.config.ts"
+    "test:app": "playwright test --config playwright.config.ts",
+    "test:app-ui": "npx playwright test --ui"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -68,7 +69,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.2.2",
-    "@playwright/test": "^1.45.3",
+    "@playwright/test": "^1.46.0",
     "@tanstack/eslint-plugin-query": "^5.50.1",
     "@tanstack/router-devtools": "^1.43.15",
     "@tanstack/router-plugin": "^1.43.13",
@@ -93,13 +94,15 @@
     "lint-staged": "^15.2.2",
     "nodemon": "^3.1.4",
     "npm-run-all": "^4.1.5",
+    "playwright": "^1.46.0",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.2",
     "swagger-typescript-api": "^13.0.5",
     "tailwindcss": "^3.4.4",
+    "ts-node": "^10.9.2",
     "tsx": "^4.1.4",
-    "typescript": "^5.2.2",
+    "typescript": "^5.5.4",
     "vite": "^5.3.1",
     "vite-tsconfig-paths": "^4.3.2"
   },

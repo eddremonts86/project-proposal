@@ -1,5 +1,11 @@
 {
   "watch": ["src"],
   "ext": "js,jsx,ts,tsx",
-  "exec": "npm run docs && npm run lint"
+  "exec": "npm run test:app",
+  "ignore": [
+    "src/jServer/*",
+    "src/jServer/Api.json",
+    "src/jServer/Forms.,json",
+    "tests/*"
+  ]
 }
