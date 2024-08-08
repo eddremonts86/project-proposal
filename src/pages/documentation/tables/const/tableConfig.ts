@@ -1,32 +1,26 @@
 import {
   TUColumnTypes,
+  TUConfig,
   TUFilter,
   TUHeader,
 } from '@/components/globals/table/types'
 
-export const config = {
-  footer: true,
-  manual: true,
-  page: 0,
-  pageSize: 20,
-  pages: 6,
-  rows: 102,
-  loading: false,
+export const config: TUConfig = {
+  pageSize: [5, 20, 50, 100],
+  pagination: {
+    pageIndex: 0,
+    pageSize: 5,
+  },
   sortBy: [
     {
-      id: 'CreationDate',
+      id: 'first_name',
       desc: true,
     },
+    {
+      id: 'email',
+      desc: false,
+    },
   ],
-  defaultPageSize: 20,
-  pageSizeOptions: [20, 50, 100],
-  sortable: true,
-  exportable: false,
-  filterable: true,
-  orderable: false,
-  excludable: false,
-  configurable: false,
-  activeFilter: null,
 }
 export const headers: TUHeader[] = [
   {

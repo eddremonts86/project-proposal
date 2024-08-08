@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { Table as CnTable, TableBody, TableHeader } from '@/components/ui/table'
 
 import TableContextProvider from '../providers/TableProvider'
+import { TUConfig } from '../types'
 import TablePagination from './actions/TablePagination'
 import TableRowsPages from './actions/TableRowsPages'
 import TableSelectedRows from './actions/TableSelectedRows'
@@ -20,6 +21,7 @@ interface TableProps {
   className?: string
   table: TableType<unknown>
   children?: React.ReactNode
+  config?: TUConfig
 }
 export default function Table({
   table,
@@ -29,6 +31,7 @@ export default function Table({
   loading,
   className,
   children,
+  config,
 }: Readonly<TableProps>) {
   return (
     <>
@@ -57,7 +60,7 @@ export default function Table({
             <TableSelectedRows table={table} className="p-3" />
           </div>
           <div className="flex items-center">
-            <TableRowsPages table={table} />
+            <TableRowsPages table={table} pageSizeOptions={config?.pageSize} />
             {pagination && <TablePagination table={table} className="p-3" />}
           </div>
         </div>

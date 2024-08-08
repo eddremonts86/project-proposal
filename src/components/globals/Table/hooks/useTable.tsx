@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -7,6 +7,7 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  PaginationState,
   Row,
   SortingState,
   Table,
@@ -28,13 +29,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-import { TConfig, TData, THeaders } from '../types'
+import { TData, THeaders, TUConfig } from '../types'
 
 interface TableHooksProps {
   headers: THeaders[]
-  config: TConfig
+  config: TUConfig
   data: TData[]
-  onSetPagination?: () => void
+  onSetPagination?: (pagination: PaginationState) => void
 }
 
 export default function useTable({
@@ -47,10 +48,9 @@ export default function useTable({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = useState({})
-  const [pagination, setPagination] = useState({
-    pageIndex: config.pageIndex ?? 0,
-    pageSize: config.pageSize ?? 25,
-  })
+  const [pagination, setPagination] = useState(
+    config.pagination ?? { pageIndex: 0, pageSize: 5 }
+  )
 
   const [selectedRows, setSelectedRows] = useState<{ [key: string]: boolean }>(
     {}
@@ -192,7 +192,10 @@ export default function useTable({
       rowSelection,
       pagination,
     },
-    initialState: {},
+    initialState: {
+      sorting: config.sortBy,
+      pagination: config.pagination,
+    },
     manualPagination: true,
     rowCount: config.rows ?? 0,
     pageCount: config.pages ?? 0,
@@ -200,7 +203,7 @@ export default function useTable({
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
-    onPaginationChange: onSetPagination || setPagination,
+    onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -220,6 +223,13 @@ export default function useTable({
       }, {})
     )
   }
+
+  useEffect(() => {
+    if (onSetPagination) {
+      onSetPagination(pagination)
+    }
+  }, [pagination, onSetPagination])
+
   return {
     showFooter,
     table,

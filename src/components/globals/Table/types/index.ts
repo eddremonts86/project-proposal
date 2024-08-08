@@ -1,3 +1,5 @@
+import { PaginationState } from '@tanstack/react-table'
+
 export interface TConfig {
   tableClass: string
   tableStyle: {
@@ -29,6 +31,7 @@ export interface TConfig {
   hiddenColumns: string[]
   tReady: true
 }
+
 export interface THeaders {
   id: string
   name: string
@@ -45,6 +48,7 @@ export interface THeaders {
   title: string
   items: TData[]
 }
+
 export interface TData {
   [key: string]: string | number | boolean | Date | ((arg0: TData) => void)
 }
@@ -77,4 +81,19 @@ export interface TUHeader {
   title?: string
   width?: number
   items?: TUActions[]
+}
+
+export interface TUSortBy {
+  id: string
+  desc: boolean
+}
+
+export interface TUConfig {
+  pagination?: PaginationState
+  sortBy?: TUSortBy[]
+  orderBy?: string[]
+  pageSize?: number[]
+  rows?: number
+  pages?: number
+  footer?: boolean
 }
