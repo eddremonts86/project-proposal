@@ -45,7 +45,36 @@ export interface THeaders {
   title: string
   items: TData[]
 }
-
 export interface TData {
   [key: string]: string | number | boolean | Date | ((arg0: TData) => void)
+}
+
+export enum TUColumnTypes {
+  select = 'select',
+  text = 'text',
+  date = 'date',
+  actions = 'actions',
+  sortable = 'sortable',
+  separator = 'separator',
+}
+
+export interface TUFilter {
+  key: string
+  placeholder: string
+}
+
+export interface TUActions {
+  id: string
+  type: TUColumnTypes
+  action: (arg0: TData) => void
+  icon?: string
+}
+
+export interface TUHeader {
+  id: string
+  name: string
+  type: TUColumnTypes
+  title?: string
+  width?: number
+  items?: TUActions[]
 }

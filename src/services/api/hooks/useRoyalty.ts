@@ -22,7 +22,6 @@ export default function useRoyalty(paginationInit: Pagination) {
       }),
   })
 
-  console.log('pagination', pagination)
   const data = response?.data
     ? response
     : {

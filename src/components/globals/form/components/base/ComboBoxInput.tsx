@@ -97,7 +97,7 @@ export default function ComboBoxInput({
           </FormControl>
         </PopoverTrigger>
         <PopoverContent className="w-[300px] p-0">
-          <Command onSelect={() => console.log('Aqui')}>
+          <Command>
             <CommandInput placeholder={description} />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
